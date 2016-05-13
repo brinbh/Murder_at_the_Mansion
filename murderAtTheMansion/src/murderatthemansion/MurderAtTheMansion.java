@@ -9,6 +9,8 @@ import byui.cit260.murderAtTheMansion.model.Player;
 import byui.cit260.murderAtTheMansion.model.Character;
 import byui.cit260.murderAtTheMansion.model.Guess;
 import byui.cit260.murderAtTheMansion.model.Item;
+import byui.cit260.murderAtTheMansion.model.Weapon;
+import byui.cit260.murderAtTheMansion.model.Backpack;
 
 
 
@@ -49,6 +51,32 @@ public class MurderAtTheMansion {
         
         String guessInfo = guessPlayer.toString();
         System.out.println(guessInfo);
+        
+        Item items = new Item();
+        
+        items.setPlaceIn("Place the item in your backpack?");
+        items.setLookAt("Would you like to look at the item?");
+        items.setReadItem("This item can be read, would you like to read it?");
+        items.setUseItem("Would you like to use this item?");
+        
+        String itemInfo = items.toString();
+        System.out.println(itemInfo);
+        
+        Weapon weaponUse = new Weapon();
+        
+        weaponUse.setUseWeapon("Would you like to use this item as your weapon?");
+        
+        String weaponInfo = weaponUse.toString();
+        System.out.println(weaponInfo);
+        
+        Backpack useBackpack = new Backpack();
+        
+        useBackpack.setOpenBackpack("Would you like to open your backpack?");
+        useBackpack.setCloseBackpack("Would you like to exist from the backpack?");
+        useBackpack.setPlaceInBack("Would you like to place that item in the backpack?");
+        
+        String backpackInfo = useBackpack.toString();
+        System.out.println(backpackInfo);
         
         
         
