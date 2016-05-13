@@ -9,10 +9,9 @@ import byui.cit260.murderAtTheMansion.model.Player;
 
 import byui.cit260.murderAtTheMansion.model.Game;
 import byui.cit260.murderAtTheMansion.model.Map;
-
 import byui.cit260.murderAtTheMansion.model.Character;
-
-
+import byui.cit260.murderAtTheMansion.model.Location;
+import byui.cit260.murderAtTheMansion.model.Scene;
 /**
  *
  * @author Britt
@@ -51,13 +50,30 @@ public class MurderAtTheMansion {
         System.out.println(mapInfo);
         
         //Location
+        Location locationOne = new Location();
+        
+        locationOne.setCol(1);
+        locationOne.setRow(1);
+        locationOne.setVisited(1);
+        
+        String locationInfo = locationOne.toString();
+        System.out.println(locationInfo);
         
         //Scene
+        Scene sceneOne = new Scene();
+
+        sceneOne.setDescription("This is a bedroom. It is perfectly clean and shows no signs of wear.");
+        sceneOne.setTravelTime(2);
+        sceneOne.setBlockedLocation(0);
+        sceneOne.setDisplaySymbol("|_|");
+        
+        String sceneInfo = sceneOne.toString();
+        System.out.println(sceneInfo);
         
         //ResourceTypeScene
         
         
-
+        //Character
         Character charOne = new Character();
         
         charOne.setName("Decetive Danger");
