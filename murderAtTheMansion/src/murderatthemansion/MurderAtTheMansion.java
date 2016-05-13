@@ -12,6 +12,7 @@ import byui.cit260.murderAtTheMansion.model.Map;
 import byui.cit260.murderAtTheMansion.model.Character;
 import byui.cit260.murderAtTheMansion.model.Location;
 import byui.cit260.murderAtTheMansion.model.Scene;
+import byui.cit260.murderAtTheMansion.model.ResourceTypeScene;
 /**
  *
  * @author Britt
@@ -71,7 +72,13 @@ public class MurderAtTheMansion {
         System.out.println(sceneInfo);
         
         //ResourceTypeScene
+        ResourceTypeScene resourceTypeOne = new ResourceTypeScene();
         
+        resourceTypeOne.setAmountAvailable(5);
+        resourceTypeOne.setResourceType("Flashlight Batteries");
+        
+        String resourceOneInfo = resourceTypeOne.toString();
+        System.out.println(resourceOneInfo);
         
         //Character
         Character charOne = new Character();
