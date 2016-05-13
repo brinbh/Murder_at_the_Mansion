@@ -6,8 +6,12 @@
 package murderatthemansion;
 
 import byui.cit260.murderAtTheMansion.model.Player;
+
 import byui.cit260.murderAtTheMansion.model.Game;
 import byui.cit260.murderAtTheMansion.model.Map;
+
+import byui.cit260.murderAtTheMansion.model.Character;
+
 
 /**
  *
@@ -28,6 +32,7 @@ public class MurderAtTheMansion {
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
         
+
         //Game
         Game gameOne = new Game();
         
@@ -52,6 +57,16 @@ public class MurderAtTheMansion {
         //ResourceTypeScene
         
         
+
+        Character charOne = new Character();
+        
+        charOne.setName("Decetive Danger");
+        charOne.setDescription("Tall, Dark, and Handsome");
+        charOne.setCordinates(20);
+        
+        String charInfo = charOne.toString();
+        System.out.println(charInfo);
+
     }
     
 }
