@@ -6,6 +6,8 @@
 package murderatthemansion;
 
 import byui.cit260.murderAtTheMansion.model.Player;
+import byui.cit260.murderAtTheMansion.model.Game;
+import byui.cit260.murderAtTheMansion.model.Map;
 
 /**
  *
@@ -17,6 +19,7 @@ public class MurderAtTheMansion {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //Player
         Player playerOne = new Player();
         
         playerOne.setName("George Lucas");
@@ -24,6 +27,31 @@ public class MurderAtTheMansion {
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+        
+        //Game
+        Game gameOne = new Game();
+        
+        gameOne.setTotalTime(5);
+        
+        String gameInfo = gameOne.toString();
+        System.out.println(gameInfo);
+        
+        //Map
+        Map mapOne = new Map();
+        
+        mapOne.setColCount(2);
+        mapOne.setRowCount(3);
+        
+        String mapInfo = mapOne.toString();
+        System.out.println(mapInfo);
+        
+        //Location
+        
+        //Scene
+        
+        //ResourceTypeScene
+        
+        
     }
     
 }
