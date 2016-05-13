@@ -13,6 +13,14 @@ import byui.cit260.murderAtTheMansion.model.Character;
 import byui.cit260.murderAtTheMansion.model.Location;
 import byui.cit260.murderAtTheMansion.model.Scene;
 import byui.cit260.murderAtTheMansion.model.ResourceTypeScene;
+import byui.cit260.murderAtTheMansion.model.Guess;
+import byui.cit260.murderAtTheMansion.model.Item;
+import byui.cit260.murderAtTheMansion.model.Weapon;
+import byui.cit260.murderAtTheMansion.model.Backpack;
+
+
+
+
 /**
  *
  * @author Britt
@@ -89,7 +97,53 @@ public class MurderAtTheMansion {
         
         String charInfo = charOne.toString();
         System.out.println(charInfo);
-
+        
+        //Guess
+        Guess guessPlayer = new Guess();
+        
+        guessPlayer.setGuessNum(5);
+        guessPlayer.setGuessIsWrong("Your guess is Wrong!");
+        guessPlayer.setGuessIsRight("Your guess is Right!");
+        guessPlayer.setGuess("Would you like to guess who the murderer is?");
+        
+        String guessInfo = guessPlayer.toString();
+        System.out.println(guessInfo);
+        
+        //Items
+        Item items = new Item();
+        
+        items.setPlaceIn("Place the item in your backpack?");
+        items.setLookAt("Would you like to look at the item?");
+        items.setReadItem("This item can be read, would you like to read it?");
+        items.setUseItem("Would you like to use this item?");
+        
+        String itemInfo = items.toString();
+        System.out.println(itemInfo);
+        
+        //Weapon
+        Weapon weaponUse = new Weapon();
+        weaponUse.setLookAt("yes");
+        weaponUse.setPlaceIn("yes");
+        
+        weaponUse.setUseWeapon("Would you like to use this item as your weapon?");
+        
+        String weaponInfo = weaponUse.toString();
+        System.out.println(weaponInfo);
+        
+        //Backpack
+        Backpack useBackpack = new Backpack();
+        
+        useBackpack.setOpenBackpack("Would you like to open your backpack?");
+        useBackpack.setCloseBackpack("Would you like to exist from the backpack?");
+        useBackpack.setPlaceInBack("Would you like to place that item in the backpack?");
+        
+        String backpackInfo = useBackpack.toString();
+        System.out.println(backpackInfo);
+        
+        
+        
+        
+        
     }
     
 }
