@@ -7,6 +7,10 @@ package murderatthemansion;
 
 import byui.cit260.murderAtTheMansion.model.Player;
 import byui.cit260.murderAtTheMansion.model.Character;
+import byui.cit260.murderAtTheMansion.model.Guess;
+import byui.cit260.murderAtTheMansion.model.Item;
+
+
 
 
 /**
@@ -35,6 +39,21 @@ public class MurderAtTheMansion {
         
         String charInfo = charOne.toString();
         System.out.println(charInfo);
+        
+        Guess guessPlayer = new Guess();
+        
+        guessPlayer.setGuessNum(5);
+        guessPlayer.setGuessIsWrong("Your guess is Wrong!");
+        guessPlayer.setGuessIsRight("Your guess is Right!");
+        guessPlayer.setGuess("Would you like to guess who the murderer is?");
+        
+        String guessInfo = guessPlayer.toString();
+        System.out.println(guessInfo);
+        
+        
+        
+        
+        
     }
     
 }
