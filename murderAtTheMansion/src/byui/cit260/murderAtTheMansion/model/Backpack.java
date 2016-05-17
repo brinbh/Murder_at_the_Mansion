@@ -13,45 +13,54 @@ import java.util.Objects;
  * @author Sara
  */
 public class Backpack implements Serializable{
-       private String openBackpack;
-       private String closeBackpack;
-       private String placeInBack;
+       private double itemAmount;
+       private String typeOfWeapon;
+       private String typeOfClue;
+       private String typeOfFile;
+       
 
     public Backpack() {
     }
-       
-       
 
-    public String getOpenBackpack() {
-        return openBackpack;
+    public double getItemAmount() {
+        return itemAmount;
     }
 
-    public void setOpenBackpack(String openBackpack) {
-        this.openBackpack = openBackpack;
+    public void setItemAmount(double itemAmount) {
+        this.itemAmount = itemAmount;
     }
 
-    public String getCloseBackpack() {
-        return closeBackpack;
+    public String getTypeOfWeapon() {
+        return typeOfWeapon;
     }
 
-    public void setCloseBackpack(String closeBackpack) {
-        this.closeBackpack = closeBackpack;
+    public void setTypeOfWeapon(String typeOfWeapon) {
+        this.typeOfWeapon = typeOfWeapon;
     }
 
-    public String getPlaceInBack() {
-        return placeInBack;
+    public String getTypeOfClue() {
+        return typeOfClue;
     }
 
-    public void setPlaceInBack(String placeInBack) {
-        this.placeInBack = placeInBack;
+    public void setTypeOfClue(String typeOfClue) {
+        this.typeOfClue = typeOfClue;
+    }
+
+    public String getTypeOfFile() {
+        return typeOfFile;
+    }
+
+    public void setTypeOfFile(String typeOfFile) {
+        this.typeOfFile = typeOfFile;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 53 * hash + Objects.hashCode(this.openBackpack);
-        hash = 53 * hash + Objects.hashCode(this.closeBackpack);
-        hash = 53 * hash + Objects.hashCode(this.placeInBack);
+        int hash = 3;
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.itemAmount) ^ (Double.doubleToLongBits(this.itemAmount) >>> 32));
+        hash = 97 * hash + Objects.hashCode(this.typeOfWeapon);
+        hash = 97 * hash + Objects.hashCode(this.typeOfClue);
+        hash = 97 * hash + Objects.hashCode(this.typeOfFile);
         return hash;
     }
 
@@ -67,13 +76,16 @@ public class Backpack implements Serializable{
             return false;
         }
         final Backpack other = (Backpack) obj;
-        if (!Objects.equals(this.openBackpack, other.openBackpack)) {
+        if (Double.doubleToLongBits(this.itemAmount) != Double.doubleToLongBits(other.itemAmount)) {
             return false;
         }
-        if (!Objects.equals(this.closeBackpack, other.closeBackpack)) {
+        if (!Objects.equals(this.typeOfWeapon, other.typeOfWeapon)) {
             return false;
         }
-        if (!Objects.equals(this.placeInBack, other.placeInBack)) {
+        if (!Objects.equals(this.typeOfClue, other.typeOfClue)) {
+            return false;
+        }
+        if (!Objects.equals(this.typeOfFile, other.typeOfFile)) {
             return false;
         }
         return true;
@@ -81,8 +93,7 @@ public class Backpack implements Serializable{
 
     @Override
     public String toString() {
-        return "Backpack{" + "openBackpack=" + openBackpack + ", closeBackpack=" + closeBackpack + ", placeInBack=" + placeInBack + '}';
+        return "Backpack{" + "itemAmount=" + itemAmount + ", typeOfWeapon=" + typeOfWeapon + ", typeOfClue=" + typeOfClue + ", typeOfFile=" + typeOfFile + '}';
     }
-       
-       
-}
+}  
+  
