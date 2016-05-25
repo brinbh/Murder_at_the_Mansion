@@ -10,7 +10,7 @@ package byui.cit260.murderAtTheMansion.control;
  * @author Britt
  */
 public class puzzleControl {
-    public int decodePuzzle(int age, double weight, double amount){
+    public double decodePuzzle(int age, double weight, double amount){
         //If (age < 24 or age > 36) then
         //return -1;
         if (age < 24 || age > 36){
@@ -27,6 +27,9 @@ public class puzzleControl {
             return -1;
         }
         //code = age + (weight * amount); 
+        double code = age + (weight * amount);
+        
+        return code;
         
     }
 }
