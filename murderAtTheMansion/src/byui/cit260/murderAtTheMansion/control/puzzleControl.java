@@ -10,7 +10,7 @@ package byui.cit260.murderAtTheMansion.control;
  * @author Britt
  */
 public class puzzleControl {
-    public int decodePuzzle(int age, double weight, double amount){
+    public double decodePuzzle(int age, double weight, double amount){
         //verify the validity of the input
         //age
         if (age < 24 || age > 36){
