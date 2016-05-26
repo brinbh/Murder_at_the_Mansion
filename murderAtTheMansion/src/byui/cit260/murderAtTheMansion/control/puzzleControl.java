@@ -59,4 +59,22 @@ public class puzzleControl {
         
         return ageOfMurderer;
     }
+    
+    public double murderAmountOfTime(int startTime, int endTime, int hideBody){
+        //If (starttime > 9 or starttime < 9) then
+        if (startTime > 9 || startTime < 9){
+                return -1;
+        }
+        if (endTime > 12 || endTime < 12){
+            return -1;
+        }
+	if (hideBody > 2 || hideBody < 2){
+            return -1;
+        }
+	
+         int murderTime = (endTime - startTime) + hideBody;
+        
+                return murderTime;
+    }
+
 }

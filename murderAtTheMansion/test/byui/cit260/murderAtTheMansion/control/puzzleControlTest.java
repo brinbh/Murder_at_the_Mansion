@@ -166,5 +166,58 @@ public class puzzleControlTest {
         
         assertEquals(expResult, result, 0.0);
     }
+
+    /**
+     * Test of murderAmountOfTime method, of class puzzleControl.
+     */
+    @Test
+    public void testMurderAmountOfTime() {
+        System.out.println("murderAmountOfTime");
+        System.out.println("\t Test Case #1");
+
+        int startTime = 9;
+        int endTime = 12;
+        int hideBody = 2;
+        
+        puzzleControl instance = new puzzleControl();
+        
+        double expResult = 5;
+        
+        double result = instance.murderAmountOfTime(startTime, endTime, hideBody);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("\t Test Case #2");
+
+        startTime = 7;
+        endTime = 12;
+        hideBody = 2;
+               
+        expResult = -1;
+        
+        result = instance.murderAmountOfTime(startTime, endTime, hideBody);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("\t Test Case #3");
+
+        startTime = 9;
+        endTime = 11;
+        hideBody = 2;
+               
+        expResult = -1;
+        
+        result = instance.murderAmountOfTime(startTime, endTime, hideBody);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("\t Test Case #4");
+
+        startTime = 9;
+        endTime = 12;
+        hideBody = 3;
+               
+        expResult = -1;
+        
+        result = instance.murderAmountOfTime(startTime, endTime, hideBody);
+        assertEquals(expResult, result, 0.0);
+    }
     
 }
