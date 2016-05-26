@@ -219,5 +219,164 @@ public class puzzleControlTest {
         result = instance.murderAmountOfTime(startTime, endTime, hideBody);
         assertEquals(expResult, result, 0.0);
     }
+
+    /**
+     * Test of CalculateAge method, of class puzzleControl.
+     */
+    @Test
+    public void testCalculateAge() {
+        System.out.println("CalculateAge");
+        
+        //Test Case #1
+        System.out.println("\tTest Case #1");
+        int monthOfBirth = 1;
+        int yearOfBirth = 1980;
+        int monthOfDeath = 1;
+        int yearOfDeath = 2016;
+        puzzleControl instance = new puzzleControl();
+        double expResult = 36;
+        double result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        assertEquals(expResult, result, 0.0);
+        
+        //Test Case #2
+        System.out.println("\tTest Case #2");
+        monthOfBirth = -1;
+        yearOfBirth = 1980;
+        monthOfDeath = 1;
+        yearOfDeath = 2016;
+        expResult = -1;
+        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        assertEquals(expResult, result, 0.0);
+        
+        //Test Case #3
+        System.out.println("\tTest Case #3");
+        monthOfBirth = 13;
+        yearOfBirth = 1980;
+        monthOfDeath = 1;
+        yearOfDeath = 2016;
+        expResult = -1;
+        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        assertEquals(expResult, result, 0.0);
+        
+        //Test Case #4
+        System.out.println("\tTest Case #4");
+        monthOfBirth = 1;
+        yearOfBirth = 1979;
+        monthOfDeath = 1;
+        yearOfDeath = 2016;
+        expResult = -1;
+        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        assertEquals(expResult, result, 0.0);
+        
+        //Test Case #5
+        System.out.println("\tTest Case #5");
+        monthOfBirth = 1;
+        yearOfBirth = 1993;
+        monthOfDeath = 1;
+        yearOfDeath = 2016;
+        expResult = -1;
+        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        assertEquals(expResult, result, 0.0);
+        
+        //Test Case #6
+        System.out.println("\tTest Case #6");
+        monthOfBirth = 1;
+        yearOfBirth = 1980;
+        monthOfDeath = -1;
+        yearOfDeath = 2016;
+        expResult = -1;
+        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        assertEquals(expResult, result, 0.0);
+        
+        //Test Case #7
+        System.out.println("\tTest Case #7");
+        monthOfBirth = 1;
+        yearOfBirth = 1980;
+        monthOfDeath = 13;
+        yearOfDeath = 2016;
+        expResult = -1;
+        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        assertEquals(expResult, result, 0.0);
+        
+        //Test Case #8
+        System.out.println("\tTest Case #8");
+        monthOfBirth = 1;
+        yearOfBirth = 1980;
+        monthOfDeath = 1;
+        yearOfDeath = 2015;
+        expResult = -1;
+        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        assertEquals(expResult, result, 0.0);
+        
+        //Test Case #9
+        System.out.println("\tTest Case #9");
+        monthOfBirth = 1;
+        yearOfBirth = 1980;
+        monthOfDeath = 1;
+        yearOfDeath = 2017;
+        expResult = -1;
+        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        assertEquals(expResult, result, 0.0);
+        
+        //Test Case #10
+        System.out.println("\tTest Case #10");
+        monthOfBirth = 1;
+        yearOfBirth = 1980;
+        monthOfDeath = 1;
+        yearOfDeath = 2016;
+        expResult = 36;
+        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        assertEquals(expResult, result, 0.0);
+        
+        //Test Case #11
+        System.out.println("\tTest Case #11");
+        monthOfBirth = 12;
+        yearOfBirth = 1980;
+        monthOfDeath = 1;
+        yearOfDeath = 2016;
+        expResult = 36;
+        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        assertEquals(expResult, result, 0.0);
+        
+        //Test Case #12
+        System.out.println("\tTest Case #12");
+        monthOfBirth = 1;
+        yearOfBirth = 1980;
+        monthOfDeath = 1;
+        yearOfDeath = 2016;
+        expResult = 36;
+        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        assertEquals(expResult, result, 0.0);
+        
+        //Test Case #13
+        System.out.println("\tTest Case #13");
+        monthOfBirth = 1;
+        yearOfBirth = 1992;
+        monthOfDeath = 1;
+        yearOfDeath = 2016;
+        expResult = 24;
+        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        assertEquals(expResult, result, 0.0);
+        
+        //Test Case #14
+        System.out.println("\tTest Case #14");
+        monthOfBirth = 1;
+        yearOfBirth = 1980;
+        monthOfDeath = 1;
+        yearOfDeath = 2016;
+        expResult = 36;
+        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        assertEquals(expResult, result, 0.0);
+        
+        //Test Case #15
+        System.out.println("\tTest Case #15");
+        monthOfBirth = 1;
+        yearOfBirth = 1980;
+        monthOfDeath = 12;
+        yearOfDeath = 2016;
+        expResult = 36;
+        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        assertEquals(expResult, result, 0.0);
+    }
     
 }

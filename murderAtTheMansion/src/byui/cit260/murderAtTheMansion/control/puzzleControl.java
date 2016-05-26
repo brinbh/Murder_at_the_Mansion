@@ -34,7 +34,7 @@ public class puzzleControl {
     public double CalculateAge(int monthOfBirth, int yearOfBirth, int monthOfDeath, int yearOfDeath){
         //Verfify validity of input
         //monthOfBirth
-        if (monthOfBirth < 0 || monthOfBirth > 13){
+        if (monthOfBirth < 0 || monthOfBirth > 12){
             return -1;   
         }
         //yearOfBirth
@@ -42,7 +42,7 @@ public class puzzleControl {
             return -1;
         }
         //monthOfDeath
-        if (monthOfDeath < 0 || monthOfDeath > 13){
+        if (monthOfDeath < 0 || monthOfDeath > 12){
             return -1;
         }
         //yearOfDeath
@@ -55,7 +55,7 @@ public class puzzleControl {
         
         //convert months to years
         totalMonth /= 12;
-        double ageOfMurderer = totalYears + totalMonth;
+        int ageOfMurderer = totalYears + (int)totalMonth;
         
         return ageOfMurderer;
     }
