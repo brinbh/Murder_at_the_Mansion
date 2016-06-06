@@ -13,7 +13,7 @@ import murderatthemansion.MurderAtTheMansion;
  *
  * @author Britt
  */
-class MainMenuView {
+public class MainMenuView {
     private String menu;
     private String menuOption;
 
@@ -93,7 +93,7 @@ class MainMenuView {
             GameControl.createNewGame(MurderAtTheMansion.getPlayer());
             
             GameMenuView gameMenu = new GameMenuView();
-            gameMenu.displayMenu();
+            gameMenu.displayGameMenu();
     }
 
     private void startExistingGame() {

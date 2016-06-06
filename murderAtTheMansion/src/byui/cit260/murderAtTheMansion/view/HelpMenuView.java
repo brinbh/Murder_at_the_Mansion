@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Britt
  */
-class HelpMenuView {
+public class HelpMenuView {
 
     private String menu;
     private String menuOption;
@@ -24,8 +24,8 @@ class HelpMenuView {
                   + "\nG - Goal of Game"
                   + "\nM - How to move"
                   + "\nB - How to get to backpack"
-                  + "\nH - Get hint"
-                  + "\nQ - Quit Game"
+                  + "\nC - Get clue"
+                  + "\nQ - Quit Help Menu"
                   + "\n--------------------------------------";
     }
 
@@ -73,8 +73,8 @@ class HelpMenuView {
             case "B":
                 this.howToGetBackpack();
                 break;
-            case "H":
-                this.getHint();
+            case "C":
+                this.getClue();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -85,18 +85,18 @@ class HelpMenuView {
     }
 
     private void goalOfGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** goalOfGoal() function called***");
     }
 
     private void howToMove() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** howToMove() function called***");
     }
 
     private void howToGetBackpack() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** howToGetBackpack() function called***");
     }
 
-    private void getHint() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void getClue() {
+        System.out.println("\n*** getClue() function called***");
     }
 }
