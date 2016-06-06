@@ -82,6 +82,9 @@ public class GameMenuView {
             case "B":
                 this.showBackpack();
                 break;
+            case "G":
+                this.guessMurderer();
+                break;
             case "H": 
                 this.displayHelpMenu();
                 break;
@@ -115,5 +118,9 @@ public class GameMenuView {
     private void displayHelpMenu() {
             HelpMenuView helpMenuView = new HelpMenuView();
             helpMenuView.displayHelpMenuView();
+    }
+
+    private void guessMurderer() {
+        System.out.println("\n*** guessMurderer() function called***"); 
     }
 }
