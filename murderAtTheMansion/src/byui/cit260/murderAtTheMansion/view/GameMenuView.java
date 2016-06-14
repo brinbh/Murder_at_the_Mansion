@@ -22,8 +22,7 @@ public class GameMenuView {
                   + "\n--------------------------------------"
                   + "\n M - Move Character"
                   + "\n I - Interact with Objects"
-                  + "\nDL - Display content of location"
-                  + "\nDM - Display Map"
+                  + "\n DM - Display Map"
                   + "\n B - Show Backpack"
                   + "\n G - Guess Murderer"
                   + "\n H - Help"
@@ -103,7 +102,9 @@ public class GameMenuView {
     }
 
     private void interactWithObject() {
-        System.out.println("\n*** interactWithObject() function called***");
+
+            InteractObjectMenuView interactObjectMenuView = new InteractObjectMenuView();
+            interactObjectMenuView.displayInteractObjectMenuView();  
     }
 
     private void displayContentOfLocation() {
@@ -115,7 +116,9 @@ public class GameMenuView {
     }
 
     private void showBackpack() {
-        System.out.println("\n*** showBackpack() function called***");    }
+            BackpackMenuView backpackMenuView = new BackpackMenuView();
+            backpackMenuView.displayBackpackMenuView();
+    }
     
     private void displayHelpMenu() {
             HelpMenuView helpMenuView = new HelpMenuView();
