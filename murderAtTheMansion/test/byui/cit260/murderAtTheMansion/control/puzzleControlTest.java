@@ -235,7 +235,7 @@ public class puzzleControlTest {
         int yearOfDeath = 2016;
         puzzleControl instance = new puzzleControl();
         double expResult = 36;
-        double result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        double result = instance.calculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
         assertEquals(expResult, result, 0.0);
         
         //Test Case #2
@@ -245,7 +245,7 @@ public class puzzleControlTest {
         monthOfDeath = 1;
         yearOfDeath = 2016;
         expResult = -1;
-        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        result = instance.calculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
         assertEquals(expResult, result, 0.0);
         
         //Test Case #3
@@ -255,7 +255,7 @@ public class puzzleControlTest {
         monthOfDeath = 1;
         yearOfDeath = 2016;
         expResult = -1;
-        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        result = instance.calculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
         assertEquals(expResult, result, 0.0);
         
         //Test Case #4
@@ -265,7 +265,7 @@ public class puzzleControlTest {
         monthOfDeath = 1;
         yearOfDeath = 2016;
         expResult = -1;
-        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        result = instance.calculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
         assertEquals(expResult, result, 0.0);
         
         //Test Case #5
@@ -275,7 +275,7 @@ public class puzzleControlTest {
         monthOfDeath = 1;
         yearOfDeath = 2016;
         expResult = -1;
-        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        result = instance.calculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
         assertEquals(expResult, result, 0.0);
         
         //Test Case #6
@@ -285,7 +285,7 @@ public class puzzleControlTest {
         monthOfDeath = -1;
         yearOfDeath = 2016;
         expResult = -1;
-        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        result = instance.calculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
         assertEquals(expResult, result, 0.0);
         
         //Test Case #7
@@ -295,7 +295,7 @@ public class puzzleControlTest {
         monthOfDeath = 13;
         yearOfDeath = 2016;
         expResult = -1;
-        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        result = instance.calculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
         assertEquals(expResult, result, 0.0);
         
         //Test Case #8
@@ -305,7 +305,7 @@ public class puzzleControlTest {
         monthOfDeath = 1;
         yearOfDeath = 2015;
         expResult = -1;
-        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        result = instance.calculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
         assertEquals(expResult, result, 0.0);
         
         //Test Case #9
@@ -315,7 +315,7 @@ public class puzzleControlTest {
         monthOfDeath = 1;
         yearOfDeath = 2017;
         expResult = -1;
-        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        result = instance.calculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
         assertEquals(expResult, result, 0.0);
         
         //Test Case #10
@@ -325,7 +325,7 @@ public class puzzleControlTest {
         monthOfDeath = 1;
         yearOfDeath = 2016;
         expResult = 36;
-        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        result = instance.calculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
         assertEquals(expResult, result, 0.0);
         
         //Test Case #11
@@ -335,7 +335,7 @@ public class puzzleControlTest {
         monthOfDeath = 1;
         yearOfDeath = 2016;
         expResult = 36;
-        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        result = instance.calculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
         assertEquals(expResult, result, 0.0);
         
         //Test Case #12
@@ -345,7 +345,7 @@ public class puzzleControlTest {
         monthOfDeath = 1;
         yearOfDeath = 2016;
         expResult = 36;
-        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        result = instance.calculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
         assertEquals(expResult, result, 0.0);
         
         //Test Case #13
@@ -355,7 +355,7 @@ public class puzzleControlTest {
         monthOfDeath = 1;
         yearOfDeath = 2016;
         expResult = 24;
-        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        result = instance.calculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
         assertEquals(expResult, result, 0.0);
         
         //Test Case #14
@@ -365,7 +365,7 @@ public class puzzleControlTest {
         monthOfDeath = 1;
         yearOfDeath = 2016;
         expResult = 36;
-        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        result = instance.calculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
         assertEquals(expResult, result, 0.0);
         
         //Test Case #15
@@ -375,7 +375,7 @@ public class puzzleControlTest {
         monthOfDeath = 12;
         yearOfDeath = 2016;
         expResult = 36;
-        result = instance.CalculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
+        result = instance.calculateAge(monthOfBirth, yearOfBirth, monthOfDeath, yearOfDeath);
         assertEquals(expResult, result, 0.0);
     }
     
