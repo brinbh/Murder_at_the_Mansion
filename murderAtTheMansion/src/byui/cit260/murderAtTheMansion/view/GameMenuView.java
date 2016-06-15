@@ -104,7 +104,7 @@ public class GameMenuView {
     private void interactWithObject() {
 
             InteractObjectMenuView interactObjectMenuView = new InteractObjectMenuView();
-            interactObjectMenuView.displayInteractObjectMenuView();  
+            interactObjectMenuView.display();  
     }
 
     private void displayContentOfLocation() {
@@ -117,7 +117,7 @@ public class GameMenuView {
 
     private void showBackpack() {
             BackpackMenuView backpackMenuView = new BackpackMenuView();
-            backpackMenuView.displayBackpackMenuView();
+            backpackMenuView.display();
     }
     
     private void displayHelpMenu() {

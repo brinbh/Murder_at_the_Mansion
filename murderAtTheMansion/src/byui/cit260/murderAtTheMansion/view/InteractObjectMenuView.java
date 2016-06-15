@@ -12,43 +12,15 @@ import java.util.Scanner;
  *
  * @author Sara
  */
-public class InteractObjectMenuView {
-    private String menu;
-    private String menuOption;
-
-    public void displayInteractObjectMenuView() {
-        boolean done = false;
-                while (!done) {
-                    String menuOption = this.getMenuOption();
-                            if (menuOption.toUpperCase().equals("Q")){
-                        break;
-                            }
-
-                    done = this.doAction(menuOption);
-                }    
+public class InteractObjectMenuView extends View{
+    
+    public InteractObjectMenuView() {
+        super ("\n Would you like to pick up this item? Y or N?");
     }
-    private  String getMenuOption() {
-        InteractObject interactObject = new InteractObject();
-        interactObject.interactObject();
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
+   
         
-        while (!valid){
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length()<1){
-                System.out.println("\nInvalid value; value cannot be blank");
-                continue;
-            }
-            break;
-        }
-            return value;
-        
-    }
-    private boolean doAction(String choice) {
+    @Override   
+    public boolean doAction(String choice) {
     choice = choice.toUpperCase();
             GameMenuView gameMenu = new GameMenuView();
 
@@ -67,20 +39,6 @@ public class InteractObjectMenuView {
             
             }
         
-        /*if (choice == "Y") {
-            System.out.println("\n*** You picked up the item ***");   
-            InteractObject interactObject = new InteractObject();
-            interactObject.interactObject();
-        }
-        if (choice == "N"){
-            System.out.println("\n*** You dropped the item ***");      
-            GameMenuView gameMenu = new GameMenuView();
-            gameMenu.displayGameMenu();
-        }
-        else {
-                System.out.println("\n*** Invalid selection *** Try again");
-        }
-        */
                
         return false;
     }
