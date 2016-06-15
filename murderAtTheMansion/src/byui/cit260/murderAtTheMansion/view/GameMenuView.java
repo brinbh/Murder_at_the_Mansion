@@ -11,12 +11,10 @@ import java.util.Scanner;
  *
  * @author Britt
  */
-public class GameMenuView {
-    private String menu;
-    private String menuOption;
+public class GameMenuView extends View {
 
-    public GameMenuView() {
-        this.menu = "\n"
+    public GameMenuView(){
+    super ("\n"
                   + "\n--------------------------------------"
                   + "\n| Game Menu                          |"
                   + "\n--------------------------------------"
@@ -27,42 +25,10 @@ public class GameMenuView {
                   + "\n G - Guess Murderer"
                   + "\n H - Help"
                   + "\n Q - Quit Game Menu"
-                  + "\n--------------------------------------";
+                  + "\n--------------------------------------");
     }
-
-
-    void displayGameMenu() {
-        boolean done = false;
-                do {
-                    String menuOption = this.getMenuOption();
-                    if (menuOption.toUpperCase().equals("Q"))
-                        return;
-
-                    done = this.doAction(menuOption);
-                } while (!done);    
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid){
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length()<1){
-                System.out.println("\nInvalid value; value cannot be blank");
-                continue;
-            }
-            break;
-        }
-            return value;
-    }
-
-    private boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
         choice = choice.toUpperCase();
         
         switch (choice) {
@@ -97,14 +63,14 @@ public class GameMenuView {
 
     private void moveCharacter() {
         MoveCharacterMenuView moveCharacterMenuView = new MoveCharacterMenuView();
-        moveCharacterMenuView.displayMoveCharacterMenuView();
+        moveCharacterMenuView.display();
         
     }
 
     private void interactWithObject() {
 
             InteractObjectMenuView interactObjectMenuView = new InteractObjectMenuView();
-            interactObjectMenuView.displayInteractObjectMenuView();  
+            interactObjectMenuView.display();  
     }
 
     private void displayContentOfLocation() {

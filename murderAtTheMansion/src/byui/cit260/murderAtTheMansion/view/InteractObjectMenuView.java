@@ -12,54 +12,25 @@ import java.util.Scanner;
  *
  * @author Sara
  */
-public class InteractObjectMenuView {
+public class InteractObjectMenuView extends View{
     private String menu;
     private String menuOption;
 
-    public void displayInteractObjectMenuView() {
-        boolean done = false;
-                while (!done) {
-                    String menuOption = this.getMenuOption();
-                            if (menuOption.toUpperCase().equals("Q")){
-                        break;
-                            }
-
-                    done = this.doAction(menuOption);
-                }    
-    }
-    private  String getMenuOption() {
-        InteractObject interactObject = new InteractObject();
-        interactObject.interactObject();
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid){
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length()<1){
-                System.out.println("\nInvalid value; value cannot be blank");
-                continue;
-            }
-            break;
-        }
-            return value;
-        
-    }
-    private boolean doAction(String choice) {
+  public InteractObjectMenuView () {
+      super ();
+  }
+    public boolean doAction(String choice) {
     choice = choice.toUpperCase();
             GameMenuView gameMenu = new GameMenuView();
 
         switch(choice){
             case "Y" :
                 System.out.println("\n*** You picked up the item ***"); 
-                    gameMenu.displayGameMenu();
+                    gameMenu.display();
             break;
             case "N":
                 System.out.println("\n*** You dropped the item ***");      
-            gameMenu.displayGameMenu();
+            gameMenu.display();
             break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");

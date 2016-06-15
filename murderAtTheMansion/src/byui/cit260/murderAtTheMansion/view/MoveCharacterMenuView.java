@@ -13,56 +13,26 @@ import java.util.Scanner;
  *
  * @author Britt
  */
-public class MoveCharacterMenuView {
+public class MoveCharacterMenuView extends View {
     
     private String menu;
     private String menuOption;
 
     public MoveCharacterMenuView() {
-        this.menu = "Enter in new location with number of "
+        super ( "Enter in new location with number of "
                 + "spaces and the direction (include space between): "
                 + "\nU - up"
                 + "\nD - down "
                 + "\nL - left "
                 + "\nR - right "
                 + "\n\"Ex. U 2\""
-                + "\n\nTo Quit press \"Q\".";
+                + "\n\nTo Quit press \"Q\".");
         
     }    
-     void displayMoveCharacterMenuView() {
-        boolean done = false;
-                do {
-                    String menuOption = this.getMenuOption();
-                    if (menuOption.toUpperCase().equals("Q"))
-                        return;
-
-                    done = this.doAction(menuOption);
-                } while (!done);    
     
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid){
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-          
-            if(value.length()<1){
-                System.out.println("\nInvalid value; value cannot be blank");
-                continue;
-            }
-            break;
-        }
-        return value;    
-    }
-
-    private boolean doAction(String choice) {
+    
+    @Override
+    public boolean doAction(String choice) {
         choice = choice.toUpperCase();
 
         //extract the direction and distance

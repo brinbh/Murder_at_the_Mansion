@@ -63,7 +63,7 @@ public class MainMenuView extends View {
             GameControl.createNewGame(MurderAtTheMansion.getPlayer());
             
             GameMenuView gameMenu = new GameMenuView();
-            gameMenu.displayGameMenu();
+            gameMenu.display();
     }
 
     private void startExistingGame() {
