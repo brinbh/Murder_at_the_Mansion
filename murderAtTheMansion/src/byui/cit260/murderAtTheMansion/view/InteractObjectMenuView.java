@@ -5,7 +5,6 @@
  */
 package byui.cit260.murderAtTheMansion.view;
 
-import byui.cit260.murderAtTheMansion.control.InteractObject;
 import java.util.Scanner;
 
 /**
