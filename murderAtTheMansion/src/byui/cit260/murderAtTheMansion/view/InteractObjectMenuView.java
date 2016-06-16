@@ -5,7 +5,6 @@
  */
 package byui.cit260.murderAtTheMansion.view;
 
-import byui.cit260.murderAtTheMansion.control.InteractObject;
 import java.util.Scanner;
 
 /**
@@ -13,12 +12,13 @@ import java.util.Scanner;
  * @author Sara
  */
 public class InteractObjectMenuView extends View{
-    private String menu;
-    private String menuOption;
 
-  public InteractObjectMenuView () {
-      super ();
-  }
+    public InteractObjectMenuView() {
+        super ("\n Would you like to pick up this item? Y or N?");
+    }
+   
+        
+    @Override   
     public boolean doAction(String choice) {
     choice = choice.toUpperCase();
             GameMenuView gameMenu = new GameMenuView();
@@ -38,20 +38,6 @@ public class InteractObjectMenuView extends View{
             
             }
         
-        /*if (choice == "Y") {
-            System.out.println("\n*** You picked up the item ***");   
-            InteractObject interactObject = new InteractObject();
-            interactObject.interactObject();
-        }
-        if (choice == "N"){
-            System.out.println("\n*** You dropped the item ***");      
-            GameMenuView gameMenu = new GameMenuView();
-            gameMenu.displayGameMenu();
-        }
-        else {
-                System.out.println("\n*** Invalid selection *** Try again");
-        }
-        */
                
         return false;
     }
