@@ -83,7 +83,7 @@ public class GameMenuView extends View {
 
     private void showBackpack() {
             BackpackMenuView backpackMenuView = new BackpackMenuView();
-            backpackMenuView.displayBackpackMenuView();
+            backpackMenuView.display();
     }
     
     private void displayHelpMenu() {
