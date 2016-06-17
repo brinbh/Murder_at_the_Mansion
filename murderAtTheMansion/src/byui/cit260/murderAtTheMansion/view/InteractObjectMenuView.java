@@ -16,7 +16,6 @@ public class InteractObjectMenuView extends View{
     public InteractObjectMenuView() {
         super ("\n Would you like to pick up this item? Y or N?");
     }
-   
         
     @Override   
     public boolean doAction(String choice) {
