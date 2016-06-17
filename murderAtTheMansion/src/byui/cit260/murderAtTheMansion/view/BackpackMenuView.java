@@ -54,7 +54,8 @@ public class BackpackMenuView extends View {
     
 
     private void backPackClues() {
-        System.out.println("\n*** backpackClues() function called***");
+        ClueView backpackClueView = new ClueView();
+        backpackClueView.display();
     }
 
     private void suspectFiles() {
