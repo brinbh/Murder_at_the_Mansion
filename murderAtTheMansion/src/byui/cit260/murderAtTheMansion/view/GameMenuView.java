@@ -126,6 +126,7 @@ public class GameMenuView {
     }
 
     private void guessMurderer() {
-        System.out.println("\n*** guessMurderer() function called***"); 
+            GuessMurderView guessMurderView = new GuessMurderView();
+            guessMurderView.display();
     }
 }
