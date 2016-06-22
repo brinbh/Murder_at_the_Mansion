@@ -15,6 +15,7 @@ import java.util.Objects;
 public class Player implements Serializable {
     private String name;
     private double numGuess;
+    private Character character;
 
     public Player() {
     }
@@ -34,6 +35,15 @@ public class Player implements Serializable {
     public void setNumGuess(double numGuess) {
         this.numGuess = numGuess;
     }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
+    
 
     @Override
     public int hashCode() {

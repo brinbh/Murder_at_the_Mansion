@@ -17,6 +17,7 @@ public class Backpack implements Serializable{
        private String typeOfWeapon;
        private String typeOfClue;
        private String typeOfFile;
+       private Character character;
        
 
     public Backpack() {
@@ -53,6 +54,15 @@ public class Backpack implements Serializable{
     public void setTypeOfFile(String typeOfFile) {
         this.typeOfFile = typeOfFile;
     }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
+    
 
     @Override
     public int hashCode() {

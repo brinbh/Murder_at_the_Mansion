@@ -7,81 +7,60 @@
 package byui.cit260.murderAtTheMansion.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 /**
  *
  * @author Sara
  */
-public class Character implements Serializable{
-    private String name;
-    private String description;
-    private double cordinates;
-
-    public Character() {
-    }
+public enum Character implements Serializable{
+    
+    Detective ("Strong, cannny, detective that wants to make the world a better place."),
+    Paula("Nanny of the mansion, has been working for the family for over 15 years."),
+    Randalph("Neighbor of the victim, loves to play golf and garden."),
+    Charlie("Nephew of the victim, in his mid-twenties."),
+    John("Boss of the victim, corporate manager of Google."),
+    Sophia("Ex-lover of the victim, seduces men with her charm."),
+    Marvin("Victim and owner of the mansion");
     
     
+    
+    private final String description;
+    private final Point coordinates;
+    private Backpack backpack; 
+    
+    ArrayList<Player> player = new ArrayList<>();
 
-    public String getName() {
-        return name;
+    Character(String description) {
+        this.description = description; 
+        coordinates = new Point(1,1);
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
+    
+   public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    
+
+    public Point getCoordinates() {
+        return coordinates;
     }
 
-    public double getCordinates() {
-        return cordinates;
+    public ArrayList<Player> getPlayer() {
+        return player;
     }
 
-    public void setCordinates(double cordinates) {
-        this.cordinates = cordinates;
+    public void setPlayer(ArrayList<Player> player) {
+        this.player = player;
     }
+    
+    
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.name);
-        hash = 53 * hash + Objects.hashCode(this.description);
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.cordinates) ^ (Double.doubleToLongBits(this.cordinates) >>> 32));
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Character other = (Character) obj;
-        if (Double.doubleToLongBits(this.cordinates) != Double.doubleToLongBits(other.cordinates)) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        return true;
-    }
+    
 
     @Override
     public String toString() {
-        return "Character{" + "name=" + name + ", description=" + description + ", cordinates=" + cordinates + '}';
+        return "Character{" +  ", description=" + description + ", cordinates=" + coordinates + '}';
     }
     
     
