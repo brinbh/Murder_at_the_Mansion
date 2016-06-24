@@ -15,7 +15,6 @@ import java.util.Objects;
  */
 public enum Character implements Serializable{
     
-    Detective ("Strong, cannny, detective that wants to make the world a better place."),
     Paula("Nanny of the mansion, has been working for the family for over 15 years."),
     Randalph("Neighbor of the victim, loves to play golf and garden."),
     Charlie("Nephew of the victim, in his mid-twenties."),
@@ -28,6 +27,8 @@ public enum Character implements Serializable{
     private final String description;
     private final Point coordinates;
     private Backpack backpack; 
+    private Game game; 
+    private Location locationOfCharacter; 
     
     ArrayList<Player> player = new ArrayList<>();
 
@@ -53,6 +54,31 @@ public enum Character implements Serializable{
     public void setPlayer(ArrayList<Player> player) {
         this.player = player;
     }
+
+    public Backpack getBackpack() {
+        return backpack;
+    }
+
+    public void setBackpack(Backpack backpack) {
+        this.backpack = backpack;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public Location getLocationOfCharacter() {
+        return locationOfCharacter;
+    }
+
+    public void setLocationOfCharacter(Location locationOfCharacter) {
+        this.locationOfCharacter = locationOfCharacter;
+    }
+    
     
     
 

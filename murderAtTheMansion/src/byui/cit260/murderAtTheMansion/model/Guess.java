@@ -17,6 +17,7 @@ public class Guess implements Serializable{
     private String guessIsWrong;
     private String guessIsRight;
     private String guess;
+    private Game game; 
 
     public Guess() {
     }
@@ -54,6 +55,15 @@ public class Guess implements Serializable{
     public void setGuess(String guess) {
         this.guess = guess;
     }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+    
 
     @Override
     public int hashCode() {

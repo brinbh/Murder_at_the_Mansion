@@ -15,6 +15,9 @@ public class Scene implements Serializable{
     private int travelTime;
     private int blockedLocation;
     private String displaySymbol;
+    private Location[][] locations;
+
+    
 
     public Scene() {
     }
@@ -50,6 +53,15 @@ public class Scene implements Serializable{
     public void setDisplaySymbol(String displaySymbol) {
         this.displaySymbol = displaySymbol;
     }
+
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
+    }
+    
 
     @Override
     public int hashCode() {
@@ -91,6 +103,14 @@ public class Scene implements Serializable{
     @Override
     public String toString() {
         return "Scene{" + "description=" + description + ", travelTime=" + travelTime + ", blockedLocation=" + blockedLocation + ", displaySymbol=" + displaySymbol + '}';
+    }
+
+    public void setBlocked(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setMapSymbol(String st) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

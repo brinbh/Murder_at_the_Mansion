@@ -5,7 +5,10 @@
  */
 package byui.cit260.murderAtTheMansion.view;
 
+import byui.cit260.murderAtTheMansion.model.Game;
+import byui.cit260.murderAtTheMansion.model.Item;
 import java.util.Scanner;
+import murderatthemansion.MurderAtTheMansion;
 
 public class BackpackMenuView extends View {
     private String menu;
@@ -32,10 +35,10 @@ public class BackpackMenuView extends View {
         
         switch (choice) {
             case "C":
-                this.backPackClues();
+                this.viewClues();
                 break;
             case "S":
-                this.suspectFiles();
+                this.viewSuspectFiles();
                 break;
             case "M":
                 this.murderedFile();
@@ -53,13 +56,27 @@ public class BackpackMenuView extends View {
 
     
 
-    private void backPackClues() {
-        ClueView backpackClueView = new ClueView();
-        backpackClueView.display();
-    }
 
-    private void suspectFiles() {
-        System.out.println("\n*** suspectFiles() function called***");
+    private void viewSuspectFiles() {
+        StringBuilder line;
+        
+        Game game = MurderAtTheMansion.getCurrentGame();
+        Item[] item = game.getItem();
+        
+        System.out.println("\nLIST OF FILES");
+        line = new StringBuilder("\n");
+        line.insert(0, "DESCRIPTION");
+        line.insert(20, "NAME");
+        System.out.println(line.toString());
+        
+        for (Item itemList : item){
+            line = new StringBuilder("\n");
+            line.insert(0, itemList.getDescription());
+            line.insert(23, itemList.getTitle());
+            
+            System.out.println(line.toString());
+        }
+        
     }
 
     private void murderedFile() {
@@ -68,6 +85,10 @@ public class BackpackMenuView extends View {
 
     private void backpackWeapons() {
         System.out.println("\n*** backpackWeapons() function called***");
+    }
+
+    private void viewClues() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 

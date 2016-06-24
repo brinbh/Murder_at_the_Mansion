@@ -12,6 +12,8 @@ import java.io.Serializable;
  */
 public class Game implements Serializable{
     private double totalTime;
+    private Item item;
+    
 
     public Game() {
     }
@@ -52,6 +54,26 @@ public class Game implements Serializable{
     @Override
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + '}';
+    }
+
+    public void setPlayer(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setBackpack(Backpack backpack) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setMap(Map map) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setItem(Item[] itemList) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Item[] getItem() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

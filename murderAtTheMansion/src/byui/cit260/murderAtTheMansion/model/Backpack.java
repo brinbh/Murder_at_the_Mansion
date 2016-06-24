@@ -6,6 +6,7 @@
 package byui.cit260.murderAtTheMansion.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -18,6 +19,8 @@ public class Backpack implements Serializable{
        private String typeOfClue;
        private String typeOfFile;
        private Character character;
+       
+    ArrayList <Item> itemList = new ArrayList<>();
        
 
     public Backpack() {
@@ -62,6 +65,15 @@ public class Backpack implements Serializable{
     public void setCharacter(Character character) {
         this.character = character;
     }
+
+    public ArrayList<Item> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(ArrayList<Item> itemList) {
+        this.itemList = itemList;
+    }
+    
     
 
     @Override

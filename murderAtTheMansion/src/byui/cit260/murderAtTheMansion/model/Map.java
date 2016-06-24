@@ -13,10 +13,31 @@ import java.io.Serializable;
 public class Map implements Serializable{
     private int rowCount;
     private int colCount;
+    private Location[][] locations;
 
     public Map() {
     }
-
+    
+     public Map(int rowOunt, int colCount) {
+         if(rowCount < 1 || colCount < 1){
+         System.out.println("The number of rows and columns must be greater than 1");
+         }
+         this.rowCount = rowCount;
+         this.colCount = colCount;
+         
+         this.locations = new Location [rowCount][colCount];
+         
+         for(int row = 0; row < rowCount; row++){
+             for(int col = 0; col < colCount; col++){
+                 Location location = new Location();
+                 location.setCol(col);
+                 location.setRow(row);
+                 location.setVisited(false);
+                 
+                 locations [row][col] = location; 
+             }
+         }
+    }
     public int getRowCount() {
         return rowCount;
     }
@@ -32,6 +53,15 @@ public class Map implements Serializable{
     public void setColCount(int colCount) {
         this.colCount = colCount;
     }
+
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
+    }
+    
 
     @Override
     public int hashCode() {

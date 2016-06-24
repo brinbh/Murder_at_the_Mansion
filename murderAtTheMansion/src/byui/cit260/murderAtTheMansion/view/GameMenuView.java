@@ -78,7 +78,7 @@ public class GameMenuView extends View {
     }
 
     private void displayMap() {
-        System.out.println("\n*** displayMap() function called***");
+        
     }
 
     private void showBackpack() {

@@ -5,98 +5,62 @@
  */
 package byui.cit260.murderAtTheMansion.model;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
- * @author Sara
+ * @author Britt
  */
-public class Item implements Serializable{
-    private String placeIn;
-    private String lookAt;
-    private String readItem;
-    private String useItem;
+public enum Item {
+    golfClub("Bloody Golf Club", "This is a golf club wth blood on it.", "Clue"),
+    license("Driver's License", "This is the victim's driver's license.", "Clue"),
+    reciept("Reciept", "This is the reciept from the dinner he bought for everyone.", "Clue"),
+    note("Note from CEO", "This is a note of praise from the CEO.", "Clue"),
+    footprint("Footprint", "This is a small footprint leading away from the murder scene", "Clue"),
+    knife("Carving Knife", "This is a very sharp knife.", "Weapon"),
+    flashlight("Heavy Duty Flashlight", "This is a very heavy flashlight with batteries.", "Weapon"),
+    bat("Metal Bat", "Victim's son's metal baseball bat.", "Weapon"),
+    filePaula("Paula Duncan", "Nanny that has worked for them for 15 years", "File"),
+    fileRandalph("Randalph", "Neighbor who likes to play golf and garden", "File"),
+    fileCharlie("Charlie","Nephew of the victim. He is in his mid-twenties.", "File"),
+    fileJohn("John", "Victim's boss who is a coorporate manager at Google.", "File"),
+    fileSophia("Sophia", "Ex-lover of the victim.", "File"),
+    fileMarvin("Marvin", "Victim. He is now dead.", "File");
+    
+    private String title;
+    private String description;
+    private String type;
 
-    public Item() {
+    Item() {
+    }
+
+
+
+    Item(String title, String description, String type) {
+        this.title = title;
+        this.description = description;
+        this.type = type;
     }
     
-    
 
-    public String getPlaceIn() {
-        return placeIn;
+    public String getTitle() {
+        return title;
     }
 
-    public void setPlaceIn(String placeIn) {
-        this.placeIn = placeIn;
+
+    public String getDescription() {
+        return description;
     }
 
-    public String getLookAt() {
-        return lookAt;
+    public String getType() {
+        return type;
     }
-
-    public void setLookAt(String lookAt) {
-        this.lookAt = lookAt;
-    }
-
-    public String getReadItem() {
-        return readItem;
-    }
-
-    public void setReadItem(String readItem) {
-        this.readItem = readItem;
-    }
-
-    public String getUseItem() {
-        return useItem;
-    }
-
-    public void setUseItem(String useItem) {
-        this.useItem = useItem;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 41 * hash + Objects.hashCode(this.placeIn);
-        hash = 41 * hash + Objects.hashCode(this.lookAt);
-        hash = 41 * hash + Objects.hashCode(this.readItem);
-        hash = 41 * hash + Objects.hashCode(this.useItem);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Item other = (Item) obj;
-        if (!Objects.equals(this.placeIn, other.placeIn)) {
-            return false;
-        }
-        if (!Objects.equals(this.lookAt, other.lookAt)) {
-            return false;
-        }
-        if (!Objects.equals(this.readItem, other.readItem)) {
-            return false;
-        }
-        if (!Objects.equals(this.useItem, other.useItem)) {
-            return false;
-        }
-        return true;
-    }
+  
 
     @Override
     public String toString() {
-        return "Item{" + "placeIn=" + placeIn + ", lookAt=" + lookAt + ", readItem=" + readItem + ", useItem=" + useItem + '}';
+        return "Clue{" + "title=" + title + ", description=" + description + '}';
     }
-    
     
     
 }

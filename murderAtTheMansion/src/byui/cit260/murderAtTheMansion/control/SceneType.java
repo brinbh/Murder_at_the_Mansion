@@ -5,14 +5,19 @@
  */
 package byui.cit260.murderAtTheMansion.control;
 
-import byui.cit260.murderAtTheMansion.model.Item;
-import byui.cit260.murderAtTheMansion.model.Player;
-
 /**
  *
- * @author Britt
+ * @author Sara
  */
-public class BackpackControl {
-    
-    
+public enum SceneType {
+    masterRoom,
+    kidRoom,
+    laundryRoom,
+    office,
+    kitchen,
+    diningRoom,
+    livingRoom,
+    hallway,
+    gameRoom,
+    frontDoor;
 }

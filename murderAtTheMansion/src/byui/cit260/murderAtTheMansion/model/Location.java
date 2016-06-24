@@ -13,7 +13,10 @@ import java.io.Serializable;
 public class Location implements Serializable{
     private int row;
     private int col;
-    private int visited;
+    private boolean visited;
+    private Scene scene;
+    private Character character;
+    private Map map;
 
     public Location() {
     }
@@ -34,20 +37,46 @@ public class Location implements Serializable{
         this.col = col;
     }
 
-    public int getVisited() {
+    public boolean getVisited() {
         return visited;
     }
 
-    public void setVisited(int visited) {
+    public void setVisited(boolean visited) {
         this.visited = visited;
     }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+    
+    
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 59 * hash + this.row;
         hash = 59 * hash + this.col;
-        hash = 59 * hash + this.visited;
+        //hash = 59 * hash + this.visited;
         return hash;
     }
 
