@@ -5,7 +5,9 @@
  */
 package byui.cit260.murderAtTheMansion.view;
 
+import byui.cit260.murderAtTheMansion.model.Location;
 import java.util.Scanner;
+import murderatthemansion.MurderAtTheMansion;
 
 /**
  *
@@ -78,6 +80,25 @@ public class GameMenuView extends View {
     }
 
     private void displayMap() {
+        //get locations
+        MurderAtTheMansion.getCurrentGame().getMap().
+        //print title
+        System.out.println("                          Murder at the Mansion Map");
+        //print column numbers
+        //FOR every row in map 
+            //PRINT a row divider 
+            //PRINT the row number on a new line 
+            //FOR every column in row 
+                //PRINT a column divider 
+                // location = locations[row][column] 
+                //IF location has been visited 
+                    // PRINT the mapSymbol in the scene in this location 
+                // ELSE 
+                //DISPLAY " ?? "
+            //ENDIF 
+                //PRINT the ending column divider 
+        //ENDFOR 
+        //PRINT ending row divide
         
     }
 

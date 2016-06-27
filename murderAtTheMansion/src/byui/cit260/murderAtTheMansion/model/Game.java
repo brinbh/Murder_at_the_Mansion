@@ -13,6 +13,7 @@ import java.io.Serializable;
 public class Game implements Serializable{
     private double totalTime;
     private Item item;
+    private Map map;
     
 
     public Game() {
@@ -25,6 +26,7 @@ public class Game implements Serializable{
     public void setTotalTime(double totalTime) {
         this.totalTime = totalTime;
     }
+    
 
     @Override
     public int hashCode() {
@@ -61,10 +63,6 @@ public class Game implements Serializable{
     }
 
     public void setBackpack(Backpack backpack) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setMap(Map map) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
