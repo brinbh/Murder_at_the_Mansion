@@ -23,6 +23,7 @@ public class GameMenuView extends View {
                   + "\n DM - Display Map"
                   + "\n B - Show Backpack"
                   + "\n G - Guess Murderer"
+                  + "\n C - How many characters are there"
                   + "\n H - Help"
                   + "\n Q - Quit Game Menu"
                   + "\n--------------------------------------");
@@ -49,6 +50,9 @@ public class GameMenuView extends View {
                 break;
             case "G":
                 this.guessMurderer();
+                break;
+            case "C":
+                this.howManyCharacters();
                 break;
             case "H": 
                 this.displayHelpMenu();
@@ -94,5 +98,10 @@ public class GameMenuView extends View {
     private void guessMurderer() {
             GuessMurderView guessMurderView = new GuessMurderView();
             guessMurderView.display();
+    }
+
+    private void howManyCharacters() {
+            ManyCharacterView manyCharacterView = new ManyCharacterView();
+            manyCharacterView.display();
     }
 }
