@@ -26,6 +26,22 @@ public class Game implements Serializable{
     public void setTotalTime(double totalTime) {
         this.totalTime = totalTime;
     }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
     
 
     @Override
@@ -59,20 +75,12 @@ public class Game implements Serializable{
     }
 
     public void setPlayer(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("/n*** setPlayer function is called ***");
     }
 
     public void setBackpack(Backpack backpack) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("/n*** setBackpack function is called ***");
     }
 
-    public void setItem(Item[] itemList) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Item[] getItem() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     
 }

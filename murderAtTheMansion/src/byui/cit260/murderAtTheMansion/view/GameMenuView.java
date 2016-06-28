@@ -6,6 +6,7 @@
 package byui.cit260.murderAtTheMansion.view;
 
 import byui.cit260.murderAtTheMansion.model.Location;
+import byui.cit260.murderAtTheMansion.model.Scene;
 import java.util.Scanner;
 import murderatthemansion.MurderAtTheMansion;
 
@@ -81,24 +82,38 @@ public class GameMenuView extends View {
 
     private void displayMap() {
         //get locations
-        MurderAtTheMansion.getCurrentGame().getMap().
+       Location[][] locations = MurderAtTheMansion.getCurrentGame().getMap().getLocations();
         //print title
-        System.out.println("                          Murder at the Mansion Map");
+        System.out.println("Murder at the Mansion Map");
         //print column numbers
+        System.out.println(" 1    2    3    4    5   "
+                         + "/n_________________________");
         //FOR every row in map 
+        for (Location[] row : locations){
             //PRINT a row divider 
-            //PRINT the row number on a new line 
-            //FOR every column in row 
-                //PRINT a column divider 
-                // location = locations[row][column] 
+            System.out.println("_________________________");
+            //PRINT the row number on a new line
+            System.out.println(row);
+            //FOR every column in row
+            for (Location location : row)   {
+                //PRINT a column divider
+                System.out.println("|");
                 //IF location has been visited 
+                if (location.getVisited() == true)
+                    System.out.println(location.getScene().getDisplaySymbol());
                     // PRINT the mapSymbol in the scene in this location 
                 // ELSE 
-                //DISPLAY " ?? "
-            //ENDIF 
-                //PRINT the ending column divider 
-        //ENDFOR 
-        //PRINT ending row divide
+                else
+                    System.out.println("??");
+                int counter = 0;
+                if (counter >= 25){
+                    System.out.println("|");
+                    break;
+                }
+                    
+            }
+            System.out.println("_________________________");
+        }
         
     }
 

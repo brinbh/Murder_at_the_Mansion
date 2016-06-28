@@ -23,7 +23,7 @@ class MapControl {
     }
 
     static void moveActorsToStartingLocation(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** moveActorsToStartingLocation() function called***");
     }
     private static Scene[] createScenes() {
         Scene[] scenes = new Scene[SceneType.values().length];

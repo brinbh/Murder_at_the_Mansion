@@ -58,7 +58,7 @@ public class BackpackMenuView extends View {
 
 
     private void viewSuspectFiles() {
-        StringBuilder line;
+        /*StringBuilder line;
         
         Game game = MurderAtTheMansion.getCurrentGame();
         Item[] item = game.getItem();
@@ -75,7 +75,7 @@ public class BackpackMenuView extends View {
             line.insert(23, itemList.getTitle());
             
             System.out.println(line.toString());
-        }
+        }*/
         
     }
 
@@ -88,7 +88,7 @@ public class BackpackMenuView extends View {
     }
 
     private void viewClues() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** viewClues() function called***");
     }
 }
 
