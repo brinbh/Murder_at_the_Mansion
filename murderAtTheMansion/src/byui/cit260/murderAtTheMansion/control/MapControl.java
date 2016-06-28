@@ -50,7 +50,7 @@ class MapControl {
         scenes[SceneType.frontDoor.ordinal()] = startingScene;
         
         //hallway
-        startingScene.setDescription(
+        hallwayScene.setDescription(
                 "You are in a crooked hallway covered with rather large portraits"
                         + "of old men. There are golfing trophies and a strange"
                         + "smell.");
@@ -59,7 +59,7 @@ class MapControl {
         scenes[SceneType.hallway.ordinal()] = hallwayScene;
         
         //master room
-        startingScene.setDescription(
+        masterScene.setDescription(
                 "You enter the large master bedroom with a bed too big for just"
                         + "one person. In the room is where the murder has taken"
                         + "place so the smell of blood is in the air."
@@ -68,7 +68,7 @@ class MapControl {
         masterScene.setBlocked(false); 
         scenes[SceneType.masterRoom.ordinal()] = masterScene;
         //kids room
-        startingScene.setDescription(
+        kidScene.setDescription(
                 "You are in the kid's room. It seems that he is about the age"
                         + "of 7 from the superhero books and bedsheets. He is "
                         + "also into sports, with bats and gloves laying on the"
@@ -78,7 +78,7 @@ class MapControl {
         kidScene.setBlocked(false); 
         scenes[SceneType.kidRoom.ordinal()] = kidScene;
         //laundry room
-        startingScene.setDescription(
+        laundryScene.setDescription(
                 "You are now in the laundry room. It seems to be quite large"
                         + "for just three people in the house. There is also "
                         + "laundry that hasn't been done yet."
@@ -87,7 +87,7 @@ class MapControl {
         laundryScene.setBlocked(false); 
         scenes[SceneType.laundryRoom.ordinal()] = laundryScene;
         //game room
-        startingScene.setDescription(
+        gameScene.setDescription(
                 "You enter the game room, it has a pool table, dart board, "
                         + "air hockey, and skee ball. Seems like a pretty"
                         + "fun place to hang out."
@@ -96,7 +96,7 @@ class MapControl {
         gameScene.setBlocked(false); 
         scenes[SceneType.gameRoom.ordinal()] = gameScene;
         //office
-        startingScene.setDescription(
+        officeScene.setDescription(
                 "You are now in the victim's office. It is very orderly and"
                         + "neat, there is not a single paper out of place. But"
                         + "there is something out of place."
@@ -105,7 +105,7 @@ class MapControl {
         officeScene.setBlocked(false); 
         scenes[SceneType.office.ordinal()] = officeScene;
         //dining room
-        startingScene.setDescription(
+        diningScene.setDescription(
                 "You enter the dining room. It seems to be fit for a king with "
                         + "expensive china on the table. The food has been eaten"
                         + "but the nanny hasn't picked it up yet."
@@ -114,7 +114,7 @@ class MapControl {
         diningScene.setBlocked(false); 
         scenes[SceneType.diningRoom.ordinal()] = diningScene;
         //parlor or living room
-        startingScene.setDescription(
+        livingScene.setDescription(
                 "You are now in the living room. It is huge, with a giant television"
                         + "in the corner. The smell of cigars fills the room. You seem "
                         + "envious."
@@ -123,7 +123,7 @@ class MapControl {
         livingScene.setBlocked(false); 
         scenes[SceneType.livingRoom.ordinal()] = livingScene;
         //kitchen
-        startingScene.setDescription(
+        kitchenScene.setDescription(
                 "You are now in the kitchen. It is the biggest one that you have "
                         + "ever seen. It looks like something was about to be made"
                         + "but they stoppen halfway through."
