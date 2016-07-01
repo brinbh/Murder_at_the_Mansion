@@ -37,8 +37,8 @@ public class GameControl {
         
         game.setPlayer(player);
 
-        Item[] itemList = GameControl.createItemList();
-        game.setItem(itemList);
+       // Item[] itemList = GameControl.createItemList();
+        //game.setItem(itemList);
         
         Backpack backpack = new Backpack();
         game.setBackpack(backpack);
@@ -62,7 +62,7 @@ public class GameControl {
     }
 
     static void assignScenesLocations(Map map, Scene[] scenes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** assignScenesLocations() function called***");
     }
     public static Character[] sortCharacters (){
         //extract enum items into an array 

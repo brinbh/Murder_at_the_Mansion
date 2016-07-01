@@ -5,11 +5,14 @@
  */
 package byui.cit260.murderAtTheMansion.view;
 
+import byui.cit260.murderAtTheMansion.model.Location;
+import byui.cit260.murderAtTheMansion.model.Scene;
 import byui.cit260.murderAtTheMansion.control.GameControl;
 import byui.cit260.murderAtTheMansion.model.Character;
 import byui.cit260.murderAtTheMansion.model.Point;
 
 import java.util.Scanner;
+import murderatthemansion.MurderAtTheMansion;
 
 /**
  *
@@ -88,6 +91,39 @@ public class GameMenuView extends View {
     }
 
     private void displayMap() {
+        //get locations
+       Location[][] locations = MurderAtTheMansion.getCurrentGame().getMap().getLocations();
+        //print title
+        System.out.println("Murder at the Mansion Map");
+        //print column numbers
+        System.out.println(" 1    2    3    4    5   "
+                         + "/n_________________________");
+        //FOR every row in map 
+        for (Location[] row : locations){
+            //PRINT a row divider 
+            System.out.println("_________________________");
+            //PRINT the row number on a new line
+            System.out.println(row);
+            //FOR every column in row
+            for (Location location : row)   {
+                //PRINT a column divider
+                System.out.println("|");
+                //IF location has been visited 
+                if (location.getVisited() == true)
+                    System.out.println(location.getScene().getDisplaySymbol());
+                    // PRINT the mapSymbol in the scene in this location 
+                // ELSE 
+                else
+                    System.out.println("??");
+                int counter = 0;
+                if (counter >= 25){
+                    System.out.println("|");
+                    break;
+                }
+                    
+            }
+            System.out.println("_________________________");
+        }
         
     }
 
