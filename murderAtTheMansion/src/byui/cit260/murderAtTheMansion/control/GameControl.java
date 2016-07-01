@@ -61,6 +61,7 @@ public class GameControl {
         
         return item;
     }
+    
 
     public static Character[] sortCharacters (){
         //extract enum items into an array 
