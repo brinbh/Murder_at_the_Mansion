@@ -20,7 +20,8 @@ public enum Character implements Serializable{
     Charlie("Nephew of the victim, in his mid-twenties."),
     John("Boss of the victim, corporate manager of Google."),
     Sophia("Ex-lover of the victim, seduces men with her charm."),
-    Marvin("Victim and owner of the mansion");
+    Marvin("Victim and owner of the mansion"),
+    MainCharacter("This is the main character.");
     
     
     
@@ -44,6 +45,9 @@ public enum Character implements Serializable{
     
 
     public Point getCoordinates() {
+        return coordinates;
+    }
+    public Point setCoordinates(int x, int y) {
         return coordinates;
     }
 

@@ -91,12 +91,13 @@ public class GameMenuView extends View {
         System.out.println("Murder at the Mansion Map");
         //print column numbers
         System.out.println(" 1    2    3    4    5   "
-                         + "/n_________________________");
+                         + "\n_________________________");
         //FOR every row in map 
         for (Location[] row : locations){
             //PRINT a row divider 
             System.out.println("_________________________");
             //PRINT the row number on a new line
+            //create rowNum counter
             System.out.println(row);
             //FOR every column in row
             for (Location location : row)   {

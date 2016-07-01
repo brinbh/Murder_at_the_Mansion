@@ -5,9 +5,15 @@
  */
 package byui.cit260.murderAtTheMansion.control;
 
+import byui.cit230.murderAtTheMansion.exceptions.MapControlException;
+import byui.cit260.murderAtTheMansion.model.Game;
 import byui.cit260.murderAtTheMansion.model.Location;
 import byui.cit260.murderAtTheMansion.model.Map;
+import byui.cit260.murderAtTheMansion.model.Player;
 import byui.cit260.murderAtTheMansion.model.Scene;
+import byui.cit260.murderAtTheMansion.model.Character;
+import byui.cit260.murderAtTheMansion.model.Point;
+import murderatthemansion.MurderAtTheMansion;
 
 /**
  *
@@ -18,13 +24,36 @@ class MapControl {
     static Map createMap() {
         Map map = new Map(5,5);
         Scene[] scenes = createScenes();
-        GameControl.assignScenesLocations(map, scenes);
+        MapControl.assignScenesToLocations(map, scenes);
         return map;
     }
 
-    static void moveActorsToStartingLocation(Map map) {
-        System.out.println("\n*** moveActorsToStartingLocation() function called***");
+    public static void moveActorsToStartingLocation(Map map) throws MapControlException {
+       
+       //Main Character
+       Character[] characters = Character.values();
+       Point coordinates = Character.MainCharacter.setCoordinates(0,0);
+       MapControl.moveActorToLocation(Character.MainCharacter, coordinates);
+       Location[][] currentLocations = MurderAtTheMansion.getCurrentGame().getMap().getLocations();
+       currentLocations[coordinates.x][coordinates.y] = Location.setCharacter(Character.MainCharacter);
+
+       
+       //set x y
+       //find location and assign character to location
+       
     }
+    public static void moveActorToLocation(Character character, Point coordinates) throws MapControlException{
+        Map map = MurderAtTheMansion.getCurrentGame().getMap();
+        int newRow = coordinates.x-1;
+        int newCol = coordinates.y-1;
+        
+        if (newRow < 0 || newRow >= 5 || newCol < 0 || newCol >= 5){
+            throw new MapControlException("Can not move actor to location " + 
+                    coordinates.x + ", " + coordinates.y + " because that "
+                    + "location is outside the bounds of the map.");
+        } 
+    }
+    
     private static Scene[] createScenes() {
         Scene[] scenes = new Scene[SceneType.values().length];
         Scene startingScene = new Scene();
@@ -45,8 +74,8 @@ class MapControl {
                         + "and weapons to figure out who is the murderer at the "
                         + "mansion. This the front door of the mansion. You can "
                         + "move around anywhere inside the mansion.");
-        startingScene.setMapSymbol("ST");
-        startingScene.setBlocked(false); 
+        startingScene.setDisplaySymbol("ST");
+        startingScene.setBlockedLocation(false); 
         scenes[SceneType.frontDoor.ordinal()] = startingScene;
         
         //hallway
@@ -54,8 +83,8 @@ class MapControl {
                 "You are in a crooked hallway covered with rather large portraits"
                         + "of old men. There are golfing trophies and a strange"
                         + "smell.");
-        hallwayScene.setMapSymbol("||");
-        hallwayScene.setBlocked(false); 
+        hallwayScene.setDisplaySymbol("||");
+        hallwayScene.setBlockedLocation(false); 
         scenes[SceneType.hallway.ordinal()] = hallwayScene;
         
         //master room
@@ -64,8 +93,8 @@ class MapControl {
                         + "one person. In the room is where the murder has taken"
                         + "place so the smell of blood is in the air."
                     );
-        masterScene.setMapSymbol("MR");
-        masterScene.setBlocked(false); 
+        masterScene.setDisplaySymbol("MR");
+        masterScene.setBlockedLocation(false); 
         scenes[SceneType.masterRoom.ordinal()] = masterScene;
         //kids room
         kidScene.setDescription(
@@ -74,8 +103,8 @@ class MapControl {
                         + "also into sports, with bats and gloves laying on the"
                         + "floor."
                     );
-        kidScene.setMapSymbol("KR");
-        kidScene.setBlocked(false); 
+        kidScene.setDisplaySymbol("KR");
+        kidScene.setBlockedLocation(false); 
         scenes[SceneType.kidRoom.ordinal()] = kidScene;
         //laundry room
         laundryScene.setDescription(
@@ -83,8 +112,8 @@ class MapControl {
                         + "for just three people in the house. There is also "
                         + "laundry that hasn't been done yet."
                     );
-        laundryScene.setMapSymbol("LR");
-        laundryScene.setBlocked(false); 
+        laundryScene.setDisplaySymbol("LR");
+        laundryScene.setBlockedLocation(false); 
         scenes[SceneType.laundryRoom.ordinal()] = laundryScene;
         //game room
         gameScene.setDescription(
@@ -92,8 +121,8 @@ class MapControl {
                         + "air hockey, and skee ball. Seems like a pretty"
                         + "fun place to hang out."
                     );
-        gameScene.setMapSymbol("GR");
-        gameScene.setBlocked(false); 
+        gameScene.setDisplaySymbol("GR");
+        gameScene.setBlockedLocation(false); 
         scenes[SceneType.gameRoom.ordinal()] = gameScene;
         //office
         officeScene.setDescription(
@@ -101,8 +130,8 @@ class MapControl {
                         + "neat, there is not a single paper out of place. But"
                         + "there is something out of place."
                     );
-        officeScene.setMapSymbol("O");
-        officeScene.setBlocked(false); 
+        officeScene.setDisplaySymbol("O");
+        officeScene.setBlockedLocation(false); 
         scenes[SceneType.office.ordinal()] = officeScene;
         //dining room
         diningScene.setDescription(
@@ -110,8 +139,8 @@ class MapControl {
                         + "expensive china on the table. The food has been eaten"
                         + "but the nanny hasn't picked it up yet."
                     );
-        diningScene.setMapSymbol("DR");
-        diningScene.setBlocked(false); 
+        diningScene.setDisplaySymbol("DR");
+        diningScene.setBlockedLocation(false); 
         scenes[SceneType.diningRoom.ordinal()] = diningScene;
         //parlor or living room
         livingScene.setDescription(
@@ -119,8 +148,8 @@ class MapControl {
                         + "in the corner. The smell of cigars fills the room. You seem "
                         + "envious."
                     );
-        livingScene.setMapSymbol("P");
-        livingScene.setBlocked(false); 
+        livingScene.setDisplaySymbol("P");
+        livingScene.setBlockedLocation(false); 
         scenes[SceneType.livingRoom.ordinal()] = livingScene;
         //kitchen
         kitchenScene.setDescription(
@@ -129,8 +158,8 @@ class MapControl {
                         + "but they stoppen halfway through."
                         
                     );
-        kitchenScene.setMapSymbol("K");
-        kitchenScene.setBlocked(false); 
+        kitchenScene.setDisplaySymbol("K");
+        kitchenScene.setBlockedLocation(false); 
         scenes[SceneType.kitchen.ordinal()] = kitchenScene;
         
         
@@ -170,5 +199,6 @@ class MapControl {
 
 
     }
+    
     
 }
