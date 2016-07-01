@@ -9,7 +9,7 @@ import byui.cit260.murderAtTheMansion.model.Location;
 import byui.cit260.murderAtTheMansion.model.Scene;
 import byui.cit260.murderAtTheMansion.control.GameControl;
 import byui.cit260.murderAtTheMansion.model.Character;
-import byui.cit260.murderAtTheMansion.model.Point;
+
 
 import java.util.Scanner;
 import murderatthemansion.MurderAtTheMansion;
@@ -149,15 +149,16 @@ public class GameMenuView extends View {
         System.out.println("\n Sorted List of Characters");
         StringBuilder line = new StringBuilder("                             ");
         line.insert(0, "Name");
-        line.insert(5, "Description");
-        line.insert(10,"Coordinates");
+        line.insert(8, "Description");
+        line.insert(40,"Coordinates");
         System.out.println(line.toString());
         
         for(Character character : sortedList){
             line = new StringBuilder("                         ");
             line.insert(0, character.name());
-            line.insert(5, character.getDescription());
-            line.insert(10, character.getCoordinates().toString());
+            line.insert(12, character.getDescription());
+            line.insert(60, character.getCoordinates().x + ", "+ character.getCoordinates().y);
+            System.out.println(line.toString());
             
         }
         
