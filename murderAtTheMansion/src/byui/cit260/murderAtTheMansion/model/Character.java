@@ -6,6 +6,7 @@
 
 package byui.cit260.murderAtTheMansion.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -15,13 +16,13 @@ import java.util.Objects;
  */
 public enum Character implements Serializable{
     
-    Paula("Nanny of the mansion, has been working for the family for over 15 years."),
-    Randalph("Neighbor of the victim, loves to play golf and garden."),
-    Charlie("Nephew of the victim, in his mid-twenties."),
-    John("Boss of the victim, corporate manager of Google."),
-    Sophia("Ex-lover of the victim, seduces men with her charm."),
-    Marvin("Victim and owner of the mansion"),
-    MainCharacter("This is the main character.");
+    Paula("Nanny of the mansion, has been working for the family for over 15 years.",new Point(0,3)),
+    Randalph("Neighbor of the victim, loves to play golf and garden.", new Point (1,2)),
+    Charlie("Nephew of the victim, in his mid-twenties.", new Point (4,0)),
+    John("Boss of the victim, corporate manager of Google.", new Point (2,3)),
+    Sophia("Ex-lover of the victim, seduces men with her charm.", new Point (3,3)),
+    Marvin("Victim and owner of the mansion", new Point (3,1)),
+    MainCharacter("This is the main character.", new Point (0,0));
     
     
     
@@ -33,9 +34,10 @@ public enum Character implements Serializable{
     
     ArrayList<Player> player = new ArrayList<>();
 
-    Character(String description) {
+    Character(String description, Point coordinates) {
         this.description = description; 
-        coordinates = new Point(1,1);
+        this.coordinates = coordinates;
+      
     }
     
    public String getDescription() {

@@ -12,7 +12,7 @@ import byui.cit260.murderAtTheMansion.model.Map;
 import byui.cit260.murderAtTheMansion.model.Player;
 import byui.cit260.murderAtTheMansion.model.Scene;
 import byui.cit260.murderAtTheMansion.model.Character;
-import byui.cit260.murderAtTheMansion.model.Point;
+import java.awt.Point;
 import murderatthemansion.MurderAtTheMansion;
 
 /**
@@ -27,25 +27,29 @@ class MapControl {
         MapControl.assignScenesToLocations(map, scenes);
         return map;
     }
-
+    
     public static void moveActorsToStartingLocation(Map map) throws MapControlException {
        
        //Main Character
        Character[] characters = Character.values();
-       Point coordinates = Character.MainCharacter.setCoordinates(0,0);
-       MapControl.moveActorToLocation(Character.MainCharacter, coordinates);
-       Location[][] currentLocations = MurderAtTheMansion.getCurrentGame().getMap().getLocations();
-       currentLocations[coordinates.x][coordinates.y] = Location.setCharacter(Character.MainCharacter);
-
+       MapControl.moveActorToLocation(Character.MainCharacter, Character.MainCharacter.getCoordinates());
+       MapControl.moveActorToLocation(Character.Marvin, Character.Marvin.getCoordinates());
+       MapControl.moveActorToLocation(Character.Paula, Character.Paula.getCoordinates());
+       MapControl.moveActorToLocation(Character.John, Character.John.getCoordinates());
+       MapControl.moveActorToLocation(Character.Sophia, Character.Sophia.getCoordinates());
+       MapControl.moveActorToLocation(Character.Randalph, Character.Randalph.getCoordinates());
        
-       //set x y
-       //find location and assign character to location
+       //MapControl.moveActorToLocation(Character.MainCharacter, coordinates);
+       
+      
+
        
     }
     public static void moveActorToLocation(Character character, Point coordinates) throws MapControlException{
         Map map = MurderAtTheMansion.getCurrentGame().getMap();
-        int newRow = coordinates.x-1;
-        int newCol = coordinates.y-1;
+        int newRow = coordinates.x;
+        int newCol = coordinates.y;
+        
         
         if (newRow < 0 || newRow >= 5 || newCol < 0 || newCol >= 5){
             throw new MapControlException("Can not move actor to location " + 
