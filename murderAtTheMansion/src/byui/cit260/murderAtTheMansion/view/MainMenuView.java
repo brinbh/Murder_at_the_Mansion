@@ -5,6 +5,7 @@
  */
 package byui.cit260.murderAtTheMansion.view;
 
+import byui.cit230.murderAtTheMansion.exceptions.MapControlException;
 import byui.cit260.murderAtTheMansion.control.GameControl;
 import java.util.Scanner;
 import murderatthemansion.MurderAtTheMansion;
@@ -59,9 +60,15 @@ public class MainMenuView extends View {
         return false;
     }
 
-    private void startNewGame() {
+    private void startNewGame()  {
+            try {
             GameControl.createNewGame(MurderAtTheMansion.getPlayer());
+            }
+            catch (MapControlException mce){
+            System.out.println(mce.getMessage());
+            return;
             
+            }
             GameMenuView gameMenu = new GameMenuView();
             gameMenu.display();
     }

@@ -12,17 +12,36 @@ import java.io.Serializable;
  */
 public class Game implements Serializable{
     private double totalTime;
-    private Item item;
+    private Item[] item;
     private Map map;
+    private Player player;
+    private Backpack backpack;
     
-
+    
     public Game() {
     }
+
+    public Backpack getBackpack() {
+        return backpack;
+    }
+
+    public void setBackpack(Backpack backpack) {
+        this.backpack = backpack;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    
 
     public double getTotalTime() {
         return totalTime;
     }
-
+    
     public void setTotalTime(double totalTime) {
         this.totalTime = totalTime;
     }
@@ -35,11 +54,11 @@ public class Game implements Serializable{
         this.map = map;
     }
 
-    public Item getItem() {
+    public Item[] getItem() {
         return item;
     }
 
-    public void setItem(Item item) {
+    public void setItem(Item[] item) {
         this.item = item;
     }
     
@@ -73,14 +92,5 @@ public class Game implements Serializable{
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + '}';
     }
-
-    public void setPlayer(Player player) {
-        System.out.println("/n*** setPlayer function is called ***");
-    }
-
-    public void setBackpack(Backpack backpack) {
-        System.out.println("/n*** setBackpack function is called ***");
-    }
-
     
 }

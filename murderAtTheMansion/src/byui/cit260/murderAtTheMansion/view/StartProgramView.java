@@ -13,17 +13,13 @@ import java.util.Scanner;
  *
  * @author Britt
  */
-public class StartProgramView {
+public class StartProgramView extends View {
     
     private String promptMessage;
     
-    public StartProgramView() {
-        this.promptMessage = "\nPlease enter your name: ";
-        this.displayBanner();
-    }
     
-    private void displayBanner() {
-        System.out.println("\n****************************************************"
+    public StartProgramView () {
+        super              ("\n****************************************************"
                           + "\n*       This is the game Murder at the Mansion    "
                           + "\n* In this game you are a detective who has been   "
                           + "\n* called to a house where a murder has taken place"
@@ -41,22 +37,11 @@ public class StartProgramView {
                           + "\n* murderer at the mansion.                        "
                           + "\n* Good luck detective!                            "
                           + "\n***************************************************"
+                          + "\n\n Please enter your name: "
         );
     }
 
-    public void displayStartProgramView() {
-        
-        boolean done = false;
-        do {
-            String playersName = this.getPlayersName();
-            if (playersName.toUpperCase().equals("Q"))
-                return;
-            
-            done = this.doAction(playersName);
-        } while (!done);
-        
-    }
-
+    
     private String getPlayersName() {
         Scanner keyboard = new Scanner(System.in);
         String value = "";
@@ -76,8 +61,8 @@ public class StartProgramView {
         }
             return value;
     }
-
-    private boolean doAction(String playersName) {
+    @Override
+    public boolean doAction(String playersName) {
          if (playersName.length() < 2) {
              System.out.println("\nInvalid players name: " 
                                 + "The name muste be greater than 1 character in length.");

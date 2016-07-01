@@ -13,7 +13,7 @@ import java.util.Objects;
 public class Scene implements Serializable{
     private String description;
     private int travelTime;
-    private int blockedLocation;
+    private boolean blockedLocation;
     private String displaySymbol;
     private Location[][] locations;
 
@@ -38,12 +38,13 @@ public class Scene implements Serializable{
         this.travelTime = travelTime;
     }
 
-    public int getBlockedLocation() {
+    public boolean getBlockedLocation() {
         return blockedLocation;
     }
 
-    public void setBlockedLocation(int blockedLocation) {
+    public boolean setBlockedLocation(boolean blockedLocation) {
         this.blockedLocation = blockedLocation;
+        return false;
     }
 
     public String getDisplaySymbol() {
@@ -68,7 +69,7 @@ public class Scene implements Serializable{
         int hash = 3;
         hash = 73 * hash + Objects.hashCode(this.description);
         hash = 73 * hash + Objects.hashCode(this.travelTime);
-        hash = 73 * hash + this.blockedLocation;
+        //hash = 73 * hash + this.blockedLocation;
         hash = 73 * hash + Objects.hashCode(this.displaySymbol);
         return hash;
     }
@@ -105,13 +106,5 @@ public class Scene implements Serializable{
         return "Scene{" + "description=" + description + ", travelTime=" + travelTime + ", blockedLocation=" + blockedLocation + ", displaySymbol=" + displaySymbol + '}';
     }
 
-    public void setBlocked(boolean b) {
-        System.out.println("\n*** setBlocked() function called***");
-    }
-
-    public void setMapSymbol(String st) {
-        System.out.println("\n*** setMapSymbol() function called***");
-    }
-    
     
 }

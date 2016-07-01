@@ -9,6 +9,7 @@ import byui.cit260.murderAtTheMansion.model.Location;
 import byui.cit260.murderAtTheMansion.model.Scene;
 import byui.cit260.murderAtTheMansion.control.GameControl;
 import byui.cit260.murderAtTheMansion.model.Character;
+import byui.cit260.murderAtTheMansion.model.Item;
 
 
 import java.util.Scanner;
@@ -32,6 +33,7 @@ public class GameMenuView extends View {
                   + "\n B - Show Backpack"
                   + "\n G - Guess Murderer"
                   + "\n C - Sort character list"
+                  + "\n TI - Get sum of total items"
                   + "\n H - Help"
                   + "\n Q - Quit Game Menu"
                   + "\n--------------------------------------");
@@ -66,6 +68,9 @@ public class GameMenuView extends View {
             case "H": 
                 this.displayHelpMenu();
                 break;
+            case "TI": 
+                this.calculateTotalItems();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -97,12 +102,13 @@ public class GameMenuView extends View {
         System.out.println("Murder at the Mansion Map");
         //print column numbers
         System.out.println(" 1    2    3    4    5   "
-                         + "/n_________________________");
+                         + "\n_________________________");
         //FOR every row in map 
         for (Location[] row : locations){
             //PRINT a row divider 
             System.out.println("_________________________");
             //PRINT the row number on a new line
+            //create rowNum counter
             System.out.println(row);
             //FOR every column in row
             for (Location location : row)   {
@@ -140,6 +146,49 @@ public class GameMenuView extends View {
     private void guessMurderer() {
             GuessMurderView guessMurderView = new GuessMurderView();
             guessMurderView.display();
+    }
+   public int calculateTotalItems() {
+        String errorMessage = "ERROR in retrieving the Items list. There is an error in the";
+        Item[] itemList = MurderAtTheMansion.getCurrentGame().getItem();
+
+        for (Item item : itemList) {
+            
+            int counter = 0;
+            
+            int sumClues = 0;
+            int sumFiles = 0;
+            int sumWeapons = 0;
+            
+            // Count sum of each type of Item
+            if (item.getType().equals("Clue")) {
+                sumClues += 1;
+            } 
+            else if (item.getType().equals("File")) {
+                sumFiles += 1;
+            } 
+            else {
+                sumWeapons += 1;
+            }
+            
+            //check to see if there are any items
+            if (sumClues < 0) {
+                System.out.println(errorMessage + " sum of the Clues");
+                return -1;
+            }
+            if (sumFiles < 0) {
+                System.out.println(errorMessage + " sum of the Files");
+                return -1;
+            }
+            if (sumWeapons < 0) {
+                System.out.println(errorMessage + " sum of the Weapons");
+                return -1;
+            }
+            //Display the total
+            System.out.println("The sum of the Clues is: " + sumClues);
+            System.out.println("The sum of the Files is: " + sumFiles);
+            System.out.println("The sum of the Weapons is: " + sumWeapons);
+        }
+        return 0;
     }
 
     private void sortCharacters() {

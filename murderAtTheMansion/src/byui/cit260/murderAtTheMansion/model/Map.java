@@ -18,8 +18,8 @@ public class Map implements Serializable{
     public Map() {
     }
     
-     public Map(int rowOunt, int colCount) {
-         if(rowCount < 1 || colCount < 1){
+     public Map(int rowCount, int colCount) {
+         if(rowCount < 0 || colCount < 0){
          System.out.println("The number of rows and columns must be greater than 1");
          }
          this.rowCount = rowCount;

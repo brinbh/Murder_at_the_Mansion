@@ -5,12 +5,12 @@
  */
 package byui.cit260.murderAtTheMansion.control;
 
+import byui.cit230.murderAtTheMansion.exceptions.MapControlException;
 import byui.cit260.murderAtTheMansion.model.Backpack;
 import byui.cit260.murderAtTheMansion.model.Game;
 import byui.cit260.murderAtTheMansion.model.Item;
 import byui.cit260.murderAtTheMansion.model.Map;
 import byui.cit260.murderAtTheMansion.model.Player;
-import byui.cit260.murderAtTheMansion.model.Scene;
 import byui.cit260.murderAtTheMansion.model.Character;
 import murderatthemansion.MurderAtTheMansion;
 
@@ -31,11 +31,12 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewGame(Player player) {
+    public static void createNewGame(Player player) throws MapControlException {
         Game game = new Game();
         MurderAtTheMansion.setCurrentGame(game);
         
         game.setPlayer(player);
+        player.setCharacter(Character.MainCharacter);
 
        // Item[] itemList = GameControl.createItemList();
         //game.setItem(itemList);
@@ -60,10 +61,8 @@ public class GameControl {
         
         return item;
     }
+    
 
-    static void assignScenesLocations(Map map, Scene[] scenes) {
-        System.out.println("\n*** assignScenesLocations() function called***");
-    }
     public static Character[] sortCharacters (){
         //extract enum items into an array 
         Character[] charList = Character.values();

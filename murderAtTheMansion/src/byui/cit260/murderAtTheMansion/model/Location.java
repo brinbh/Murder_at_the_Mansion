@@ -5,6 +5,7 @@
  */
 package byui.cit260.murderAtTheMansion.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 /**
  *
@@ -17,8 +18,16 @@ public class Location implements Serializable{
     private Scene scene;
     private Character character;
     private Map map;
+    private Point coordinates;
 
     public Location() {
+    }
+
+    public Point getCoordinates() {
+        return coordinates;
+    }
+    public Point setCoordinates(int x, int y) {
+        return coordinates;
     }
 
     public int getRow() {

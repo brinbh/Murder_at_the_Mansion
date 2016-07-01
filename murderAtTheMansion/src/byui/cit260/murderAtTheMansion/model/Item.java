@@ -12,7 +12,7 @@ import java.util.Objects;
  * @author Britt
  */
 public enum Item {
-    golfClub("Bloody Golf Club", "This is a golf club wth blood on it.", "Clue"),
+    golfClub("Bloody Golf Club", "This is a golf club with blood on it.", "Clue"),
     license("Driver's License", "This is the victim's driver's license.", "Clue"),
     reciept("Reciept", "This is the reciept from the dinner he bought for everyone.", "Clue"),
     note("Note from CEO", "This is a note of praise from the CEO.", "Clue"),
