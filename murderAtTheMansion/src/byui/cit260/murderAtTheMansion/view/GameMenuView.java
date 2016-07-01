@@ -5,6 +5,10 @@
  */
 package byui.cit260.murderAtTheMansion.view;
 
+import byui.cit260.murderAtTheMansion.control.GameControl;
+import byui.cit260.murderAtTheMansion.model.Character;
+import byui.cit260.murderAtTheMansion.model.Point;
+
 import java.util.Scanner;
 
 /**
@@ -12,6 +16,7 @@ import java.util.Scanner;
  * @author Britt
  */
 public class GameMenuView extends View {
+     
 
     public GameMenuView(){
     super ("\n"
@@ -23,10 +28,11 @@ public class GameMenuView extends View {
                   + "\n DM - Display Map"
                   + "\n B - Show Backpack"
                   + "\n G - Guess Murderer"
-                  + "\n C - How many characters are there"
+                  + "\n C - Sort character list"
                   + "\n H - Help"
                   + "\n Q - Quit Game Menu"
                   + "\n--------------------------------------");
+    
     }
     @Override
     public boolean doAction(String choice) {
@@ -52,7 +58,7 @@ public class GameMenuView extends View {
                 this.guessMurderer();
                 break;
             case "C":
-                this.howManyCharacters();
+                this.sortCharacters();
                 break;
             case "H": 
                 this.displayHelpMenu();
@@ -100,8 +106,25 @@ public class GameMenuView extends View {
             guessMurderView.display();
     }
 
-    private void howManyCharacters() {
-            ManyCharacterView manyCharacterView = new ManyCharacterView();
-            manyCharacterView.display();
+    private void sortCharacters() {
+        //sort the list of characters
+        Character[] sortedList = GameControl.sortCharacters();
+        //print list of characters 
+        System.out.println("\n Sorted List of Characters");
+        StringBuilder line = new StringBuilder("                             ");
+        line.insert(0, "Name");
+        line.insert(5, "Description");
+        line.insert(10,"Coordinates");
+        System.out.println(line.toString());
+        
+        for(Character character : sortedList){
+            line = new StringBuilder("                         ");
+            line.insert(0, character.name());
+            line.insert(5, character.getDescription());
+            line.insert(10, character.getCoordinates().toString());
+            
+        }
+        
+        
     }
 }

@@ -11,6 +11,7 @@ import byui.cit260.murderAtTheMansion.model.Item;
 import byui.cit260.murderAtTheMansion.model.Map;
 import byui.cit260.murderAtTheMansion.model.Player;
 import byui.cit260.murderAtTheMansion.model.Scene;
+import byui.cit260.murderAtTheMansion.model.Character;
 import murderatthemansion.MurderAtTheMansion;
 
 /**
@@ -63,5 +64,50 @@ public class GameControl {
     static void assignScenesLocations(Map map, Scene[] scenes) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    public static Character[] sortCharacters (){
+        //extract enum items into an array 
+        Character[] charList = Character.values();
+        
+        int n = charList.length;
+        int k;
+        for (int m = n; m >= 0; m--){
+            for (int i = 0; i < n - 1; i++){
+               k = i + 1;
+               
+               
+               Character c1 = charList[i];
+               Character c2 = charList[k];
+                String s1 = c1.name();
+                String s2 = c2.name();
+                
+                int result = s1.compareTo(s2);
+                
+                if(result > 0){
+                  swapCharacter(i,k,charList);
+               }
+               
+               
+            }
+            
+        }
+        return charList;
+    }
+    public static void swapCharacter (int i, int j, Character[] charList){
+        
+    
+       Character character;
+       character = charList[i];
+       charList[i] = charList[j];
+       charList[j] = character;
+        
+    }
     
 }
+
+   
+
+    
+        
+
+    
+

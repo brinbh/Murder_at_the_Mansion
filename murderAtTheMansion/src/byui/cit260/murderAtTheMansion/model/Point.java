@@ -9,7 +9,7 @@ package byui.cit260.murderAtTheMansion.model;
  *
  * @author Sara
  */
-class Point {
+public class Point {
 
     Point(int i, int i0) {
         System.out.println("\n *** Point class called***");
