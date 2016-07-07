@@ -34,12 +34,10 @@ public class GameControl {
     public static void createNewGame(Player player) throws MapControlException {
         Game game = new Game();
         MurderAtTheMansion.setCurrentGame(game);
+
         
         game.setPlayer(player);
         player.setCharacter(Character.MainCharacter);
-
-       // Item[] itemList = GameControl.createItemList();
-        //game.setItem(itemList);
         
         Backpack backpack = new Backpack();
         game.setBackpack(backpack);
@@ -49,19 +47,12 @@ public class GameControl {
         
         MapControl.moveActorsToStartingLocation(map);
         
-        
+        System.out.println("Items: " + MurderAtTheMansion.getCurrentGame().getItem());
+        System.out.println("Backpack: " + MurderAtTheMansion.getCurrentGame().getBackpack());
+        System.out.println("Map: " + MurderAtTheMansion.getCurrentGame().getMap());
+        System.out.println("Total Time: " + MurderAtTheMansion.getCurrentGame().getTotalTime());
         
     }
-
-    private static Item[] createItemList() {
-        Item[] item = new Item[14];
-        
-        
-                
-        
-        return item;
-    }
-    
 
     public static Character[] sortCharacters (){
         //extract enum items into an array 

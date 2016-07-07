@@ -200,7 +200,7 @@ class MapControl {
         locations[4][2].setScene(scenes[SceneType.laundryRoom.ordinal()]);
         locations[4][3].setScene(scenes[SceneType.laundryRoom.ordinal()]);
         locations[4][4].setScene(scenes[SceneType.gameRoom.ordinal()]);
-
+        
 
     }
     

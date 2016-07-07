@@ -34,6 +34,7 @@ public class MurderAtTheMansion {
         MurderAtTheMansion.player = player;
     }
 
+
     /**
      * @param args the command line arguments
      */

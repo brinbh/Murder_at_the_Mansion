@@ -5,6 +5,7 @@
  */
 package byui.cit260.murderAtTheMansion.view;
 
+import byui.cit230.murderAtTheMansion.exceptions.GameControlException;
 import byui.cit260.murderAtTheMansion.model.Location;
 import byui.cit260.murderAtTheMansion.model.Scene;
 import byui.cit260.murderAtTheMansion.control.GameControl;
@@ -13,6 +14,8 @@ import byui.cit260.murderAtTheMansion.model.Item;
 
 
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import murderatthemansion.MurderAtTheMansion;
 
 /**
@@ -69,7 +72,13 @@ public class GameMenuView extends View {
                 this.displayHelpMenu();
                 break;
             case "TI": 
+        {
+            try {
                 this.calculateTotalItems();
+            } catch (GameControlException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -147,13 +156,11 @@ public class GameMenuView extends View {
             GuessMurderView guessMurderView = new GuessMurderView();
             guessMurderView.display();
     }
-   public int calculateTotalItems() {
+   public int calculateTotalItems() throws GameControlException {
         String errorMessage = "ERROR in retrieving the Items list. There is an error in the";
-        Item[] itemList = MurderAtTheMansion.getCurrentGame().getItem();
+        Item[] itemList = Item.values();
 
         for (Item item : itemList) {
-            
-            int counter = 0;
             
             int sumClues = 0;
             int sumFiles = 0;
@@ -172,16 +179,13 @@ public class GameMenuView extends View {
             
             //check to see if there are any items
             if (sumClues < 0) {
-                System.out.println(errorMessage + " sum of the Clues");
-                return -1;
+                throw new GameControlException(errorMessage + " sum of the Clues.");
             }
             if (sumFiles < 0) {
-                System.out.println(errorMessage + " sum of the Files");
-                return -1;
+                throw new GameControlException(errorMessage + " sum of the Files.");
             }
             if (sumWeapons < 0) {
-                System.out.println(errorMessage + " sum of the Weapons");
-                return -1;
+                throw new GameControlException(errorMessage + " sum of the Weapons.");
             }
             //Display the total
             System.out.println("The sum of the Clues is: " + sumClues);
