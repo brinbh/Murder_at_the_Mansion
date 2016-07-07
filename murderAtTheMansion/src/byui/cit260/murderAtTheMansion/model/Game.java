@@ -20,7 +20,6 @@ public class Game implements Serializable{
     
     public Game() {
     }
-
     public Backpack getBackpack() {
         return backpack;
     }
