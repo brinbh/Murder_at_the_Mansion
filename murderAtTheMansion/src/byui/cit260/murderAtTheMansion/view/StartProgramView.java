@@ -42,25 +42,7 @@ public class StartProgramView extends View {
     }
 
     
-    private String getPlayersName() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid){
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length()<1){
-                System.out.println("\nInvalid value; value cannot be blank");
-                continue;
-            }
-            break;
-        }
-            return value;
-    }
+    
     @Override
     public boolean doAction(String playersName) {
          if (playersName.length() < 2) {
