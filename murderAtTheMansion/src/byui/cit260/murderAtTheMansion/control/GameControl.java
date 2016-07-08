@@ -12,6 +12,7 @@ import byui.cit260.murderAtTheMansion.model.Item;
 import byui.cit260.murderAtTheMansion.model.Map;
 import byui.cit260.murderAtTheMansion.model.Player;
 import byui.cit260.murderAtTheMansion.model.Character;
+import byui.cit260.murderAtTheMansion.model.MainCharacter;
 import murderatthemansion.MurderAtTheMansion;
 
 /**
@@ -35,9 +36,8 @@ public class GameControl {
         Game game = new Game();
         MurderAtTheMansion.setCurrentGame(game);
 
-        
-        game.setPlayer(player);
-        player.setCharacter(Character.MainCharacter);
+        MainCharacter mainCharacter = new MainCharacter();
+        game.setMainCharacter(mainCharacter);
         
         Backpack backpack = new Backpack();
         game.setBackpack(backpack);
@@ -45,12 +45,6 @@ public class GameControl {
         Map map = MapControl.createMap();
         game.setMap(map);
         
-        MapControl.moveActorsToStartingLocation(map);
-        
-        System.out.println("Items: " + MurderAtTheMansion.getCurrentGame().getItem());
-        System.out.println("Backpack: " + MurderAtTheMansion.getCurrentGame().getBackpack());
-        System.out.println("Map: " + MurderAtTheMansion.getCurrentGame().getMap());
-        System.out.println("Total Time: " + MurderAtTheMansion.getCurrentGame().getTotalTime());
         
     }
 

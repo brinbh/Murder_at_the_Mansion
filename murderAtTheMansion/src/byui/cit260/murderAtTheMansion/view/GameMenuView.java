@@ -12,7 +12,6 @@ import byui.cit260.murderAtTheMansion.control.GameControl;
 import byui.cit260.murderAtTheMansion.model.Character;
 import byui.cit260.murderAtTheMansion.model.Item;
 
-
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,29 +22,29 @@ import murderatthemansion.MurderAtTheMansion;
  * @author Britt
  */
 public class GameMenuView extends View {
-     
 
-    public GameMenuView(){
-    super ("\n"
-                  + "\n--------------------------------------"
-                  + "\n| Game Menu                          |"
-                  + "\n--------------------------------------"
-                  + "\n M - Move Character"
-                  + "\n I - Interact with Objects"
-                  + "\n DM - Display Map"
-                  + "\n B - Show Backpack"
-                  + "\n G - Guess Murderer"
-                  + "\n C - Sort character list"
-                  + "\n TI - Get sum of total items"
-                  + "\n H - Help"
-                  + "\n Q - Quit Game Menu"
-                  + "\n--------------------------------------");
-    
+    public GameMenuView() {
+        super("\n"
+                + "\n--------------------------------------"
+                + "\n| Game Menu                          |"
+                + "\n--------------------------------------"
+                + "\n M - Move Character"
+                + "\n I - Interact with Objects"
+                + "\n DM - Display Map"
+                + "\n B - Show Backpack"
+                + "\n G - Guess Murderer"
+                + "\n C - Sort character list"
+                + "\n TI - Get sum of total items"
+                + "\n H - Help"
+                + "\n Q - Quit Game Menu"
+                + "\n--------------------------------------");
+
     }
+
     @Override
     public boolean doAction(String choice) {
         choice = choice.toUpperCase();
-        
+
         switch (choice) {
             case "M":
                 this.moveCharacter();
@@ -68,36 +67,35 @@ public class GameMenuView extends View {
             case "C":
                 this.sortCharacters();
                 break;
-            case "H": 
+            case "H":
                 this.displayHelpMenu();
                 break;
-            case "TI": 
-        {
-            try {
-                this.calculateTotalItems();
-            } catch (GameControlException ex) {
-                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            case "TI": {
+                try {
+                    this.calculateTotalItems();
+                } catch (GameControlException ex) {
+                    Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        }
-                break;
+            break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
-        
+
         return false;
     }
 
     private void moveCharacter() {
         MoveCharacterMenuView moveCharacterMenuView = new MoveCharacterMenuView();
         moveCharacterMenuView.display();
-        
+
     }
 
     private void interactWithObject() {
 
-            InteractObjectMenuView interactObjectMenuView = new InteractObjectMenuView();
-            interactObjectMenuView.display();  
+        InteractObjectMenuView interactObjectMenuView = new InteractObjectMenuView();
+        interactObjectMenuView.display();
     }
 
     private void displayContentOfLocation() {
@@ -106,77 +104,76 @@ public class GameMenuView extends View {
 
     private void displayMap() {
         //get locations
-       Location[][] locations = MurderAtTheMansion.getCurrentGame().getMap().getLocations();
+        Location[][] locations = MurderAtTheMansion.getCurrentGame().getMap().getLocations();
         //print title
         System.out.println("Murder at the Mansion Map");
         //print column numbers
         System.out.println(" 1    2    3    4    5   "
-                         + "\n_________________________");
+                + "\n_________________________");
         //FOR every row in map 
-        for (Location[] row : locations){
+        for (Location[] row : locations) {
             //PRINT a row divider 
             System.out.println("_________________________");
             //PRINT the row number on a new line
             //create rowNum counter
             System.out.println(row);
             //FOR every column in row
-            for (Location location : row)   {
+            for (Location location : row) {
                 //PRINT a column divider
                 System.out.println("|");
                 //IF location has been visited 
-                if (location.getVisited() == true)
+                if (location.getVisited() == true) {
                     System.out.println(location.getScene().getDisplaySymbol());
-                    // PRINT the mapSymbol in the scene in this location 
+                } // PRINT the mapSymbol in the scene in this location 
                 // ELSE 
-                else
+                else {
                     System.out.println("??");
+                }
                 int counter = 0;
-                if (counter >= 25){
+                if (counter >= 25) {
                     System.out.println("|");
                     break;
                 }
-                    
+
             }
             System.out.println("_________________________");
         }
-        
+
     }
 
     private void showBackpack() {
-            BackpackMenuView backpackMenuView = new BackpackMenuView();
-            backpackMenuView.display();
+        BackpackMenuView backpackMenuView = new BackpackMenuView();
+        backpackMenuView.display();
     }
-    
+
     private void displayHelpMenu() {
-            HelpMenuView helpMenuView = new HelpMenuView();
-            helpMenuView.displayHelpMenuView();
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.displayHelpMenuView();
     }
 
     private void guessMurderer() {
-            GuessMurderView guessMurderView = new GuessMurderView();
-            guessMurderView.display();
+        GuessMurderView guessMurderView = new GuessMurderView();
+        guessMurderView.display();
     }
-   public int calculateTotalItems() throws GameControlException {
+
+    public int calculateTotalItems() throws GameControlException {
         String errorMessage = "ERROR in retrieving the Items list. There is an error in the";
         Item[] itemList = Item.values();
+        int sumClues = 0;
+        int sumFiles = 0;
+        int sumWeapons = 0;
 
         for (Item item : itemList) {
-            
-            int sumClues = 0;
-            int sumFiles = 0;
-            int sumWeapons = 0;
-            
+
             // Count sum of each type of Item
             if (item.getType().equals("Clue")) {
                 sumClues += 1;
-            } 
-            else if (item.getType().equals("File")) {
+            } else if (item.getType().equals("File")) {
                 sumFiles += 1;
-            } 
-            else {
+            } else {
                 sumWeapons += 1;
             }
-            
+
             //check to see if there are any items
             if (sumClues < 0) {
                 throw new GameControlException(errorMessage + " sum of the Clues.");
@@ -188,10 +185,11 @@ public class GameMenuView extends View {
                 throw new GameControlException(errorMessage + " sum of the Weapons.");
             }
             //Display the total
-            System.out.println("The sum of the Clues is: " + sumClues);
-            System.out.println("The sum of the Files is: " + sumFiles);
-            System.out.println("The sum of the Weapons is: " + sumWeapons);
+
         }
+        System.out.println("The sum of the Clues is: " + sumClues);
+        System.out.println("The sum of the Files is: " + sumFiles);
+        System.out.println("The sum of the Weapons is: " + sumWeapons);
         return 0;
     }
 
@@ -203,18 +201,17 @@ public class GameMenuView extends View {
         StringBuilder line = new StringBuilder("                             ");
         line.insert(0, "Name");
         line.insert(8, "Description");
-        line.insert(40,"Coordinates");
+        line.insert(40, "Coordinates");
         System.out.println(line.toString());
-        
-        for(Character character : sortedList){
+
+        for (Character character : sortedList) {
             line = new StringBuilder("                         ");
             line.insert(0, character.name());
             line.insert(12, character.getDescription());
-            line.insert(60, character.getCoordinates().x + ", "+ character.getCoordinates().y);
+            line.insert(60, character.getCoordinates().x + ", " + character.getCoordinates().y);
             System.out.println(line.toString());
-            
+
         }
-        
-        
+
     }
 }

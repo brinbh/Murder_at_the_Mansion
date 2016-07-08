@@ -12,6 +12,7 @@ import byui.cit260.murderAtTheMansion.model.Map;
 import byui.cit260.murderAtTheMansion.model.Player;
 import byui.cit260.murderAtTheMansion.model.Scene;
 import byui.cit260.murderAtTheMansion.model.Character;
+import byui.cit260.murderAtTheMansion.model.MainCharacter;
 import java.awt.Point;
 import murderatthemansion.MurderAtTheMansion;
 
@@ -19,7 +20,7 @@ import murderatthemansion.MurderAtTheMansion;
  *
  * @author Sara
  */
-class MapControl {
+public class MapControl {
 
     static Map createMap() {
         Map map = new Map(5,5);
@@ -28,30 +29,32 @@ class MapControl {
         return map;
     }
     
-    public static void moveActorsToStartingLocation(Map map) throws MapControlException {
-       
-       //Main Character
-       Character[] characters = Character.values();
-       MapControl.moveActorToLocation(Character.MainCharacter, Character.MainCharacter.getCoordinates());
-       MapControl.moveActorToLocation(Character.Marvin, Character.Marvin.getCoordinates());
-       MapControl.moveActorToLocation(Character.Paula, Character.Paula.getCoordinates());
-       MapControl.moveActorToLocation(Character.John, Character.John.getCoordinates());
-       MapControl.moveActorToLocation(Character.Sophia, Character.Sophia.getCoordinates());
-       MapControl.moveActorToLocation(Character.Randalph, Character.Randalph.getCoordinates());
-       
-       //MapControl.moveActorToLocation(Character.MainCharacter, coordinates);
-       
-      
+    /*public static void moveMainCharacterToStartingLocation() throws MapControlException {
 
+       Point startingLocation = new Point(0,0);
+       MapControl.moveCharacterToLocation(startingLocation);
        
-    }
-    public static void moveActorToLocation(Character character, Point coordinates) throws MapControlException{
-        Map map = MurderAtTheMansion.getCurrentGame().getMap();
-        int newRow = coordinates.x;
-        int newCol = coordinates.y;
+    }*/
+    public static void moveCharacterToLocation(Point coordinates) throws MapControlException{
+        
+        Point currentLocation = MurderAtTheMansion.getPlayer().getMainCharacter().getCoordinates();
+        
+        int newRow = coordinates.x + currentLocation.x;
+        int newCol = coordinates.y + currentLocation.y;
+        
+        System.out.println("newRow: " + newRow);
+        System.out.println("newCol: " + newCol);
+        
+        //set Location's Character
         
         
-        if (newRow < 0 || newRow >= 5 || newCol < 0 || newCol >= 5){
+        //set Character's Location
+        Point newCoordinates = new Point(newCol, newRow);
+        MurderAtTheMansion.getPlayer().getMainCharacter().setCoordinates(newCoordinates);
+        
+        System.out.println("Your character has now moved to location: " + MurderAtTheMansion.getPlayer().getMainCharacter().getCoordinates());
+        
+        if (newRow < 0 || newRow > 5 || newCol < 0 || newCol > 5){
             throw new MapControlException("Can not move actor to location " + 
                     coordinates.x + ", " + coordinates.y + " because that "
                     + "location is outside the bounds of the map.");

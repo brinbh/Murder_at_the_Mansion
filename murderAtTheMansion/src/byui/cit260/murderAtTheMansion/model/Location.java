@@ -16,7 +16,7 @@ public class Location implements Serializable{
     private int col;
     private boolean visited;
     private Scene scene;
-    private Character character;
+    private Character[] characters;
     private Map map;
     private Point coordinates;
 
@@ -62,12 +62,12 @@ public class Location implements Serializable{
         this.scene = scene;
     }
 
-    public Character getCharacter() {
-        return character;
+    public Character[] getCharacter() {
+        return characters;
     }
 
-    public void setCharacter(Character character) {
-        this.character = character;
+    public void setCharacter(Character[] character) {
+        this.characters = character;
     }
 
     public Map getMap() {
