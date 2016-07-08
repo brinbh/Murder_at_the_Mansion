@@ -81,7 +81,7 @@ public class GameMenuView extends View {
         }
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
         }
         
@@ -101,43 +101,43 @@ public class GameMenuView extends View {
     }
 
     private void displayContentOfLocation() {
-        System.out.println("\n*** displayContentOfLocationl() function called***");
+        ErrorView.display(this.getClass().getName(),"\n*** displayContentOfLocationl() function called***");
     }
 
     private void displayMap() {
         //get locations
        Location[][] locations = MurderAtTheMansion.getCurrentGame().getMap().getLocations();
         //print title
-        System.out.println("Murder at the Mansion Map");
+        this.console.println("Murder at the Mansion Map");
         //print column numbers
-        System.out.println(" 1    2    3    4    5   "
+        this.console.println(" 1    2    3    4    5   "
                          + "\n_________________________");
         //FOR every row in map 
         for (Location[] row : locations){
             //PRINT a row divider 
-            System.out.println("_________________________");
+            this.console.println("_________________________");
             //PRINT the row number on a new line
             //create rowNum counter
-            System.out.println(row);
+            this.console.println(row);
             //FOR every column in row
             for (Location location : row)   {
                 //PRINT a column divider
-                System.out.println("|");
+                this.console.println("|");
                 //IF location has been visited 
                 if (location.getVisited() == true)
-                    System.out.println(location.getScene().getDisplaySymbol());
+                    this.console.println(location.getScene().getDisplaySymbol());
                     // PRINT the mapSymbol in the scene in this location 
                 // ELSE 
                 else
-                    System.out.println("??");
+                    this.console.println("??");
                 int counter = 0;
                 if (counter >= 25){
-                    System.out.println("|");
+                    this.console.println("|");
                     break;
                 }
                     
             }
-            System.out.println("_________________________");
+            this.console.println("_________________________");
         }
         
     }
@@ -188,9 +188,9 @@ public class GameMenuView extends View {
                 throw new GameControlException(errorMessage + " sum of the Weapons.");
             }
             //Display the total
-            System.out.println("The sum of the Clues is: " + sumClues);
-            System.out.println("The sum of the Files is: " + sumFiles);
-            System.out.println("The sum of the Weapons is: " + sumWeapons);
+            this.console.println("The sum of the Clues is: " + sumClues);
+            this.console.println("The sum of the Files is: " + sumFiles);
+            this.console.println("The sum of the Weapons is: " + sumWeapons);
         }
         return 0;
     }
@@ -199,19 +199,19 @@ public class GameMenuView extends View {
         //sort the list of characters
         Character[] sortedList = GameControl.sortCharacters();
         //print list of characters 
-        System.out.println("\n Sorted List of Characters");
+        this.console.println("\n Sorted List of Characters");
         StringBuilder line = new StringBuilder("                             ");
         line.insert(0, "Name");
         line.insert(8, "Description");
         line.insert(40,"Coordinates");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
         
         for(Character character : sortedList){
             line = new StringBuilder("                         ");
             line.insert(0, character.name());
             line.insert(12, character.getDescription());
             line.insert(60, character.getCoordinates().x + ", "+ character.getCoordinates().y);
-            System.out.println(line.toString());
+            this.console.println(line.toString());
             
         }
         

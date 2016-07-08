@@ -5,6 +5,7 @@
  */
 package byui.cit260.murderAtTheMansion.control;
 
+import byui.cit230.murderAtTheMansion.exceptions.GameControlException;
 import byui.cit230.murderAtTheMansion.exceptions.MapControlException;
 import byui.cit260.murderAtTheMansion.model.Backpack;
 import byui.cit260.murderAtTheMansion.model.Game;
@@ -12,6 +13,10 @@ import byui.cit260.murderAtTheMansion.model.Item;
 import byui.cit260.murderAtTheMansion.model.Map;
 import byui.cit260.murderAtTheMansion.model.Player;
 import byui.cit260.murderAtTheMansion.model.Character;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import murderatthemansion.MurderAtTheMansion;
 
 /**
@@ -47,10 +52,6 @@ public class GameControl {
         
         MapControl.moveActorsToStartingLocation(map);
         
-        System.out.println("Items: " + MurderAtTheMansion.getCurrentGame().getItem());
-        System.out.println("Backpack: " + MurderAtTheMansion.getCurrentGame().getBackpack());
-        System.out.println("Map: " + MurderAtTheMansion.getCurrentGame().getMap());
-        System.out.println("Total Time: " + MurderAtTheMansion.getCurrentGame().getTotalTime());
         
     }
 
@@ -91,6 +92,30 @@ public class GameControl {
        charList[j] = character;
         
     }
+
+    public static void saveGame(Game currentGame, String filePath) throws GameControlException{
+        try (FileOutputStream fops = new FileOutputStream(filePath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(currentGame);
+        } catch(Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+    }
+
+    public static void getSavedGame(String filePath) throws GameControlException{
+        Game game = null;
+        
+        try (FileInputStream fips = new FileInputStream(filePath)){
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+        game = (Game) input.readObject();
+        }catch(Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+        MurderAtTheMansion.setCurrentGame(game);
+    }
+        
     
 }
 

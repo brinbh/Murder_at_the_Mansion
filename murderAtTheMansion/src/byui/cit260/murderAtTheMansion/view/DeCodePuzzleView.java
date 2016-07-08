@@ -40,10 +40,10 @@ public class DeCodePuzzleView extends View{
         try {
             code = puzzleControl.decodePuzzle(age, weight, amount);
         } catch (puzzleControlException ex) {
-            System.out.println("\n Error");
+            ErrorView.display(this.getClass().getName(),"\n Wrong input.");
         }
         //print out code 
-        System.out.println(code);
+        this.console.println(code);
         
         return true;
         

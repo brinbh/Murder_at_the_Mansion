@@ -6,7 +6,6 @@
  */
 package byui.cit260.murderAtTheMansion.view;
 
-import byui.cit260.murderAtTheMansion.control.MoveCharacter;
 import java.util.Scanner;
 
 /**
@@ -39,7 +38,7 @@ public class MoveCharacterMenuView extends View {
         String [] words = choice.split(" ");
         //verify the amount of variables in array
         if (words.length != 2){
-            System.out.println("\n*** Invalid input. Please input the letter, a space, and then the number***");
+            ErrorView.display(this.getClass().getName(),"\n*** Invalid input. Please input the letter, a space, and then the number***");
             return false;
         }
         String direction = words[0];
@@ -53,7 +52,7 @@ public class MoveCharacterMenuView extends View {
             distance = Integer.parseInt(sdistance);
         }
         catch(NumberFormatException ex) {
-            System.out.println("\n*** Invalid value. You must first enter the direction then the distance. ***");
+            ErrorView.display(this.getClass().getName(),"\n*** Invalid value. You must first enter the direction then the distance. ***");
             return false;
         }
         switch (direction) {
@@ -61,11 +60,10 @@ public class MoveCharacterMenuView extends View {
                 case "D":
                 case "L":
                 case "R":
-                    MoveCharacter moveCharacter = new MoveCharacter();
-                    moveCharacter.moveCharacter(direction, distance);
+                    
                     break;
                 default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
         }
         

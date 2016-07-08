@@ -26,15 +26,15 @@ public class GuessMurderView extends View {
                 String value = this.getInput();
                 value = value.toUpperCase();
                 if (value.equals("JOHN")) {
-                    System.out.println("You guessed right! He is the murderer!");
+                    this.console.println("You guessed right! He is the murderer!");
                     return true;
                 }
-                System.out.println("You guessed wrong! Look at your clues again detective.");
+                this.console.println("You guessed wrong! Look at your clues again detective.");
                 break;
             case "N":
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
 
         }
