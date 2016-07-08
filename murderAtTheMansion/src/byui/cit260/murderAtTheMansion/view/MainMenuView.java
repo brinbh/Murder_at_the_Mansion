@@ -53,7 +53,7 @@ public class MainMenuView extends View {
                 this.saveGame();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
         }
         
@@ -65,7 +65,7 @@ public class MainMenuView extends View {
             GameControl.createNewGame(MurderAtTheMansion.getPlayer());
             }
             catch (MapControlException mce){
-            System.out.println(mce.getMessage());
+           this.console.println(mce.getMessage());
             return;
             
             }
@@ -79,7 +79,7 @@ public class MainMenuView extends View {
 
     private void displayHelpMenu() {
             HelpMenuView helpMenuView = new HelpMenuView();
-            helpMenuView.displayHelpMenuView();
+            helpMenuView.display();
     }
 
     private void saveGame() {

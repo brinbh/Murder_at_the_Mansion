@@ -47,7 +47,7 @@ public class MoveCharacterMenuView extends View {
         String [] words = choice.split(" ");
         //verify the amount of variables in array
         if (words.length != 2){
-            System.out.println("\n*** Invalid input. Please input the letter, a space, and then the number***");
+            ErrorView.display(this.getClass().getName(),"\n*** Invalid input. Please input the letter, a space, and then the number***");
             return false;
         }
         String sdirection = words[0];
@@ -60,7 +60,7 @@ public class MoveCharacterMenuView extends View {
             distance = Integer.parseInt(sdistance);
         }
         catch(NumberFormatException ex) {
-            System.out.println("\n*** Invalid value. You must first enter the direction then the distance. ***");
+            ErrorView.display(this.getClass().getName(),"\n*** Invalid value. You must first enter the direction then the distance. ***");
             return false;
         }
 
@@ -106,7 +106,7 @@ public class MoveCharacterMenuView extends View {
         }
                     break;
                 default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
         }
         

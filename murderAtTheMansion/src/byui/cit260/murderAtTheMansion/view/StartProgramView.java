@@ -42,36 +42,18 @@ public class StartProgramView extends View {
     }
 
     
-    private String getPlayersName() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid){
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length()<1){
-                System.out.println("\nInvalid value; value cannot be blank");
-                continue;
-            }
-            break;
-        }
-            return value;
-    }
+    
     @Override
     public boolean doAction(String playersName) {
          if (playersName.length() < 2) {
-             System.out.println("\nInvalid players name: " 
+             this.console.println("\nInvalid players name: " 
                                 + "The name must be greater than 1 character in length.");
              return false;
          }
          Player player = GameControl.createPlayer(playersName);
          
          if (player == null){
-             System.out.println("\nError creating the player.");
+             ErrorView.display(this.getClass().getName(),"\nError creating the player.");
              return false;
          }
          
@@ -81,7 +63,7 @@ public class StartProgramView extends View {
     }
 
     private void displayNextView(Player player) {
-        System.out.println("\n=============================================="
+        this.console.println("\n=============================================="
                            +"\n Welcome to the game " + player.getName() + "."
                            +"\n We hope you have a lot of fun!"
                            +"\n=============================================="

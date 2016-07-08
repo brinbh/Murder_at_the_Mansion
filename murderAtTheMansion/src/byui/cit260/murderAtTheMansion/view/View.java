@@ -5,7 +5,14 @@
  */
 package byui.cit260.murderAtTheMansion.view;
 
+import byui.cit260.murderAtTheMansion.control.GameControl;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import murderatthemansion.MurderAtTheMansion;
 
 /**
  *
@@ -13,6 +20,9 @@ import java.util.Scanner;
  */
 public abstract class View implements ViewInterface {
     protected String displayMessage; 
+    
+    protected final BufferedReader keyboard = MurderAtTheMansion.getInFile();
+    public final PrintWriter console = MurderAtTheMansion.getOutFile();
     
     public View() {
         
@@ -35,18 +45,21 @@ public abstract class View implements ViewInterface {
     }
     @Override 
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean valid = false;
         
         while (!valid){
-            System.out.println("\n" + this.displayMessage);
+            this.console.println("\n" + this.displayMessage);
             
-            value = keyboard.nextLine();
+            try {
+                value = this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+            }
             value = value.trim();
             
             if(value.length()<1){
-                System.out.println("\nInvalid value; value cannot be blank");
+                this.console.println("\nInvalid value; value cannot be blank");
                 continue;
             }
             break;
@@ -54,6 +67,32 @@ public abstract class View implements ViewInterface {
             return value;
         
     }
-    
+    private void saveGame(){
+        this.console.println("\n\n Enter the file path for the file where the game "
+                + "needs to be saved.");
+        String filePath = this.getInput();
+        
+        try{
+            GameControl.saveGame(MurderAtTheMansion.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+            
+            
+      
+}
+    private void startSaveGame (){
+        this.console.println("\n\n Eneter the file path for the file where the game "
+                + "can be saved.");
+        String filePath = this.getInput();
+        
+        try{
+            GameControl.getSavedGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("ManinMenuView", ex.getMessage());
+        }
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+    }
 }
 

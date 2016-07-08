@@ -24,15 +24,15 @@ public class InteractObjectMenuView extends View{
 
         switch(choice){
             case "Y" :
-                System.out.println("\n*** You picked up the item ***"); 
+                this.console.println("\n*** You picked up the item ***"); 
                     gameMenu.display();
             break;
             case "N":
-                System.out.println("\n*** You dropped the item ***");      
+                 this.console.println("\n*** You dropped the item ***");      
             gameMenu.display();
             break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                 this.console.println("\n*** Invalid selection *** Try again");
                 break;
             
             }
