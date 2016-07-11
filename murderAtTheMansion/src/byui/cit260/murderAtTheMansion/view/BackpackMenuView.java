@@ -80,15 +80,18 @@ public class BackpackMenuView extends View {
     }
 
     private void murderedFile() {
-        System.out.println("\n*** murderedFile() function called***");
+        MurderedFileView murderedFileView = new MurderedFileView();
+        murderedFileView.display();   
     }
 
     private void backpackWeapons() {
-        System.out.println("\n*** backpackWeapons() function called***");
+        BackpackWeaponsView backpackWeaponsView = new BackpackWeaponsView();
+        backpackWeaponsView.display();   
     }
 
     private void viewClues() {
-        System.out.println("\n*** viewClues() function called***");
+        ViewCluesView viewCluesView = new ViewCluesView();
+        viewCluesView.display();    
     }
 }
 
