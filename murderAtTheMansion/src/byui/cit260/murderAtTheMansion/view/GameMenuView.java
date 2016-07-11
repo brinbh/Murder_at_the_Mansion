@@ -7,16 +7,7 @@ package byui.cit260.murderAtTheMansion.view;
 
 import byui.cit230.murderAtTheMansion.exceptions.GameControlException;
 import byui.cit260.murderAtTheMansion.model.Location;
-import byui.cit260.murderAtTheMansion.model.Scene;
-import byui.cit260.murderAtTheMansion.control.GameControl;
-import byui.cit260.murderAtTheMansion.model.Character;
 import byui.cit260.murderAtTheMansion.model.Item;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import murderatthemansion.MurderAtTheMansion;
@@ -69,7 +60,7 @@ public class GameMenuView extends View {
                 this.guessMurderer();
                 break;
             case "C":
-                this.sortCharacters();
+                this.sortCharactersView();
                 break;
             case "H":
                 this.displayHelpMenu();
@@ -195,6 +186,11 @@ public class GameMenuView extends View {
             this.console.println("The sum of the Weapons is: " + sumWeapons);
         }
         return 0;
+    }
+
+    private void sortCharactersView() {
+        SortCharactersView sortCharactersView = new SortCharactersView();
+        sortCharactersView.display();
     }
 
     

@@ -12,36 +12,36 @@ import byui.cit260.murderAtTheMansion.control.puzzleControl;
  *
  * @author Sara
  */
-public class DeCodePuzzleView extends View{
+public class MurderAmountOfTimeView extends View{
 
     private String promptMessage;
     
-    public DeCodePuzzleView () {
-        super ("\nWhat is the age of the victim?");
+    public MurderAmountOfTimeView () {
+        super ("\nWhat is the start time?");
     
 }
 
     @Override
-    public boolean doAction(String strAge) {
+    public boolean doAction(String strST) {
         //age
-        int age = Integer.parseInt(strAge);
+        int startTime = Integer.parseInt(strST);
         //weight
-        this.promptMessage = "What is the weight of the victim?";
-        String strWeight = this.getInput();
-        int weight = Integer.parseInt(strWeight);
+        this.promptMessage = "What is the end time?";
+        String strET = this.getInput();
+        int endTime = Integer.parseInt(strET);
         //time 
-        this.promptMessage = "What is the amount of time?";
-        String strTime = this.getInput();
-        int amount = Integer.parseInt(strTime);
+        this.promptMessage = "What is the amount of time that they had to hide the body?";
+        String strHBT = this.getInput();
+        int hideBodyTime = Integer.parseInt(strHBT);
         //call code 
-        double code = 0;
+        double murderTime = 0;
         try {
-            code = puzzleControl.decodePuzzle(age, weight, amount);
+            murderTime = puzzleControl.murderAmountOfTime(startTime, endTime, hideBodyTime);
         } catch (puzzleControlException ex) {
             ErrorView.display(this.getClass().getName(),"\n Wrong input.");
         }
         //print out code 
-        this.console.println(code);
+        this.console.println(murderTime);
         
         return true;
         
