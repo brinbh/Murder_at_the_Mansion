@@ -23,18 +23,10 @@ public class Game implements Serializable{
         this.mainCharacter = mainCharacter;
     }
     private Player player;
-    private Backpack backpack;
     private MainCharacter mainCharacter;
     
     
     public Game() {
-    }
-    public Backpack getBackpack() {
-        return backpack;
-    }
-
-    public void setBackpack(Backpack backpack) {
-        this.backpack = backpack;
     }
 
     public Player getPlayer() {

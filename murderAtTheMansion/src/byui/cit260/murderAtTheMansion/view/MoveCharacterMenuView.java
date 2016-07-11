@@ -7,7 +7,6 @@
 package byui.cit260.murderAtTheMansion.view;
 
 import byui.cit230.murderAtTheMansion.exceptions.MapControlException;
-import byui.cit260.murderAtTheMansion.control.MoveCharacter;
 import byui.cit260.murderAtTheMansion.control.MapControl;
 import byui.cit260.murderAtTheMansion.model.Character;
 import byui.cit260.murderAtTheMansion.model.Location;
@@ -15,6 +14,7 @@ import java.awt.Point;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import murderatthemansion.MurderAtTheMansion;
 
 
 /**
@@ -100,8 +100,12 @@ public class MoveCharacterMenuView extends View {
         {
             try {
                 MapControl.moveCharacterToLocation(desiredPosition);
+                if (MapControl.moveCharacterToLocation(desiredPosition)){
+                    this.console.println("Your character has now moved to location: " 
+                + MurderAtTheMansion.getPlayer().getMainCharacter().getCoordinates());
+                }
             } catch (MapControlException ex) {
-                System.out.println("ERROR: wrong input for direction.");
+                ErrorView.display(this.getClass().getName(),"Wrong input for direction.");
             }
         }
                     break;

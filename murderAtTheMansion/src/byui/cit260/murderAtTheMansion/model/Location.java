@@ -19,6 +19,31 @@ public class Location implements Serializable{
     private Character[] characters;
     private Map map;
     private Point coordinates;
+    private boolean mainCharacter;
+
+    public boolean isMainCharacter() {
+        return mainCharacter;
+    }
+
+    public void setMainCharacter(boolean mainCharacter) {
+        this.mainCharacter = mainCharacter;
+    }
+    
+    public Character[] getCharacters() {
+        return characters;
+    }
+
+    public void setCharacters(Character[] characters) {
+        this.characters = characters;
+    }
+
+    /*public MainCharacter getMainCharacter() {
+        return mainCharacter;
+    }
+
+    public boolean setMainCharacter(boolean isHere) {
+        return isHere;
+    }*/
 
     public Location() {
     }

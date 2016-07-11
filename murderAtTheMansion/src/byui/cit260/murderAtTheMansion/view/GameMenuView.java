@@ -186,9 +186,9 @@ public class GameMenuView extends View {
             //Display the total
 
         }
-        System.out.println("The sum of the Clues is: " + sumClues);
-        System.out.println("The sum of the Files is: " + sumFiles);
-        System.out.println("The sum of the Weapons is: " + sumWeapons);
+        this.console.println("The sum of the Clues is: " + sumClues);
+        this.console.println("The sum of the Files is: " + sumFiles);
+        this.console.println("The sum of the Weapons is: " + sumWeapons);
         return 0;
     }
 

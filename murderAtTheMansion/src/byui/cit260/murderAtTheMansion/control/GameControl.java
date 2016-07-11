@@ -7,13 +7,17 @@ package byui.cit260.murderAtTheMansion.control;
 
 import byui.cit230.murderAtTheMansion.exceptions.GameControlException;
 import byui.cit230.murderAtTheMansion.exceptions.MapControlException;
-import byui.cit260.murderAtTheMansion.model.Backpack;
 import byui.cit260.murderAtTheMansion.model.Game;
 import byui.cit260.murderAtTheMansion.model.Item;
 import byui.cit260.murderAtTheMansion.model.Map;
 import byui.cit260.murderAtTheMansion.model.Player;
 import byui.cit260.murderAtTheMansion.model.Character;
+import byui.cit260.murderAtTheMansion.model.Location;
 import byui.cit260.murderAtTheMansion.model.MainCharacter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import murderatthemansion.MurderAtTheMansion;
 
 /**
@@ -39,15 +43,15 @@ public class GameControl {
 
         MainCharacter mainCharacter = new MainCharacter();
         game.setMainCharacter(mainCharacter);
-        
-        Backpack backpack = new Backpack();
-        game.setBackpack(backpack);
+        mainCharacter.setName("Detective " + player.getName());
+        mainCharacter.setDescription("You are a detective."); 
+        player.setMainCharacter(mainCharacter);
         
         Map map = MapControl.createMap();
         game.setMap(map);
-        
-        MapControl.moveActorsToStartingLocation(map);
-        
+        Location[][] startingLocation = map.getLocations();
+        startingLocation[0][0].setMainCharacter(true);
+                
         
     }
 
