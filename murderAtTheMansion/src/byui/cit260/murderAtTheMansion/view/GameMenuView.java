@@ -5,7 +5,7 @@
  */
 package byui.cit260.murderAtTheMansion.view;
 
-import byui.cit230.murderAtTheMansion.exceptions.GameControlException;
+import byui.cit260.murderAtTheMansion.exceptions.GameControlException;
 import byui.cit260.murderAtTheMansion.model.Location;
 import byui.cit260.murderAtTheMansion.model.Scene;
 import byui.cit260.murderAtTheMansion.control.GameControl;

@@ -5,7 +5,7 @@
  */
 package byui.cit260.murderAtTheMansion.view;
 
-import byui.cit230.murderAtTheMansion.exceptions.MapControlException;
+import byui.cit260.murderAtTheMansion.exceptions.MapControlException;
 import byui.cit260.murderAtTheMansion.control.GameControl;
 import java.util.Scanner;
 import murderatthemansion.MurderAtTheMansion;

@@ -5,8 +5,8 @@
  */
 package byui.cit260.murderAtTheMansion.control;
 
-import byui.cit230.murderAtTheMansion.exceptions.MapControlException;
-import byui.cit230.murderAtTheMansion.exceptions.puzzleControlException;
+import byui.cit260.murderAtTheMansion.exceptions.MapControlException;
+import byui.cit260.murderAtTheMansion.exceptions.puzzleControlException;
 
 /**
  *

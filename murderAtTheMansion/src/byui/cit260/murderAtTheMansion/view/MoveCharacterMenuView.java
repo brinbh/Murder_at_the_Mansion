@@ -6,7 +6,7 @@
  */
 package byui.cit260.murderAtTheMansion.view;
 
-import byui.cit230.murderAtTheMansion.exceptions.MapControlException;
+import byui.cit260.murderAtTheMansion.exceptions.MapControlException;
 import byui.cit260.murderAtTheMansion.control.MapControl;
 import byui.cit260.murderAtTheMansion.model.Character;
 import byui.cit260.murderAtTheMansion.model.Location;
