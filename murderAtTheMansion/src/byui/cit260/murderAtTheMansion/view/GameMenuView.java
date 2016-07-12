@@ -7,6 +7,7 @@ package byui.cit260.murderAtTheMansion.view;
 
 import byui.cit260.murderAtTheMansion.exceptions.GameControlException;
 import byui.cit260.murderAtTheMansion.model.Location;
+import byui.cit260.murderAtTheMansion.model.Item;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import murderatthemansion.MurderAtTheMansion;
@@ -59,14 +60,14 @@ public class GameMenuView extends View {
                 this.guessMurderer();
                 break;
             case "C":
-                this.sortCharacters();
+                this.sortCharactersView();
                 break;
             case "H":
                 this.displayHelpMenu();
                 break;
             case "TI": {
                 try {
-                    this.ShowSortItemsView();
+                    this.showTotalItemsView();
                 } catch (GameControlException ex) {
                     Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -105,10 +106,10 @@ public class GameMenuView extends View {
         this.console.println(" 1    2    3    4    5   "
                 + "\n_________________________");
         //FOR every row in map 
+
         int rowCounter = 0;
         StringBuilder line = new StringBuilder("                         ");
-        
-        
+
         for (Location[] row : locations) {
             //PRINT a row divider 
             this.console.println("_________________________");
@@ -121,28 +122,30 @@ public class GameMenuView extends View {
             
             this.console.println(line.toString());
             //FOR every column in row
-            for (Location location : row) {            
+
+            for (Location location : row) {
+
                 //PRINT a column divider
                 //this.console.println("|");
                 //IF location has been visited 
+
                 line.insert(2,location.getScene().getDisplaySymbol());
-                if (location.getVisited() == true) {
-                    this.console.println(location.getScene().getDisplaySymbol());
-                
-                
                 line.insert(1, line);
                 // PRINT the mapSymbol in the scene in this location 
                 // ELSE
+                if (location.getVisited() == true) {
+                    this.console.println(location.getScene().getDisplaySymbol());
                 }
                 else {
                     this.console.println("|??");
-                }
+
+                } // PRINT the mapSymbol in the scene in this location 
+
                 int counter = 0;
                 if (counter >= 25) {
                     this.console.println("|");
                     break;
                 }
-                
 
             }
             this.console.println("_________________________");
@@ -166,16 +169,18 @@ public class GameMenuView extends View {
         guessMurderView.display();
     }
 
-    public void ShowSortItemsView() throws GameControlException {
+    public void showTotalItemsView() throws GameControlException {
         SortItemsView sortItemsView = new SortItemsView();
         sortItemsView.display();
+        }
 
-    }
 
-    private void sortCharacters() {
+    private void sortCharactersView() {
         SortCharactersView sortCharactersView = new SortCharactersView();
         sortCharactersView.display();
-        }
+
     }
 
+
+}
 

@@ -37,7 +37,7 @@ public class puzzleControl {
         
     }
     
-    public double calculateAge(int monthOfBirth, int yearOfBirth, int monthOfDeath, int yearOfDeath)throws puzzleControlException{
+    public static double calculateAge(int monthOfBirth, int yearOfBirth, int monthOfDeath, int yearOfDeath)throws puzzleControlException{
         //Verfify validity of input
         //monthOfBirth
         if (monthOfBirth < 0 || monthOfBirth > 12){
@@ -70,7 +70,7 @@ public class puzzleControl {
         return ageOfMurderer;
     }
     
-    public double murderAmountOfTime(int startTime, int endTime, int hideBody)throws puzzleControlException{
+    public static double murderAmountOfTime(int startTime, int endTime, int hideBody)throws puzzleControlException{
         //If (starttime > 9 or starttime < 9) then
         if (startTime > 9 || startTime < 9){
                 throw new puzzleControlException("The start time that you entered is"
@@ -81,7 +81,7 @@ public class puzzleControl {
                     + "incorrect, please try again");
         }
 	if (hideBody > 2 || hideBody < 2){
-            throw new puzzleControlException("The amunt to hide the body that you entered is"
+            throw new puzzleControlException("The amount to hide the body that you entered is"
                     + "incorrect, please try again");
         }
 	
