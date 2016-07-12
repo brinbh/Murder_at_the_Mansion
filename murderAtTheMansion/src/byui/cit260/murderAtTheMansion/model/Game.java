@@ -14,18 +14,19 @@ public class Game implements Serializable{
     private double totalTime;
     private Item[] item;
     private Map map;
+
+    public MainCharacter getMainCharacter() {
+        return mainCharacter;
+    }
+
+    public void setMainCharacter(MainCharacter mainCharacter) {
+        this.mainCharacter = mainCharacter;
+    }
     private Player player;
-    private Backpack backpack;
+    private MainCharacter mainCharacter;
     
     
     public Game() {
-    }
-    public Backpack getBackpack() {
-        return backpack;
-    }
-
-    public void setBackpack(Backpack backpack) {
-        this.backpack = backpack;
     }
 
     public Player getPlayer() {

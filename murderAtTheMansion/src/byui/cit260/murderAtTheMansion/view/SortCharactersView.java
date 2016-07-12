@@ -13,9 +13,9 @@ import java.io.PrintWriter;
  *
  * @author Sara
  */
-public class sortCharactersView extends View {
+public class SortCharactersView extends View {
     
-    public sortCharactersView () {
+    public SortCharactersView () {
         super ("\nWhat file would you like to save this to?");
     
 }

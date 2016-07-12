@@ -5,13 +5,11 @@
  */
 package byui.cit260.murderAtTheMansion.control;
 
-import byui.cit230.murderAtTheMansion.exceptions.MapControlException;
-import byui.cit260.murderAtTheMansion.model.Game;
+import byui.cit260.murderAtTheMansion.exceptions.MapControlException;
 import byui.cit260.murderAtTheMansion.model.Location;
+import byui.cit260.murderAtTheMansion.model.MainCharacter;
 import byui.cit260.murderAtTheMansion.model.Map;
-import byui.cit260.murderAtTheMansion.model.Player;
 import byui.cit260.murderAtTheMansion.model.Scene;
-import byui.cit260.murderAtTheMansion.model.Character;
 import java.awt.Point;
 import murderatthemansion.MurderAtTheMansion;
 
@@ -19,7 +17,7 @@ import murderatthemansion.MurderAtTheMansion;
  *
  * @author Sara
  */
-class MapControl {
+public class MapControl {
 
     static Map createMap() {
         Map map = new Map(5,5);
@@ -27,37 +25,46 @@ class MapControl {
         MapControl.assignScenesToLocations(map, scenes);
         return map;
     }
-    
-    public static void moveActorsToStartingLocation(Map map) throws MapControlException {
-       
-       //Main Character
-       Character[] characters = Character.values();
-       MapControl.moveActorToLocation(Character.MainCharacter, Character.MainCharacter.getCoordinates());
-       MapControl.moveActorToLocation(Character.Marvin, Character.Marvin.getCoordinates());
-       MapControl.moveActorToLocation(Character.Paula, Character.Paula.getCoordinates());
-       MapControl.moveActorToLocation(Character.John, Character.John.getCoordinates());
-       MapControl.moveActorToLocation(Character.Sophia, Character.Sophia.getCoordinates());
-       MapControl.moveActorToLocation(Character.Randalph, Character.Randalph.getCoordinates());
-       
-       //MapControl.moveActorToLocation(Character.MainCharacter, coordinates);
-       
-      
 
-       
-    }
-    public static void moveActorToLocation(Character character, Point coordinates) throws MapControlException{
+    /*public static void moveMainCharacterToStartingLocation() throws MapControlException {
+
+       Point startingLocation = new Point(0,0);
+       MapControl.moveCharacterToLocation(startingLocation);
+
+    }*/
+    public static boolean moveCharacterToLocation(Point coordinates) throws MapControlException{
         Map map = MurderAtTheMansion.getCurrentGame().getMap();
-        int newRow = coordinates.x;
-        int newCol = coordinates.y;
-        
-        
-        if (newRow < 0 || newRow >= 5 || newCol < 0 || newCol >= 5){
-            throw new MapControlException("Can not move actor to location " + 
+        MainCharacter mainCharacter = MurderAtTheMansion.getPlayer().getMainCharacter();
+        Point currentLocation = mainCharacter.getCoordinates();
+
+        //reset coordinates
+        if (coordinates.x != 0)
+            coordinates.x -= 1;
+        if (coordinates.y != 0)
+            coordinates.y -= 1;
+        int newRow = coordinates.x + currentLocation.x;
+        int newCol = coordinates.y + currentLocation.y;
+
+        //delete character from location
+        Location[][] locationList = map.getLocations();
+        locationList[currentLocation.x][currentLocation.y].setMainCharacter(false);
+
+        //add character to new location
+        Location[][] newLocationList = map.getLocations();
+        newLocationList[newRow][newCol].setMainCharacter(false);
+
+        //set Character's Location
+        Point newCoordinates = new Point(newRow, newCol);
+        MurderAtTheMansion.getPlayer().getMainCharacter().setCoordinates(newCoordinates);
+
+        if (newRow < 0 || newRow > 5 || newCol < 0 || newCol > 5){
+            throw new MapControlException("Can not move actor to location " +
                     coordinates.x + ", " + coordinates.y + " because that "
                     + "location is outside the bounds of the map.");
-        } 
+        }
+        return true;
     }
-    
+
     private static Scene[] createScenes() {
         Scene[] scenes = new Scene[SceneType.values().length];
         Scene startingScene = new Scene();
@@ -70,7 +77,7 @@ class MapControl {
         Scene diningScene = new Scene();
         Scene livingScene = new Scene();
         Scene kitchenScene = new Scene();
-        
+
         //front door scene
         startingScene.setDescription(
                 "Welcome to the Marvin's mansion. The suspects are still in the "
@@ -79,18 +86,18 @@ class MapControl {
                         + "mansion. This the front door of the mansion. You can "
                         + "move around anywhere inside the mansion.");
         startingScene.setDisplaySymbol("ST");
-        startingScene.setBlockedLocation(false); 
+        startingScene.setBlockedLocation(false);
         scenes[SceneType.frontDoor.ordinal()] = startingScene;
-        
+
         //hallway
         hallwayScene.setDescription(
                 "You are in a crooked hallway covered with rather large portraits"
                         + "of old men. There are golfing trophies and a strange"
                         + "smell.");
         hallwayScene.setDisplaySymbol("||");
-        hallwayScene.setBlockedLocation(false); 
+        hallwayScene.setBlockedLocation(false);
         scenes[SceneType.hallway.ordinal()] = hallwayScene;
-        
+
         //master room
         masterScene.setDescription(
                 "You enter the large master bedroom with a bed too big for just"
@@ -98,7 +105,7 @@ class MapControl {
                         + "place so the smell of blood is in the air."
                     );
         masterScene.setDisplaySymbol("MR");
-        masterScene.setBlockedLocation(false); 
+        masterScene.setBlockedLocation(false);
         scenes[SceneType.masterRoom.ordinal()] = masterScene;
         //kids room
         kidScene.setDescription(
@@ -108,7 +115,7 @@ class MapControl {
                         + "floor."
                     );
         kidScene.setDisplaySymbol("KR");
-        kidScene.setBlockedLocation(false); 
+        kidScene.setBlockedLocation(false);
         scenes[SceneType.kidRoom.ordinal()] = kidScene;
         //laundry room
         laundryScene.setDescription(
@@ -117,7 +124,7 @@ class MapControl {
                         + "laundry that hasn't been done yet."
                     );
         laundryScene.setDisplaySymbol("LR");
-        laundryScene.setBlockedLocation(false); 
+        laundryScene.setBlockedLocation(false);
         scenes[SceneType.laundryRoom.ordinal()] = laundryScene;
         //game room
         gameScene.setDescription(
@@ -126,7 +133,7 @@ class MapControl {
                         + "fun place to hang out."
                     );
         gameScene.setDisplaySymbol("GR");
-        gameScene.setBlockedLocation(false); 
+        gameScene.setBlockedLocation(false);
         scenes[SceneType.gameRoom.ordinal()] = gameScene;
         //office
         officeScene.setDescription(
@@ -135,7 +142,7 @@ class MapControl {
                         + "there is something out of place."
                     );
         officeScene.setDisplaySymbol("O");
-        officeScene.setBlockedLocation(false); 
+        officeScene.setBlockedLocation(false);
         scenes[SceneType.office.ordinal()] = officeScene;
         //dining room
         diningScene.setDescription(
@@ -144,7 +151,7 @@ class MapControl {
                         + "but the nanny hasn't picked it up yet."
                     );
         diningScene.setDisplaySymbol("DR");
-        diningScene.setBlockedLocation(false); 
+        diningScene.setBlockedLocation(false);
         scenes[SceneType.diningRoom.ordinal()] = diningScene;
         //parlor or living room
         livingScene.setDescription(
@@ -153,26 +160,26 @@ class MapControl {
                         + "envious."
                     );
         livingScene.setDisplaySymbol("P");
-        livingScene.setBlockedLocation(false); 
+        livingScene.setBlockedLocation(false);
         scenes[SceneType.livingRoom.ordinal()] = livingScene;
         //kitchen
         kitchenScene.setDescription(
                 "You are now in the kitchen. It is the biggest one that you have "
                         + "ever seen. It looks like something was about to be made"
                         + "but they stoppen halfway through."
-                        
+
                     );
         kitchenScene.setDisplaySymbol("K");
-        kitchenScene.setBlockedLocation(false); 
+        kitchenScene.setBlockedLocation(false);
         scenes[SceneType.kitchen.ordinal()] = kitchenScene;
-        
-        
-                
-        
+
+
+
+
         return scenes;
     }
     private static void assignScenesToLocations(Map map, Scene[] scenes){
-        
+
         Location[][] locations = map.getLocations();
         //startpoint
         locations[0][0].setScene(scenes[SceneType.frontDoor.ordinal()]);
@@ -200,9 +207,9 @@ class MapControl {
         locations[4][2].setScene(scenes[SceneType.laundryRoom.ordinal()]);
         locations[4][3].setScene(scenes[SceneType.laundryRoom.ordinal()]);
         locations[4][4].setScene(scenes[SceneType.gameRoom.ordinal()]);
-        
+
 
     }
-    
-    
+
+
 }

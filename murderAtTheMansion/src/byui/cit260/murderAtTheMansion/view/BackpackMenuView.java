@@ -5,10 +5,7 @@
  */
 package byui.cit260.murderAtTheMansion.view;
 
-import byui.cit260.murderAtTheMansion.model.Game;
-import byui.cit260.murderAtTheMansion.model.Item;
-import java.util.Scanner;
-import murderatthemansion.MurderAtTheMansion;
+
 
 public class BackpackMenuView extends View {
     private String menu;

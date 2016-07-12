@@ -10,5 +10,10 @@ package byui.cit260.murderAtTheMansion.view;
  * @author Sara
  */
 public class BackpackWeaponsView extends View{
+
+    @Override
+    public boolean doAction(String value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

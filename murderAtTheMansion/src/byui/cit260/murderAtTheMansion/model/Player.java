@@ -16,6 +16,15 @@ public class Player implements Serializable {
     private String name;
     private double numGuess;
     private Character character;
+    private MainCharacter mainCharacter;
+
+    public MainCharacter getMainCharacter() {
+        return mainCharacter;
+    }
+
+    public void setMainCharacter(MainCharacter mainCharacter) {
+        this.mainCharacter = mainCharacter;
+    }
 
     public Player() {
     }

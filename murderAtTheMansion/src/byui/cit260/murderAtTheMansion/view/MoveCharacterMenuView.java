@@ -6,7 +6,16 @@
  */
 package byui.cit260.murderAtTheMansion.view;
 
+import byui.cit260.murderAtTheMansion.exceptions.MapControlException;
+import byui.cit260.murderAtTheMansion.control.MapControl;
+import byui.cit260.murderAtTheMansion.model.Character;
+import byui.cit260.murderAtTheMansion.model.Location;
+import java.awt.Point;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import murderatthemansion.MurderAtTheMansion;
+
 
 /**
  *
@@ -41,9 +50,8 @@ public class MoveCharacterMenuView extends View {
             ErrorView.display(this.getClass().getName(),"\n*** Invalid input. Please input the letter, a space, and then the number***");
             return false;
         }
-        String direction = words[0];
+        String sdirection = words[0];
         String sdistance = words[1];
-        
         int distance;
         
         //verify that the input is in order
@@ -55,12 +63,51 @@ public class MoveCharacterMenuView extends View {
             ErrorView.display(this.getClass().getName(),"\n*** Invalid value. You must first enter the direction then the distance. ***");
             return false;
         }
-        switch (direction) {
+
+        //change letter input to direction number
+           
+        sdirection = sdirection.toUpperCase();
+        int directionRow = 0;
+        int directionCol = 0;
+        switch (sdirection){
+            case "U":
+                directionRow = distance + -1;
+                break;
+            case "D":
+                directionRow = distance + 1;
+                break;
+            case "L":
+                directionCol = distance + -1;
+                break;
+            case "R":
+                directionCol = distance + 1;
+                break;
+            default: 
+                directionRow = 0;
+                directionCol = 0;
+                break;                   
+        }
+        
+        //create Point variable 
+        
+        Point desiredPosition = new Point(directionCol, directionRow);       
+        
+        switch (sdirection) {
                 case "U":
                 case "D":
                 case "L":
                 case "R":
-                    
+        {
+            try {
+                MapControl.moveCharacterToLocation(desiredPosition);
+                if (MapControl.moveCharacterToLocation(desiredPosition)){
+                    this.console.println("Your character has now moved to location: " 
+                + MurderAtTheMansion.getPlayer().getMainCharacter().getCoordinates());
+                }
+            } catch (MapControlException ex) {
+                ErrorView.display(this.getClass().getName(),"Wrong input for direction.");
+            }
+        }
                     break;
                 default:
                 ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
