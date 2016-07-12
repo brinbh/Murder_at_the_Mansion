@@ -7,12 +7,6 @@ package byui.cit260.murderAtTheMansion.view;
 
 import byui.cit260.murderAtTheMansion.exceptions.GameControlException;
 import byui.cit260.murderAtTheMansion.model.Location;
-import byui.cit260.murderAtTheMansion.model.Scene;
-import byui.cit260.murderAtTheMansion.control.GameControl;
-import byui.cit260.murderAtTheMansion.model.Character;
-import byui.cit260.murderAtTheMansion.model.Item;
-
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import murderatthemansion.MurderAtTheMansion;
@@ -72,14 +66,14 @@ public class GameMenuView extends View {
                 break;
             case "TI": {
                 try {
-                    this.calculateTotalItems();
+                    this.ShowSortItemsView();
                 } catch (GameControlException ex) {
                     Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             break;
             default:
-                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
 
@@ -99,43 +93,60 @@ public class GameMenuView extends View {
     }
 
     private void displayContentOfLocation() {
-        ErrorView.display(this.getClass().getName(),"\n*** displayContentOfLocationl() function called***");
+        ErrorView.display(this.getClass().getName(), "\n*** displayContentOfLocationl() function called***");
     }
 
     private void displayMap() {
         //get locations
         Location[][] locations = MurderAtTheMansion.getCurrentGame().getMap().getLocations();
         //print title
-        this.console.println("Murder at the Mansion Map");
+        this.console.println("Murder at the Mansion Map\n");
         //print column numbers
         this.console.println(" 1    2    3    4    5   "
-                         + "\n_________________________");
+                + "\n_________________________");
         //FOR every row in map 
+        int rowCounter = 0;
+        StringBuilder line = new StringBuilder("                         ");
+        
+        
         for (Location[] row : locations) {
             //PRINT a row divider 
             this.console.println("_________________________");
             //PRINT the row number on a new line
             //create rowNum counter
-            this.console.println(row);
+            //this.console.println(rowCounter);//location
+            rowCounter++;
+            line.insert(0,rowCounter);
+            line.insert(1, "|");
+            
+            this.console.println(line.toString());
             //FOR every column in row
-            for (Location location : row) {
+            for (Location location : row) {            
                 //PRINT a column divider
-                this.console.println("|");
+                //this.console.println("|");
                 //IF location has been visited 
-                if (location.getVisited() == true)
+                line.insert(2,location.getScene().getDisplaySymbol());
+                if (location.getVisited() == true) {
                     this.console.println(location.getScene().getDisplaySymbol());
-                    // PRINT the mapSymbol in the scene in this location 
-                // ELSE 
-                else
-                    this.console.println("??");
+                
+                
+                line.insert(1, line);
+                // PRINT the mapSymbol in the scene in this location 
+                // ELSE
+                }
+                else {
+                    this.console.println("|??");
+                }
                 int counter = 0;
-                if (counter >= 25){
+                if (counter >= 25) {
                     this.console.println("|");
                     break;
                 }
+                
 
             }
             this.console.println("_________________________");
+            this.console.println(line.toString());
         }
 
     }
@@ -146,8 +157,8 @@ public class GameMenuView extends View {
     }
 
     private void displayHelpMenu() {
-            HelpMenuView helpMenuView = new HelpMenuView();
-            helpMenuView.display();
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.display();
     }
 
     private void guessMurderer() {
@@ -155,62 +166,16 @@ public class GameMenuView extends View {
         guessMurderView.display();
     }
 
-    public int calculateTotalItems() throws GameControlException {
-        String errorMessage = "ERROR in retrieving the Items list. There is an error in the";
-        Item[] itemList = Item.values();
-        int sumClues = 0;
-        int sumFiles = 0;
-        int sumWeapons = 0;
+    public void ShowSortItemsView() throws GameControlException {
+        SortItemsView sortItemsView = new SortItemsView();
+        sortItemsView.display();
 
-        for (Item item : itemList) {
-
-            // Count sum of each type of Item
-            if (item.getType().equals("Clue")) {
-                sumClues += 1;
-            } else if (item.getType().equals("File")) {
-                sumFiles += 1;
-            } else {
-                sumWeapons += 1;
-            }
-
-            //check to see if there are any items
-            if (sumClues < 0) {
-                throw new GameControlException(errorMessage + " sum of the Clues.");
-            }
-            if (sumFiles < 0) {
-                throw new GameControlException(errorMessage + " sum of the Files.");
-            }
-            if (sumWeapons < 0) {
-                throw new GameControlException(errorMessage + " sum of the Weapons.");
-            }
-            //Display the total
-
-        }
-        this.console.println("The sum of the Clues is: " + sumClues);
-        this.console.println("The sum of the Files is: " + sumFiles);
-        this.console.println("The sum of the Weapons is: " + sumWeapons);
-        return 0;
     }
 
     private void sortCharacters() {
-        //sort the list of characters
-        Character[] sortedList = GameControl.sortCharacters();
-        //print list of characters 
-        this.console.println("\n Sorted List of Characters");
-        StringBuilder line = new StringBuilder("                             ");
-        line.insert(0, "Name");
-        line.insert(8, "Description");
-        line.insert(40,"Coordinates");
-        this.console.println(line.toString());
-        
-        for(Character character : sortedList){
-            line = new StringBuilder("                         ");
-            line.insert(0, character.name());
-            line.insert(12, character.getDescription());
-            line.insert(60, character.getCoordinates().x + ", "+ character.getCoordinates().y);
-            this.console.println(line.toString());
-            
+        SortCharactersView sortCharactersView = new SortCharactersView();
+        sortCharactersView.display();
         }
-
     }
-}
+
+
