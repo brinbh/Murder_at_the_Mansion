@@ -5,6 +5,7 @@
  */
 package byui.cit260.murderAtTheMansion.model;
 
+import byui.cit260.murderAtTheMansion.exceptions.MapControlException;
 import byui.cit260.murderAtTheMansion.view.ErrorView;
 import java.io.Serializable;
 /**
@@ -19,9 +20,9 @@ public class Map implements Serializable{
     public Map() {
     }
     
-     public Map(int rowCount, int colCount) {
+     public Map(int rowCount, int colCount) throws MapControlException {
          if(rowCount < 0 || colCount < 0){
-         ErrorView.display(this.getClass().getName(),"The number of rows and columns must be greater than 1");
+         throw new MapControlException("The number of rows and columns must be greater than 1");//throw map control exception
          }
          this.rowCount = rowCount;
          this.colCount = colCount;

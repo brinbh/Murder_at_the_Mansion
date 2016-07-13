@@ -19,7 +19,7 @@ import murderatthemansion.MurderAtTheMansion;
  */
 public class MapControl {
 
-    static Map createMap() {
+    static Map createMap() throws MapControlException {
         Map map = new Map(5,5);
         Scene[] scenes = createScenes();
         MapControl.assignScenesToLocations(map, scenes);

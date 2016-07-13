@@ -5,6 +5,7 @@
  */
 package byui.cit260.murderAtTheMansion.model;
 
+import byui.cit260.murderAtTheMansion.exceptions.MapControlException;
 import java.io.Serializable;
 /**
  *

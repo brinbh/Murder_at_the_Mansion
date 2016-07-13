@@ -18,9 +18,9 @@ import java.util.logging.Logger;
  *
  * @author Britt
  */
-public class SortItemsView extends View {
+public class TotalItemsView extends View {
 
-    public SortItemsView() {
+    public TotalItemsView() {
         super("\nWhat file would you like to save this to?");
     }
 
@@ -31,7 +31,7 @@ public class SortItemsView extends View {
         try {
             sortedItems = backpackControl.calculateTotalItems();
         } catch (GameControlException ex) {
-            Logger.getLogger(SortItemsView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TotalItemsView.class.getName()).log(Level.SEVERE, null, ex);
         }
         //create list of types of items
         String[] typeList = {"Clue", "File", "Weapon"};

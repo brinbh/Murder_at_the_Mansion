@@ -98,59 +98,8 @@ public class GameMenuView extends View {
     }
 
     private void displayMap() {
-        //get locations
-        Location[][] locations = MurderAtTheMansion.getCurrentGame().getMap().getLocations();
-        //print title
-        this.console.println("Murder at the Mansion Map\n");
-        //print column numbers
-        this.console.println(" 1    2    3    4    5   "
-                + "\n_________________________");
-        //FOR every row in map 
-
-        int rowCounter = 0;
-        StringBuilder line = new StringBuilder("                         ");
-
-        for (Location[] row : locations) {
-            //PRINT a row divider 
-            this.console.println("_________________________");
-            //PRINT the row number on a new line
-            //create rowNum counter
-            //this.console.println(rowCounter);//location
-            rowCounter++;
-            line.insert(0,rowCounter);
-            line.insert(1, "|");
-            
-            this.console.println(line.toString());
-            //FOR every column in row
-
-            for (Location location : row) {
-
-                //PRINT a column divider
-                //this.console.println("|");
-                //IF location has been visited 
-
-                line.insert(2,location.getScene().getDisplaySymbol());
-                line.insert(1, line);
-                // PRINT the mapSymbol in the scene in this location 
-                // ELSE
-                if (location.getVisited() == true) {
-                    this.console.println(location.getScene().getDisplaySymbol());
-                }
-                else {
-                    this.console.println("|??");
-
-                } // PRINT the mapSymbol in the scene in this location 
-
-                int counter = 0;
-                if (counter >= 25) {
-                    this.console.println("|");
-                    break;
-                }
-
-            }
-            this.console.println("_________________________");
-            this.console.println(line.toString());
-        }
+        DisplayMapView displayMapView = new DisplayMapView();
+        displayMapView.display();
 
     }
 
@@ -170,8 +119,8 @@ public class GameMenuView extends View {
     }
 
     public void showTotalItemsView() throws GameControlException {
-        SortItemsView sortItemsView = new SortItemsView();
-        sortItemsView.display();
+        TotalItemsView totalItemsView = new TotalItemsView();
+        totalItemsView.display();
         }
 
 
