@@ -1,0 +1,20 @@
+Marvin's File ----------
+
+Age : 53
+Eye color : brown
+Hair color: black
+Height: 5'6"
+Weight: 250 pounds
+Occupation: Employee at Google
+
+Crime Scene:
+Marvin was found laying on the 
+ground by his nephew Charlie.
+His head was bashed in by a 
+golf club laying near by. He aslo
+has many other bruises on his body.
+You suspect that he died from the
+wound to the head and also some
+internal bleeding. Or was there 
+something else that cause the final 
+blow?   

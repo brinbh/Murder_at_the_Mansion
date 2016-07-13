@@ -17,8 +17,7 @@ public class BackpackMenuView extends View {
                   + "\n| Backpack Menu                          |"
                   + "\n--------------------------------------"
                   + "\nC - Clues"
-                  + "\nS - Suspect Files"
-                  + "\nM - Murdered File"
+                  + "\nM - Murdered Files"
                   + "\nW - Weapons"
                   + "\nQ - Quit Backpack Menu"
                   + "\n--------------------------------------");
