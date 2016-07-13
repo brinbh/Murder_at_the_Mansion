@@ -24,7 +24,6 @@ public class HelpMenuView extends View {
                   + "\nG - Goal of Game"
                   + "\nM - How to move"
                   + "\nB - How to get to backpack"
-                  + "\nC - Get clue"
                   + "\nQ - Quit Help Menu"
                   + "\n--------------------------------------");
     }
@@ -44,9 +43,6 @@ public class HelpMenuView extends View {
             case "B":
                 this.howToGetBackpack();
                 break;
-            case "C":
-                this.getClue();
-                break;
             default:
                 ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
@@ -56,18 +52,40 @@ public class HelpMenuView extends View {
     }
 
     private void goalOfGame() {
-        System.out.println("\n*** goalOfGoal() function called***");
+        this.console.println("\n------------GOAL OF GAME--------------"
+                + "\nThe goal of this game is to figure out "
+                + "\nwho is the murderer. You are the "
+                + "\ndetective assigned to this case and you "
+                + "\nhave the entire mansion to discover "
+                + "\nuntil you find all the clues, weapons, and "
+                + "\ncase files. When you discover all of them, "
+                + "\nyou can decide by looking at the clues who "
+                + "\nthe murderer was. Start by going to each "
+                + "\nroom in the mansion.");
     }
 
     private void howToMove() {
-        System.out.println("\n*** howToMove() function called***");
+        this.console.println("\n-----------HOW TO MOVE----------------"
+                + "\nYou can move by going to the Game Menu "
+                + "\nand pressing 'M' to select the Move "
+                + "\nbutton. Then you can enter in a letter "
+                + "\nthat refers to the direction you wish "
+                + "\nto travel. This will be according to "
+                + "\nthe following: "
+                + "\n\t\t U - UP"
+                + "\n\t\t D - DOWN"
+                + "\n\t\t L - LEFT"
+                + "\n\t\t R - RIGHT"
+                + "\nThen you will enter a space and the "
+                + "\namount of spaces you want to travel. "
+                + "\nExample: D 1 Note: Do not forget "
+                + "\nthe space.");
     }
 
     private void howToGetBackpack() {
-        System.out.println("\n*** howToGetBackpack() function called***");
-    }
-
-    private void getClue() {
-        System.out.println("\n*** getClue() function called***");
+        this.console.println("\n---------HOW TO GET BACKPACK----------"
+                + "\nGo to the Game Menu. Then select 'B' to "
+                + "\ndisplay the backpack. To use the backpack "
+                + "\nfollow the Backpack Menu options.");
     }
 }

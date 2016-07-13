@@ -123,7 +123,6 @@ public class GameMenuView extends View {
         totalItemsView.display();
         }
 
-
     private void sortCharactersView() {
         SortCharactersView sortCharactersView = new SortCharactersView();
         sortCharactersView.display();
