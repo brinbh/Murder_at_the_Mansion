@@ -11,9 +11,44 @@ package byui.cit260.murderAtTheMansion.view;
  */
 public class BackpackWeaponsView extends View{
 
-    @Override
-    public boolean doAction(String value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public BackpackWeaponsView() {
+        super    ("\n----------------------------------------"
+                + "\n| Which weapon would you like to equipt?"
+                + "\n----------------------------------------"
+                + "\nK - Knife"
+                + "\nF - Flashlight"
+                + "\nB - Bat"
+                + "\n----------------------------------------");
     }
-    
+
+    @Override
+    public boolean doAction(String choice) {
+        choice = choice.toUpperCase();
+        switch (choice) {
+            case "K":
+               
+                    this.console.println("You now have the knife as your weapon.");
+                    return true;
+                
+                case "F":
+                
+                    this.console.println("You now have the flashlight as your weapon.");
+                    return true;
+                
+                case "B":
+                
+                    this.console.println("You now have the bat as your weapon.");
+                    return true;
+                
+            
+            default:
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
+                break;
+
+        }
+
+        return false;
+
+    }
+
 }
