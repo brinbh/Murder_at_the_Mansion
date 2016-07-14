@@ -7,6 +7,7 @@ package byui.cit260.murderAtTheMansion.view;
 
 import byui.cit260.murderAtTheMansion.exceptions.MapControlException;
 import byui.cit260.murderAtTheMansion.control.GameControl;
+import byui.cit260.murderAtTheMansion.model.Game;
 import java.util.Scanner;
 import murderatthemansion.MurderAtTheMansion;
 
@@ -73,17 +74,34 @@ public class MainMenuView extends View {
             gameMenu.display();
     }
 
-    private void startExistingGame() {
-            System.out.println("\n*** startExistingGame() function called ***");
-    }
-
     private void displayHelpMenu() {
             HelpMenuView helpMenuView = new HelpMenuView();
             helpMenuView.display();
     }
 
-    private void saveGame() {
-            System.out.println("\n*** saveGame() function called ***");
+    private void saveGame(){
+        this.console.println("\n\n Enter the file path for the file where the game "
+                + "needs to be saved.");
+        String filePath = this.getInput();
+        
+        try{
+            GameControl.saveGame(MurderAtTheMansion.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+    }
+    private void startExistingGame (){
+        this.console.println("\n\n Eneter the file path for the file where the game "
+                + "can be saved.");
+        String filePath = this.getInput();
+        
+        try{
+            GameControl.getSavedGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("ManinMenuView", ex.getMessage());
+        }
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
     
 }

@@ -67,32 +67,8 @@ public abstract class View implements ViewInterface {
             return value;
         
     }
-    private void saveGame(){
-        this.console.println("\n\n Enter the file path for the file where the game "
-                + "needs to be saved.");
-        String filePath = this.getInput();
-        
-        try{
-            GameControl.saveGame(MurderAtTheMansion.getCurrentGame(), filePath);
-        } catch (Exception ex) {
-            ErrorView.display("MainMenuView", ex.getMessage());
-        }
+    
             
             
       
 }
-    private void startSaveGame (){
-        this.console.println("\n\n Eneter the file path for the file where the game "
-                + "can be saved.");
-        String filePath = this.getInput();
-        
-        try{
-            GameControl.getSavedGame(filePath);
-        } catch (Exception ex) {
-            ErrorView.display("ManinMenuView", ex.getMessage());
-        }
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
-    }
-}
-

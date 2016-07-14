@@ -47,9 +47,6 @@ public class GameMenuView extends View {
             case "I":
                 this.interactWithObject();
                 break;
-            case "DL":
-                this.displayContentOfLocation();
-                break;
             case "DM":
                 this.displayMap();
                 break;
@@ -93,9 +90,6 @@ public class GameMenuView extends View {
         interactObjectMenuView.display();
     }
 
-    private void displayContentOfLocation() {
-        ErrorView.display(this.getClass().getName(), "\n*** displayContentOfLocationl() function called***");
-    }
 
     private void displayMap() {
         DisplayMapView displayMapView = new DisplayMapView();

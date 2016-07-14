@@ -13,7 +13,7 @@ import java.util.Objects;
 public class Scene implements Serializable{
     private String description;
     private int travelTime;
-    private boolean blockedLocation;
+    private boolean visited;
     private String displaySymbol;
     private Location[][] locations;
 
@@ -39,11 +39,11 @@ public class Scene implements Serializable{
     }
 
     public boolean getBlockedLocation() {
-        return blockedLocation;
+        return visited;
     }
 
     public boolean setBlockedLocation(boolean blockedLocation) {
-        this.blockedLocation = blockedLocation;
+        this.visited = blockedLocation;
         return false;
     }
 
@@ -86,7 +86,7 @@ public class Scene implements Serializable{
             return false;
         }
         final Scene other = (Scene) obj;
-        if (this.blockedLocation != other.blockedLocation) {
+        if (this.visited != other.visited) {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {
@@ -103,7 +103,7 @@ public class Scene implements Serializable{
 
     @Override
     public String toString() {
-        return "Scene{" + "description=" + description + ", travelTime=" + travelTime + ", blockedLocation=" + blockedLocation + ", displaySymbol=" + displaySymbol + '}';
+        return "Scene{" + "description=" + description + ", travelTime=" + travelTime + ", blockedLocation=" + visited + ", displaySymbol=" + displaySymbol + '}';
     }
 
     

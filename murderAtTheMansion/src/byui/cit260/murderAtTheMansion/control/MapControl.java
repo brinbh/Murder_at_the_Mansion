@@ -87,6 +87,7 @@ public class MapControl {
                         + "move around anywhere inside the mansion.");
         startingScene.setDisplaySymbol("ST");
         startingScene.setBlockedLocation(false);
+        
         scenes[SceneType.frontDoor.ordinal()] = startingScene;
 
         //hallway
@@ -141,7 +142,7 @@ public class MapControl {
                         + "neat, there is not a single paper out of place. But"
                         + "there is something out of place."
                     );
-        officeScene.setDisplaySymbol("O");
+        officeScene.setDisplaySymbol("OF");
         officeScene.setBlockedLocation(false);
         scenes[SceneType.office.ordinal()] = officeScene;
         //dining room
@@ -159,7 +160,7 @@ public class MapControl {
                         + "in the corner. The smell of cigars fills the room. You seem "
                         + "envious."
                     );
-        livingScene.setDisplaySymbol("P");
+        livingScene.setDisplaySymbol("PA");
         livingScene.setBlockedLocation(false);
         scenes[SceneType.livingRoom.ordinal()] = livingScene;
         //kitchen
@@ -169,7 +170,7 @@ public class MapControl {
                         + "but they stoppen halfway through."
 
                     );
-        kitchenScene.setDisplaySymbol("K");
+        kitchenScene.setDisplaySymbol("KI");
         kitchenScene.setBlockedLocation(false);
         scenes[SceneType.kitchen.ordinal()] = kitchenScene;
 

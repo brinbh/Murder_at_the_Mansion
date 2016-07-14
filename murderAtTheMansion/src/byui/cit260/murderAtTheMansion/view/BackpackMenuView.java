@@ -54,24 +54,6 @@ public class BackpackMenuView extends View {
 
 
     private void viewSuspectFiles() {
-        /*StringBuilder line;
-        
-        Game game = MurderAtTheMansion.getCurrentGame();
-        Item[] item = game.getItem();
-        
-        System.out.println("\nLIST OF FILES");
-        line = new StringBuilder("\n");
-        line.insert(0, "DESCRIPTION");
-        line.insert(20, "NAME");
-        System.out.println(line.toString());
-        
-        for (Item itemList : item){
-            line = new StringBuilder("\n");
-            line.insert(0, itemList.getDescription());
-            line.insert(23, itemList.getTitle());
-            
-            System.out.println(line.toString());
-        }*/
         
     }
 

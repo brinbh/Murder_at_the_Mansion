@@ -24,10 +24,12 @@ public class DisplayMapView extends View{
         Location[][] locations = MurderAtTheMansion.getCurrentGame().getMap().getLocations();
         //display header
         //print title
-        this.console.println("Murder at the Mansion Map\n");
+        this.console.println("\n---------------------------"
+                + "\nMurder at the Mansion Map"
+                + "\n---------------------------");
         //print column numbers
-        this.console.println(" |  0    1    2    3    4   \n"
-                + "-|------------------------");
+        this.console.println(" |  0    1    2    3    4 |\n"
+                + "-|------------------------|");
 
         //FOR each row 
         int rowCounter = 0;
@@ -40,18 +42,35 @@ public class DisplayMapView extends View{
                 colCounter++;
                 if (colCounter < 5){
                     if (colLocation.getVisited() == true){
-                        this.console.print(colLocation.getScene().getDisplaySymbol());
+                        this.console.print(colLocation.getScene().getDisplaySymbol() + " | ");
                     }
                     else
                     this.console.print("?? | ");                    
                 }
                 else {
-                    this.console.println("?? | ");
-                    colCounter = 0;
+                    
+                    if (colLocation.getVisited() == true) 
+                        this.console.println(colLocation.getScene().getDisplaySymbol() + " | ");
+                    else {
+                        this.console.println("?? | ");
+                        colCounter = 0;
+                            }
                     
                 }
             }
         }
+        this.console.println("\nLegend:"
+                + "\n\tST - Starting Place"
+                + "\n\t|| - Hallway"
+                + "\n\tPA - Parlour"
+                + "\n\tKI - Kitchen"
+                + "\n\tDR - Dining Room"
+                + "\n\tOF - Office"
+                + "\n\tMR - Master Room"
+                + "\n\tLR - Laundry Room"
+                + "\n\tGR - Game Room"
+                + "\n\tKR - Kid's Room"
+                + "\n---------------------------");
         
         return true;
     }
