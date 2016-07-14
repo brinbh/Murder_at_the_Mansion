@@ -33,9 +33,7 @@ public class Map implements Serializable{
              for(int col = 0; col < colCount; col++){
                  Location location = new Location();
                  location.setCol(col);
-                 location.setRow(row);
-                 location.setVisited(false);
-                 
+                 location.setRow(row);              
                  locations [row][col] = location; 
              }
          }

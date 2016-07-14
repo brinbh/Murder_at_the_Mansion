@@ -18,7 +18,13 @@ public class Scene implements Serializable{
     private Location[][] locations;
 
     
+    public boolean isVisited() {
+        return visited;
+    }
 
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
     public Scene() {
     }
 
@@ -38,14 +44,6 @@ public class Scene implements Serializable{
         this.travelTime = travelTime;
     }
 
-    public boolean getBlockedLocation() {
-        return visited;
-    }
-
-    public boolean setBlockedLocation(boolean blockedLocation) {
-        this.visited = blockedLocation;
-        return false;
-    }
 
     public String getDisplaySymbol() {
         return displaySymbol;
@@ -105,6 +103,7 @@ public class Scene implements Serializable{
     public String toString() {
         return "Scene{" + "description=" + description + ", travelTime=" + travelTime + ", blockedLocation=" + visited + ", displaySymbol=" + displaySymbol + '}';
     }
+
 
     
 }
