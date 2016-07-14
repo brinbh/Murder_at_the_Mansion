@@ -103,6 +103,18 @@ public class Location implements Serializable{
         this.map = map;
     }
     
+    private Item item = null;
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+    
+    
+    
     
 
     @Override

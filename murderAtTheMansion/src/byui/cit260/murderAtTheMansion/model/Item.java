@@ -5,6 +5,7 @@
  */
 package byui.cit260.murderAtTheMansion.model;
 
+import java.awt.Point;
 import java.util.Objects;
 
 /**
@@ -31,8 +32,7 @@ public enum Item {
     private String description;
     private String type;
 
-    Item() {
-    }
+    
 
 
 
@@ -61,6 +61,9 @@ public enum Item {
     public String toString() {
         return "Clue{" + "title=" + title + ", description=" + description + '}';
     }
+
+    
+    
     
     
 }

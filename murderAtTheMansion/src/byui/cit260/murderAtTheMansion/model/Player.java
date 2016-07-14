@@ -6,6 +6,7 @@
 package byui.cit260.murderAtTheMansion.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -17,6 +18,7 @@ public class Player implements Serializable {
     private double numGuess;
     private Character character;
     private MainCharacter mainCharacter;
+    private ArrayList<Item> inventoryItem = new ArrayList<Item>();
 
     public MainCharacter getMainCharacter() {
         return mainCharacter;
@@ -51,6 +53,14 @@ public class Player implements Serializable {
 
     public void setCharacter(Character character) {
         this.character = character;
+    }
+
+    public ArrayList<Item> getInventoryItem() {
+        return inventoryItem;
+    }
+
+    public void setInventoryItem(ArrayList<Item> inventoryItem) {
+        this.inventoryItem = inventoryItem;
     }
     
 
