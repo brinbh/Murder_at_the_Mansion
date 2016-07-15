@@ -6,6 +6,7 @@
 package byui.cit260.murderAtTheMansion.control;
 
 import byui.cit260.murderAtTheMansion.exceptions.MapControlException;
+import byui.cit260.murderAtTheMansion.model.Item;
 import byui.cit260.murderAtTheMansion.model.Location;
 import byui.cit260.murderAtTheMansion.model.MainCharacter;
 import byui.cit260.murderAtTheMansion.model.Map;
@@ -23,7 +24,10 @@ public class MapControl {
         Map map = new Map(5,5);
         Scene[] scenes = createScenes();
         MapControl.assignScenesToLocations(map, scenes);
+        MapControl.assignItemToLocation(map);
+        
         return map;
+       
     }
 
     /*public static void moveMainCharacterToStartingLocation() throws MapControlException {
@@ -182,6 +186,25 @@ public class MapControl {
 
         return scenes;
     }
+    private static void assignItemToLocation(Map map){
+        Location[][] locations = map.getLocations();
+
+        locations[0][1].setItem(Item.reciept);
+        locations[2][1].setItem(Item.golfClub);
+        locations[1][1].setItem(Item.license);
+        locations[2][4].setItem(Item.note);
+        locations[4][1].setItem(Item.footprint);
+        locations[0][4].setItem(Item.knife);
+        locations[3][4].setItem(Item.flashlight);
+        locations[3][2].setItem(Item.bat);
+        locations[0][3].setItem(Item.filePaula);
+        locations[1][2].setItem(Item.fileRandalph);
+        locations[4][0].setItem(Item.fileCharlie);
+        locations[2][3].setItem(Item.fileJohn);
+        locations[3][3].setItem(Item.fileSophia);
+        locations[3][1].setItem(Item.fileMarvin);
+
+    }
     private static void assignScenesToLocations(Map map, Scene[] scenes){
 
         Location[][] locations = map.getLocations();
@@ -211,6 +234,7 @@ public class MapControl {
         locations[4][2].setScene(scenes[SceneType.laundryRoom.ordinal()]);
         locations[4][3].setScene(scenes[SceneType.laundryRoom.ordinal()]);
         locations[4][4].setScene(scenes[SceneType.gameRoom.ordinal()]);
+        
 
 
     }
