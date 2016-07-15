@@ -29,7 +29,7 @@ public class MoveCharacterMenuView extends View {
 
     public MoveCharacterMenuView() {
         super ( "Enter in new location with number of "
-                + "spaces and the direction (include space between): "
+                + "\nspaces and the direction (include space between): "
                 + "\nU - up"
                 + "\nD - down "
                 + "\nL - left "

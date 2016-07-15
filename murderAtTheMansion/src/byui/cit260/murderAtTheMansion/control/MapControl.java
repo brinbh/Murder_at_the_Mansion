@@ -69,7 +69,7 @@ public class MapControl {
                     + "location is outside the bounds of the map.");
         }
         
-        return false;
+        return true;
     }
 
     private static Scene[] createScenes() {
@@ -185,25 +185,6 @@ public class MapControl {
 
 
         return scenes;
-    }
-    private static void assignItemToLocation(Map map){
-        Location[][] locations = map.getLocations();
-
-        locations[0][1].setItem(Item.reciept);
-        locations[2][1].setItem(Item.golfClub);
-        locations[1][1].setItem(Item.license);
-        locations[2][4].setItem(Item.note);
-        locations[4][1].setItem(Item.footprint);
-        locations[0][4].setItem(Item.knife);
-        locations[3][4].setItem(Item.flashlight);
-        locations[3][2].setItem(Item.bat);
-        locations[0][3].setItem(Item.filePaula);
-        locations[1][2].setItem(Item.fileRandalph);
-        locations[4][0].setItem(Item.fileCharlie);
-        locations[2][3].setItem(Item.fileJohn);
-        locations[3][3].setItem(Item.fileSophia);
-        locations[3][1].setItem(Item.fileMarvin);
-
     }
     private static void assignItemToLocation(Map map){
         Location[][] locations = map.getLocations();
