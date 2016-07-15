@@ -29,7 +29,7 @@ public class MoveCharacterMenuView extends View {
 
     public MoveCharacterMenuView() {
         super ( "Enter in new location with number of "
-                + "spaces and the direction (include space between): "
+                + "\nspaces and the direction (include space between): "
                 + "\nU - up"
                 + "\nD - down "
                 + "\nL - left "
@@ -83,6 +83,12 @@ public class MoveCharacterMenuView extends View {
             case "R":
                 directionRow = distance + 1;
                 break;
+            case "L":
+                directionRow = distance + -1;
+                break;
+            case "R":
+                directionRow = distance + 1;
+                break;
             default: 
                 directionRow = 0;
                 directionCol = 0;
@@ -123,7 +129,8 @@ public class MoveCharacterMenuView extends View {
                 ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
         }
-        
+        DisplayMapView displayMapView = new DisplayMapView();
+        displayMapView.display();
         return false;   
     }
 

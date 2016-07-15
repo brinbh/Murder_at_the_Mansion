@@ -14,7 +14,6 @@ import java.io.Serializable;
 public class Location implements Serializable{
     private int row;
     private int col;
-    private boolean visited;
     private Scene scene;
     private Character[] characters;
     private Map map;
@@ -71,14 +70,6 @@ public class Location implements Serializable{
         this.col = col;
     }
 
-    public boolean getVisited() {
-        return visited;
-    }
-
-    public void setVisited(boolean visited) {
-        this.visited = visited;
-    }
-
     public Scene getScene() {
         return scene;
     }
@@ -115,7 +106,6 @@ public class Location implements Serializable{
     
     
     
-    
 
     @Override
     public int hashCode() {
@@ -144,15 +134,12 @@ public class Location implements Serializable{
         if (this.col != other.col) {
             return false;
         }
-        if (this.visited != other.visited) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", col=" + col + ", visited=" + visited + '}';
+        return "Location{" + "row=" + row + ", col=" + col + '}';
     }
     
     

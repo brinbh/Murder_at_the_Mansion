@@ -55,7 +55,9 @@ public class MapControl {
 
         //add character to new location
         Location[][] newLocationList = map.getLocations();
-        newLocationList[newRow][newCol].setMainCharacter(false);
+        newLocationList[newRow][newCol].setMainCharacter(true);
+        newLocationList[newRow][newCol].getScene().setVisited(true);
+        
 
         //set Character's Location
         Point newCoordinates = new Point(newRow, newCol);
@@ -66,6 +68,7 @@ public class MapControl {
                     coordinates.x + ", " + coordinates.y + " because that "
                     + "location is outside the bounds of the map.");
         }
+        
         return true;
     }
 
@@ -90,7 +93,7 @@ public class MapControl {
                         + "mansion. This the front door of the mansion. You can "
                         + "move around anywhere inside the mansion.");
         startingScene.setDisplaySymbol("ST");
-        startingScene.setBlockedLocation(false);
+        startingScene.setVisited(true);
         
         scenes[SceneType.frontDoor.ordinal()] = startingScene;
 
@@ -100,7 +103,7 @@ public class MapControl {
                         + "of old men. There are golfing trophies and a strange"
                         + "smell.");
         hallwayScene.setDisplaySymbol("||");
-        hallwayScene.setBlockedLocation(false);
+        hallwayScene.setVisited(false);
         scenes[SceneType.hallway.ordinal()] = hallwayScene;
 
         //master room
@@ -110,7 +113,7 @@ public class MapControl {
                         + "place so the smell of blood is in the air."
                     );
         masterScene.setDisplaySymbol("MR");
-        masterScene.setBlockedLocation(false);
+        masterScene.setVisited(false);
         scenes[SceneType.masterRoom.ordinal()] = masterScene;
         //kids room
         kidScene.setDescription(
@@ -120,7 +123,7 @@ public class MapControl {
                         + "floor."
                     );
         kidScene.setDisplaySymbol("KR");
-        kidScene.setBlockedLocation(false);
+        kidScene.setVisited(false);
         scenes[SceneType.kidRoom.ordinal()] = kidScene;
         //laundry room
         laundryScene.setDescription(
@@ -129,7 +132,7 @@ public class MapControl {
                         + "laundry that hasn't been done yet."
                     );
         laundryScene.setDisplaySymbol("LR");
-        laundryScene.setBlockedLocation(false);
+        laundryScene.setVisited(false);
         scenes[SceneType.laundryRoom.ordinal()] = laundryScene;
         //game room
         gameScene.setDescription(
@@ -138,7 +141,7 @@ public class MapControl {
                         + "fun place to hang out."
                     );
         gameScene.setDisplaySymbol("GR");
-        gameScene.setBlockedLocation(false);
+        gameScene.setVisited(false);
         scenes[SceneType.gameRoom.ordinal()] = gameScene;
         //office
         officeScene.setDescription(
@@ -147,7 +150,7 @@ public class MapControl {
                         + "there is something out of place."
                     );
         officeScene.setDisplaySymbol("OF");
-        officeScene.setBlockedLocation(false);
+        officeScene.setVisited(false);
         scenes[SceneType.office.ordinal()] = officeScene;
         //dining room
         diningScene.setDescription(
@@ -156,7 +159,7 @@ public class MapControl {
                         + "but the nanny hasn't picked it up yet."
                     );
         diningScene.setDisplaySymbol("DR");
-        diningScene.setBlockedLocation(false);
+        diningScene.setVisited(false);
         scenes[SceneType.diningRoom.ordinal()] = diningScene;
         //parlor or living room
         livingScene.setDescription(
@@ -165,7 +168,7 @@ public class MapControl {
                         + "envious."
                     );
         livingScene.setDisplaySymbol("PA");
-        livingScene.setBlockedLocation(false);
+        livingScene.setVisited(false);
         scenes[SceneType.livingRoom.ordinal()] = livingScene;
         //kitchen
         kitchenScene.setDescription(
@@ -175,7 +178,7 @@ public class MapControl {
 
                     );
         kitchenScene.setDisplaySymbol("KI");
-        kitchenScene.setBlockedLocation(false);
+        kitchenScene.setVisited(false);
         scenes[SceneType.kitchen.ordinal()] = kitchenScene;
 
 

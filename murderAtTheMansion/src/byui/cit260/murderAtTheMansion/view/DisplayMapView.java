@@ -41,7 +41,7 @@ public class DisplayMapView extends View{
             for (Location colLocation: row ){
                 colCounter++;
                 if (colCounter < 5){
-                    if (colLocation.getVisited() == true){
+                    if (colLocation.getScene().isVisited()){
                         this.console.print(colLocation.getScene().getDisplaySymbol() + " | ");
                     }
                     else
@@ -49,7 +49,7 @@ public class DisplayMapView extends View{
                 }
                 else {
                     
-                    if (colLocation.getVisited() == true) 
+                    if (colLocation.getScene().isVisited()) 
                         this.console.println(colLocation.getScene().getDisplaySymbol() + " | ");
                     else {
                         this.console.println("?? | ");
