@@ -106,7 +106,6 @@ public class Location implements Serializable{
     
     
     
-    
 
     @Override
     public int hashCode() {
