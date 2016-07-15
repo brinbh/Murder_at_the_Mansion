@@ -72,16 +72,16 @@ public class MoveCharacterMenuView extends View {
         int directionCol = 0;
         switch (sdirection){
             case "U":
-                directionRow = distance + -1;
-                break;
-            case "D":
-                directionRow = distance + 1;
-                break;
-            case "L":
                 directionCol = distance + -1;
                 break;
-            case "R":
+            case "D":
                 directionCol = distance + 1;
+                break;
+            case "L":
+                directionRow = distance + -1;
+                break;
+            case "R":
+                directionRow = distance + 1;
                 break;
             default: 
                 directionRow = 0;
