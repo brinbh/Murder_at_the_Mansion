@@ -83,12 +83,7 @@ public class MoveCharacterMenuView extends View {
             case "R":
                 directionRow = distance + 1;
                 break;
-            case "L":
-                directionRow = distance + -1;
-                break;
-            case "R":
-                directionRow = distance + 1;
-                break;
+           
             default: 
                 directionRow = 0;
                 directionCol = 0;
@@ -110,7 +105,7 @@ public class MoveCharacterMenuView extends View {
                 if (MapControl.moveCharacterToLocation(desiredPosition)){
                     this.console.println("Your character has now moved to location: " 
                 + MurderAtTheMansion.getPlayer().getMainCharacter().getCoordinates());
-                    Location destination = MurderAtTheMansion.getCurrentGame().getMap().getLocations()[directionRow][directionCol];
+                    Location destination = MurderAtTheMansion.getCurrentGame().getMap().getLocations()[directionCol][directionRow];
                     this.console.println(destination.getScene().getDescription());
                     if(destination.getItem() != null){
                         this.console.println(destination.getItem().getDescription());
