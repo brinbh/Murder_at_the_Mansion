@@ -61,12 +61,12 @@ public class MainMenuView extends View {
         return false;
     }
 
-    private void startNewGame()  {
+    private void startNewGame() {
             try {
             GameControl.createNewGame(MurderAtTheMansion.getPlayer());
             }
             catch (MapControlException mce){
-           this.console.println(mce.getMessage());
+            this.console.println(mce.getMessage());
             return;
             
             }

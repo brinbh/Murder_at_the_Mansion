@@ -6,38 +6,40 @@
 package byui.cit260.murderAtTheMansion.model;
 
 import byui.cit260.murderAtTheMansion.exceptions.MapControlException;
-import byui.cit260.murderAtTheMansion.view.ErrorView;
 import java.io.Serializable;
+
 /**
  *
  * @author Britt
  */
-public class Map implements Serializable{
+public class Map implements Serializable {
+
     private int rowCount;
     private int colCount;
     private Location[][] locations;
 
     public Map() {
     }
-    
-     public Map(int rowCount, int colCount) throws MapControlException {
-         if(rowCount < 0 || colCount < 0){
-         throw new MapControlException("The number of rows and columns must be greater than 1");//throw map control exception
-         }
-         this.rowCount = rowCount;
-         this.colCount = colCount;
-         
-         this.locations = new Location [rowCount][colCount];
-         
-         for(int row = 0; row < rowCount; row++){
-             for(int col = 0; col < colCount; col++){
-                 Location location = new Location();
-                 location.setCol(col);
-                 location.setRow(row);              
-                 locations [row][col] = location; 
-             }
-         }
+
+    public Map(int rowCount, int colCount) throws MapControlException {
+        if (rowCount < 0 || colCount < 0) {
+            throw new MapControlException("The number of rows and columns must be greater than 1");//throw map control exception
+        }
+        this.rowCount = rowCount;
+        this.colCount = colCount;
+
+        this.locations = new Location[rowCount][colCount];
+
+        for (int row = 0; row < rowCount; row++) {
+            for (int col = 0; col < colCount; col++) {
+                Location location = new Location();
+                location.setCol(col);
+                location.setRow(row);
+                locations[row][col] = location;
+            }
+        }
     }
+
     public int getRowCount() {
         return rowCount;
     }
@@ -61,7 +63,6 @@ public class Map implements Serializable{
     public void setLocations(Location[][] locations) {
         this.locations = locations;
     }
-    
 
     @Override
     public int hashCode() {
@@ -96,6 +97,5 @@ public class Map implements Serializable{
     public String toString() {
         return "Map{" + "rowCount=" + rowCount + ", colCount=" + colCount + '}';
     }
-    
-    
+
 }

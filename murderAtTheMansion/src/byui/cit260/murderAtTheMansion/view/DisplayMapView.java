@@ -61,7 +61,7 @@ public class DisplayMapView extends View{
         this.console.println("\nLegend:"
                 + "\n\tST - Starting Place"
                 + "\n\t|| - Hallway"
-                + "\n\tPA - Parlour"
+                + "\n\tLi - Living Room"
                 + "\n\tKI - Kitchen"
                 + "\n\tDR - Dining Room"
                 + "\n\tOF - Office"

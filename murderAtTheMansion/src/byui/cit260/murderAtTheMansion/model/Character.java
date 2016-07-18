@@ -8,8 +8,6 @@ package byui.cit260.murderAtTheMansion.model;
 
 import java.awt.Point;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Objects;
 /**
  *
  * @author Sara

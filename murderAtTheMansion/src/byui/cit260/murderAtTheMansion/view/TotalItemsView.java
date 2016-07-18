@@ -7,10 +7,8 @@ package byui.cit260.murderAtTheMansion.view;
 
 import byui.cit260.murderAtTheMansion.control.BackpackControl;
 import byui.cit260.murderAtTheMansion.exceptions.GameControlException;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -37,7 +35,7 @@ public class TotalItemsView extends View {
         String[] typeList = {"Clue", "File", "Weapon"};
 
         try (PrintWriter outFile = new PrintWriter(fileLocation)) {
-           
+
             //make title
             outFile.println("\n----------------Sort Items List----------------------");
             StringBuilder line = new StringBuilder("                             ");
@@ -50,7 +48,7 @@ public class TotalItemsView extends View {
             for (int i = 0; i < sortedItems.length; i++) {
                 line = new StringBuilder("                         ");
                 line.insert(0, typeList[i]);
-                line.insert(20,sortedItems[i]);
+                line.insert(20, sortedItems[i]);
                 outFile.println(line.toString());
             }
         } catch (IOException ex2) {
@@ -59,4 +57,4 @@ public class TotalItemsView extends View {
         return true;
     }
 
-    }
+}

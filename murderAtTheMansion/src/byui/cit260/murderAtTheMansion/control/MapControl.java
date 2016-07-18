@@ -11,7 +11,6 @@ import byui.cit260.murderAtTheMansion.model.Location;
 import byui.cit260.murderAtTheMansion.model.MainCharacter;
 import byui.cit260.murderAtTheMansion.model.Map;
 import byui.cit260.murderAtTheMansion.model.Scene;
-import byui.cit260.murderAtTheMansion.view.ErrorView;
 import java.awt.Point;
 import murderatthemansion.MurderAtTheMansion;
 
@@ -26,9 +25,9 @@ public class MapControl {
         Scene[] scenes = createScenes();
         MapControl.assignScenesToLocations(map, scenes);
         MapControl.assignItemToLocation(map);
-        
+
         return map;
-       
+
     }
 
     /*public static void moveMainCharacterToStartingLocation() throws MapControlException {
@@ -50,13 +49,13 @@ public class MapControl {
         Location[][] newLocationList = map.getLocations();
         newLocationList[coordinates.y][coordinates.x].setMainCharacter(true);
         newLocationList[coordinates.y][coordinates.x].getScene().setVisited(true);
-        
+
 
         //set Character's Location
         Point newCoordinates = new Point(coordinates.x, coordinates.y);
         MurderAtTheMansion.getPlayer().getMainCharacter().setCoordinates(newCoordinates);
 
-        
+
         return true;
     }
 
@@ -76,13 +75,13 @@ public class MapControl {
         //front door scene
         startingScene.setDescription(
                 "Welcome to the Marvin's mansion. The suspects are still in the "
-                        + "mansion. You need to go around and find clues, files,"
-                        + "and weapons to figure out who is the murderer at the "
-                        + "mansion. This the front door of the mansion. You can "
-                        + "move around anywhere inside the mansion.");
+                        + "\n mansion. You need to go around and find clues, files,"
+                        + "\n and weapons to figure out who is the murderer at the "
+                        + "\n mansion. This the front door of the mansion. You can "
+                        + "\n move around anywhere inside the mansion.");
         startingScene.setDisplaySymbol("ST");
         startingScene.setVisited(true);
-        
+
         scenes[SceneType.frontDoor.ordinal()] = startingScene;
 
         //hallway
@@ -155,7 +154,7 @@ public class MapControl {
                         + "\n in the corner. The smell of cigars fills the room. You seem "
                         + "\n envious."
                     );
-        livingScene.setDisplaySymbol("PA");
+        livingScene.setDisplaySymbol("Li");
         livingScene.setVisited(false);
         scenes[SceneType.livingRoom.ordinal()] = livingScene;
         //kitchen
@@ -222,7 +221,7 @@ public class MapControl {
         locations[4][2].setScene(scenes[SceneType.laundryRoom.ordinal()]);
         locations[4][3].setScene(scenes[SceneType.laundryRoom.ordinal()]);
         locations[4][4].setScene(scenes[SceneType.gameRoom.ordinal()]);
-        
+
 
 
     }
