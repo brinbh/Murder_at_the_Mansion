@@ -15,11 +15,13 @@ import murderatthemansion.MurderAtTheMansion;
 public class DisplayMapView extends View{
 
     public DisplayMapView() {
-        super ("Enter any key:");
+        super ("Do you want to see the map?");
     }
 
     @Override
     public boolean doAction(String value) {
+        if ("N".equals(value.toUpperCase()))
+            return true;
         //get current Map
         Location[][] locations = MurderAtTheMansion.getCurrentGame().getMap().getLocations();
         //display header
@@ -49,12 +51,9 @@ public class DisplayMapView extends View{
                 }
                 else {
                     
-                    if (colLocation.getScene().isVisited()) 
-                        this.console.println(colLocation.getScene().getDisplaySymbol() + " | ");
-                    else {
-                        this.console.println("?? | ");
-                        colCounter = 0;
-                            }
+                     this.console.println("?? | ");
+                     colCounter = 0;
+                     //       }
                     
                 }
             }

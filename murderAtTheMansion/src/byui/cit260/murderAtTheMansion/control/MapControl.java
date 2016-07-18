@@ -11,6 +11,7 @@ import byui.cit260.murderAtTheMansion.model.Location;
 import byui.cit260.murderAtTheMansion.model.MainCharacter;
 import byui.cit260.murderAtTheMansion.model.Map;
 import byui.cit260.murderAtTheMansion.model.Scene;
+import byui.cit260.murderAtTheMansion.view.ErrorView;
 import java.awt.Point;
 import murderatthemansion.MurderAtTheMansion;
 
@@ -41,33 +42,20 @@ public class MapControl {
         MainCharacter mainCharacter = MurderAtTheMansion.getPlayer().getMainCharacter();
         Point currentLocation = mainCharacter.getCoordinates();
 
-        //reset coordinates
-        if (coordinates.x != 0)
-            coordinates.x -= 1;
-        if (coordinates.y != 0)
-            coordinates.y -= 1;
-        int newRow = coordinates.x + currentLocation.x;
-        int newCol = coordinates.y + currentLocation.y;
-
         //delete character from location
         Location[][] locationList = map.getLocations();
         locationList[currentLocation.x][currentLocation.y].setMainCharacter(false);
 
         //add character to new location
         Location[][] newLocationList = map.getLocations();
-        newLocationList[newRow][newCol].setMainCharacter(true);
-        newLocationList[newRow][newCol].getScene().setVisited(true);
+        newLocationList[coordinates.y][coordinates.x].setMainCharacter(true);
+        newLocationList[coordinates.y][coordinates.x].getScene().setVisited(true);
         
 
         //set Character's Location
-        Point newCoordinates = new Point(newRow, newCol);
+        Point newCoordinates = new Point(coordinates.x, coordinates.y);
         MurderAtTheMansion.getPlayer().getMainCharacter().setCoordinates(newCoordinates);
 
-        if (newRow < 0 || newRow > 5 || newCol < 0 || newCol > 5){
-            throw new MapControlException("Can not move actor to location " +
-                    coordinates.x + ", " + coordinates.y + " because that "
-                    + "location is outside the bounds of the map.");
-        }
         
         return true;
     }
@@ -100,8 +88,8 @@ public class MapControl {
         //hallway
         hallwayScene.setDescription(
                 "You are in a crooked hallway covered with rather large portraits"
-                        + "of old men. There are golfing trophies and a strange"
-                        + "smell.");
+                        + "\n of old men. There are golfing trophies and a strange"
+                        + "\n smell.");
         hallwayScene.setDisplaySymbol("||");
         hallwayScene.setVisited(false);
         scenes[SceneType.hallway.ordinal()] = hallwayScene;
@@ -109,8 +97,8 @@ public class MapControl {
         //master room
         masterScene.setDescription(
                 "You enter the large master bedroom with a bed too big for just"
-                        + "one person. In the room is where the murder has taken"
-                        + "place so the smell of blood is in the air."
+                        + "\n one person. In the room is where the murder has taken"
+                        + "\n place so the smell of blood is in the air."
                     );
         masterScene.setDisplaySymbol("MR");
         masterScene.setVisited(false);
@@ -118,9 +106,9 @@ public class MapControl {
         //kids room
         kidScene.setDescription(
                 "You are in the kid's room. It seems that he is about the age"
-                        + "of 7 from the superhero books and bedsheets. He is "
-                        + "also into sports, with bats and gloves laying on the"
-                        + "floor."
+                        + "\n of 7 from the superhero books and bedsheets. He is "
+                        + "\n also into sports, with bats and gloves laying on \nthe"
+                        + " floor."
                     );
         kidScene.setDisplaySymbol("KR");
         kidScene.setVisited(false);
@@ -128,8 +116,8 @@ public class MapControl {
         //laundry room
         laundryScene.setDescription(
                 "You are now in the laundry room. It seems to be quite large"
-                        + "for just three people in the house. There is also "
-                        + "laundry that hasn't been done yet."
+                        + "\n for just three people in the house. There is also "
+                        + "\n laundry that hasn't been done yet."
                     );
         laundryScene.setDisplaySymbol("LR");
         laundryScene.setVisited(false);
@@ -137,8 +125,8 @@ public class MapControl {
         //game room
         gameScene.setDescription(
                 "You enter the game room, it has a pool table, dart board, "
-                        + "air hockey, and skee ball. Seems like a pretty"
-                        + "fun place to hang out."
+                        + " \nair hockey, and skee ball. Seems like a pretty"
+                        + "\n fun place to hang out."
                     );
         gameScene.setDisplaySymbol("GR");
         gameScene.setVisited(false);
@@ -146,8 +134,8 @@ public class MapControl {
         //office
         officeScene.setDescription(
                 "You are now in the victim's office. It is very orderly and"
-                        + "neat, there is not a single paper out of place. But"
-                        + "there is something out of place."
+                        + "\n neat, there is not a single paper out of place. But"
+                        + "\n there is something out of place."
                     );
         officeScene.setDisplaySymbol("OF");
         officeScene.setVisited(false);
@@ -155,8 +143,8 @@ public class MapControl {
         //dining room
         diningScene.setDescription(
                 "You enter the dining room. It seems to be fit for a king with "
-                        + "expensive china on the table. The food has been eaten"
-                        + "but the nanny hasn't picked it up yet."
+                        + "\n expensive china on the table. The food has been eaten"
+                        + "\n but the nanny hasn't picked it up yet."
                     );
         diningScene.setDisplaySymbol("DR");
         diningScene.setVisited(false);
@@ -164,8 +152,8 @@ public class MapControl {
         //parlor or living room
         livingScene.setDescription(
                 "You are now in the living room. It is huge, with a giant television"
-                        + "in the corner. The smell of cigars fills the room. You seem "
-                        + "envious."
+                        + "\n in the corner. The smell of cigars fills the room. You seem "
+                        + "\n envious."
                     );
         livingScene.setDisplaySymbol("PA");
         livingScene.setVisited(false);
@@ -173,8 +161,8 @@ public class MapControl {
         //kitchen
         kitchenScene.setDescription(
                 "You are now in the kitchen. It is the biggest one that you have "
-                        + "ever seen. It looks like something was about to be made"
-                        + "but they stoppen halfway through."
+                        + "\never seen. It looks like something was about to be made"
+                        + "\n but they stoppen halfway through."
 
                     );
         kitchenScene.setDisplaySymbol("KI");
